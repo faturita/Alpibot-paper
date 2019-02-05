@@ -378,8 +378,8 @@
         Ana~Julia~Villar,
         and~Juan~Miguel~Santos% <-this % stops a space
 \thanks{R. Ramele, A.J.Villar and J.M.Santos are with the Department
-of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
-\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
+of  Computer Engineering, Instituto Tecn{\'o}gico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
+\thanks{Manuscript received ----; revised ---.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -435,6 +435,7 @@ of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
+250 words objective, methods, results, conclusion and significance
 The analysis of Electroencephalographic (EEG) signals is of ulterior importance to aid in the diagnosis of mental disease and to increase our understanding of the brain.  Traditionally, clinical EEG has been analyzed in terms of temporal waveforms, looking at rhythms in spontaneous activity, subjectively identifying troughs and peaks in Event-Related Potentials (ERP), or by studying graphoelements in pathological sleep stages.
 Additionally, the discipline of Brain Computer Interfaces requires new methods to decode patterns from non-invasive EEG signals.  This field is developing alternative communication pathways to transmit volitional information from the Central Nervous System. The technology could potentially enhance the quality of life of patients affected by neurodegenerative disorders and other mental illness. This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from images of signal plots.  These features are constructed based on the calculation of histograms of oriented gradients from pixels around the signal plot. It aims to provide a new objective framework to analyze, characterize and classify EEG signal waveforms. The feasibility of the method is outlined by detecting the P300, an ERP elicited by the oddball paradigm of rare events, and implementing an offline P300-based BCI Speller.  The validity of the proposal is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients and an own dataset of healthy subjects.
 \end{abstract}
@@ -565,13 +566,13 @@ Averaged signal segments are standardized and scaled for $1 \leq n \leq n_{max}$
 \label{eq:standarizedaverages}
 \end{equation}
 
-\noindent where $\gamma > 0$ is an input parameter of the algorithm and  it is related to the image scale. In addition, $ x^l(n,c) $ is the point-to-point averaged multichannel EEG signal for the sample point $n$ and for channel $c$. Lastly, $$\bar{x}^l(c) =\frac{1}{n_{max}}\sum_{n=1}^{n_{max}}x^l(n,c)$$ and $$ \hat{\sigma}^l(c) = (\frac{1}{n_{max}-1}\sum_{n=1}^{n_{max}}(x^l(n,c)-\bar{x}^l(c))^2 )^{\frac{1}{2}}$$ are the mean and estimated standard deviation of $x^l(n,c), 1 \leq n \leq n_{max}$, for each channel $c$.
+\noindent where $\gamma > 0$ is an input parameter of the algorithm and  it is related to the image scale. In addition, $ x^l(n,c) $ is the point-to-point averaged multichannel EEG signal for the sample point $n$ and for channel $c$. Lastly, $$\bar{x}^l(c) =\frac{1}{n_{max}}\sum_{n=1}^{n_{max}}x^l(n,c)$$ and $$ \hat{\sigma}^l(c) = \Bigg\{ \frac{1}{n_{max}-1}\sum_{n=1}^{n_{max}} \left[  x^l(n,c)-\bar{x}^l(c) \right] ^2 \Bigg\}  ^{\frac{1}{2}}$$ are the mean and estimated standard deviation of $x^l(n,c), 1 \leq n \leq n_{max}$, for each channel $c$.
 
 Consequently, a binary image $I^{(l,c)}$ is constructed according to
 
 \begin{equation}
 I^{(l,c)}(z_1,z_2) = \left\{ \begin{array}{rl}
-255 & \text{if} \,  z_1 = \gamma \   n \quad  \text{and} \quad  z_2 = \tilde{x}^l(n,c) + z^l(c) \\
+255 & \text{if} \,  z_1 = \gamma \   n \;  \text{and} \;  z_2 = \tilde{x}^l(n,c) + z^l(c) \\
 0   & \mbox{otherwise}
 \end{array}\right.
 \label{eq:images}
@@ -585,10 +586,10 @@ I^{(l,c)}(z_1,z_2) = \left\{ \begin{array}{rl}
 %\label{eq:zerolevel}
 %\end{equation}
 
-\begin{align*}
+\begin{equation}
 z^l(c) = \left \lfloor{ \min_{n} \tilde{x}^l(n,c)  }\right \rfloor
 \label{eq:zerolevel}
-\end{align*}
+\end{equation}
 
 \noindent where the minimization and maximization are carried out for $n$ varying between ${1 \leq n\leq n_{max}}$, and $ \lfloor \cdot  \rfloor $ denote the rounding to the smaller nearest integer of the number.  This value represents the length of the positive peak of the signal because the signal is inverted before the plot is constructed.
   
@@ -837,13 +838,13 @@ The Information Transfer Rate (ITR), or Bit Transfer Rate (BTR), in the case of 
 
 
 
-In Table~\ref{tab:resultsown} the results obtained for 8 healthy subjects are shown.  It can be observed that the performance is above chance level. It was verified that HIST method has an improved performance at letter identification than SVM that process the signals on a channel by channel strategy (Wilcoxon signed-rank test, $p =  0.004$ for both datasets).
+In Table~\ref{tab:resultsown} the results obtained for 8 healthy subjects are shown.  It can be observed that the performance is above chance level. It was verified that HIST method has an improved performance at letter identification than SVM that process the signals on a channel by channel strategy (Wilcoxon signed-rank test, $p\_value =  0.004$ for both datasets).
 
 %In Tables~\ref{tab:resultsals} and~\ref{tab:resultsown} results for character recognition rates using single channel signals with the SVM~\cite{Scholkopf2001}  classification algorithm are also shown.    This algorithm was configured to use a linear kernel.  The best performing channel where the best letter identification rate was obtained is also depicted.
 
 %The PE algorithm, which is also devised on a time-domain description of the waveform, was implemented according to \cite{Unakafova2013} and its parameters were adjusted as stated by \cite{Zanin2012}, with an \textit{order} of $2$ and a \textit{sliding window} of size $10$. 
 
-Tables~\ref{tab:resultsalsswlda} and~\ref{tab:resultsownswlda} are presented in order to compare the performance of the HIST method versus a multichannel version of the Stepwise Linear Discriminant Analysis (SWLDA) and SVM classification algorithms for both datasets.  The feature was formed by concatenating all the channels~\cite{Krusienski2006}.  SWLDA is the methodology proposed by the ALS dataset's publisher. Since authors \cite{Riccio2013} did not report the Character Recognition Rate obtained for this dataset, we replicate their procedure and include the performance obtained with the SWLDA algorithm at letter identification.  It was verified for the dataset of ALS patients that it has similar performance  against other methods like SWLDA or SVM, which use a multichannel feature (Quade test with $p=0.55$) whereas for the dataset of healthy subjects significant differences were found (Quade test with $p=0.02$) where only the HIST method achieved a different performance than SVM (with multiple comparisons, significant difference of level $0.05$).
+Tables~\ref{tab:resultsalsswlda} and~\ref{tab:resultsownswlda} are presented in order to compare the performance of the HIST method versus a multichannel version of the Stepwise Linear Discriminant Analysis (SWLDA) and SVM classification algorithms for both datasets.  The feature was formed by concatenating all the channels~\cite{Krusienski2006}.  SWLDA is the methodology proposed by the ALS dataset's publisher. Since authors \cite{Riccio2013} did not report the Character Recognition Rate obtained for this dataset, we replicate their procedure and include the performance obtained with the SWLDA algorithm at letter identification.  It was verified for the dataset of ALS patients that it has similar performance  against other methods like SWLDA or SVM, which use a multichannel feature (Quade test with $p\_value=0.55$) whereas for the dataset of healthy subjects significant differences were found (Quade test with $p\_value=0.02$) where only the HIST method achieved a different performance than SVM (multiple comparisons significant difference of level $0.05$).
 
 
 \begin{table}[htb]
@@ -910,11 +911,11 @@ As subjects have varying \textit{latencies} and \textit{amplitudes} of their P30
 \begin{figure*}[!t]
 \centering
 \subfloat[Case I]{\includegraphics[width=15cm]{subject.png}\label{subject8}}
-\caption{Ten sample P300 template patches for subjects 8 (A) and 3 (B) of the ALS Dataset.  Downward deflection is positive polarity. }
+\caption{Ten sample P300 template patches for subjects 8 (A) and 3 (B) of the ALS Dataset.  Downward deflection is positive polarity. The P300 signature waveform is more clearly and consistent characterized for subject 8, whereas for subject 3 the characteristic patterns is more difficult to spot. }
 \label{fig:p300templates}
 \end{figure*}
 
-Additionally, the stability of the P300 component waveform has been extensively studied in patients with ALS \cite{SellersandEmanuelDonchin2006,TomohiroMadarame2008,Nijboer2009,Mak2012,McCane2015} where it was found that these patients have a stable P300 component, which were also sustained across different sessions.  In line with these results we do not find evidence of a difference in terms of the performance obtained by analyzing the waveforms (HIST) for the group of patients with ALS and the healthy group of volunteers (Mann-Whitney U Test, $p=0.46$). Particularly, the best performance is obtained for a subject from the ALS dataset for which, based on visual observation, the shape of they P300 component is consistently identified.
+Additionally, the stability of the P300 component waveform has been extensively studied in patients with ALS \cite{SellersandEmanuelDonchin2006,TomohiroMadarame2008,Nijboer2009,Mak2012,McCane2015} where it was found that these patients have a stable P300 component, which were also sustained across different sessions.  In line with these results we do not find evidence of a difference in terms of the performance obtained by analyzing the waveforms (HIST) for the group of patients with ALS and the healthy group of volunteers (Mann-Whitney U Test, $p\_value=0.46$). Particularly, the best performance is obtained for a subject from the ALS dataset for which, based on visual observation, the shape of they P300 component is consistently identified.
 
 %\subsection{Descriptor Space and classification method}
 
@@ -1030,26 +1031,27 @@ The authors declare that the research was conducted in the absence of any commer
 % the LaTeX parser from getting confused when it sees the complicated
 % \includegraphics command within an optional argument. (You could create
 % your own custom macro containing the \includegraphics command to make things
-% simpler here.)
+% simpler here.)\begin{IEEEbiographynophoto}
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{ramele}}]{Rodrigo Ramele}
+currently works at the Centro de Inteligencia Computacional (CIC), ITBA University, Buenos Aires, Argentina. Rodrigo does research in Brain Computer Interfaces, Artificial Intelligence, Signal Processing and Robotics.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{villar}}]{Ana Julia Villar}
+was graduated in applied mathematics and got her Ph.D.degree in Robust Statistic at the  Universidad de Buenos Aires, Argentina. She is currently a professor at the Instituto Tecn{\'o}gico de Buenos Aires. Dr. Villar has authored or co-authored several papers in the fields of Brain Computer Interface (BCI), Reinforcement Learning and Robust Statistic.  Her research interests include statistical machine learning, robust statistics and their applications to BCI.
 \end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{santos}}]{Juan Miguel Santos}
+is the Director of the Centro de Inteligencia Computacional (CiC) of ITBA University in Buenos Aires, Argentina, where he works in three different areas: robotics development, reinforcement learning and brain-computer interfaces.  In the first two lines he works since 1993 developing and constructing robots, national and international robotics conferences and international peer-review journals.  Currently developing a new development line based on SLAM to autonomous robots.
+\end{IEEEbiography}
+
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
-
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
