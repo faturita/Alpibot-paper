@@ -360,7 +360,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Histogram of Gradient Orientations of Signal Plots applied to P300 Detection}
+\title{A Signal Averaging Procedure based on Gambini's Algorithm}
 %
 %
 % author names and IEEE memberships
@@ -373,9 +373,9 @@
 %
 
 \author{Rodrigo~Ramele,~\IEEEmembership{Member,~IEEE,}
-        Ana~Julia~Villar,
+        Juliana~Gambini,
         and~Juan~Miguel~Santos% <-this % stops a space
-\thanks{R. Ramele, A.J.Villar and J.M.Santos are with the Department
+\thanks{R. Ramele, J.Gambini and J.M.Santos are with the Department
 of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
 \thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 
@@ -401,7 +401,7 @@ of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad 
 
 % The paper headers
 \markboth{IEEE Transactions on Biomedical Engineering}%
-{Ramele \MakeLowercase{\textit{et al.}}: Histogram of Gradient Orientations of Signal Plots}
+{Ramele \MakeLowercase{\textit{et al.}}: A Signal Averaging Procedure based on Gambini's Algorithm}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 % 
@@ -433,8 +433,12 @@ of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-The analysis of Electroencephalographic (EEG) signals is of ulterior importance to aid in the diagnosis of mental disease and to increase our understanding of the brain.  Traditionally, clinical EEG has been analyzed in terms of temporal waveforms, looking at rhythms in spontaneous activity, subjectively identifying troughs and peaks in Event-Related Potentials (ERP), or by studying graphoelements in pathological sleep stages.
-Additionally, the discipline of Brain Computer Interfaces requires new methods to decode patterns from non-invasive EEG signals.  This field is developing alternative communication pathways to transmit volitional information from the Central Nervous System. The technology could potentially enhance the quality of life of patients affected by neurodegenerative disorders and other mental illness. This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from images of signal plots.  These features are constructed based on the calculation of histograms of oriented gradients from pixels around the signal plot. It aims to provide a new objective framework to analyze, characterize and classify EEG signal waveforms. The feasibility of the method is outlined by detecting the P300, an ERP elicited by the oddball paradigm of rare events, and implementing an offline P300-based BCI Speller.  The validity of the proposal is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients and an own dataset of healthy subjects.
+EEG
+BCI
+Signal Averaging
+Solutions
+What lies behind.
+
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -490,14 +494,11 @@ EEG signals are remarkably complex and have been characterized as a multichannel
 
 BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon~\cite{Riener2014,cybathlon2} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments~\cite{Guger2017,Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement~\cite{Clerc}.
 
-A few works have explored the idea of exploiting the signal waveform to analyze the EEG signal.  In~\cite{Alvarado-Gonzalez2016} an approach based on Slope Horizontal Chain Code is presented, whereas in~\cite{Yamaguchi2009} a similar procedure was implemented based on Mathematical Morphological Analysis.  The seminal work of Bandt-Pompe Permutation Entropy~\cite{Berger2017} also explores succinctly this idea as a basis to establish the time series ordinal patterns.  In the article~\cite{Ramele2016},  the authors introduce a method for classification of rhythmic EEG events like Visual Occipital Alpha Waves  and Motor Imagery Rolandic Central $\mu$ Rhythms using the Histogram of Gradient Orientations of signal plots.  Inspired in that work, we propose a novel application of the developed method to classify and describe transient events, particularly the P300 Event Related Potential.  
-The proposed approach is based on the waveform analysis of the shape of the EEG signal.  The signal is drawn on a bidimensional image plot, vector gradients of pixels around the plot are obtained, and with them, the histogram of their orientations is calculated.  This histogram is a direct representation of the waveform of the signal. The method is built by mimicking what regularly electroencephalographers have been performing for almost a century as it is described in~\cite{Hartman2005}: visually inspecting raw signal plots.
+A few works have analyzed the problem of syncrhonizing different signals to average them and to enhance their SNR.
 
 This paper reports a method to, (1) describe a procedure to capture the shape of a waveform of an ERP component, the P300, using histograms of gradient orientations extracted from images of signal plots, and (2) outline the way in which this procedure can be used to implement an P300-Based BCI Speller application. Its validity is verified by offline processing two datasets, one of data from ALS patients and another one from data of healthy subjects. 
 
 This article unfolds as follows: Section~\ref{Feature} is dedicated to explain the Feature Extraction method based on Histogram of Gradient Orientations of the Signal Plot: Section~\ref{Pipeline} shows the preprocessing pipeline,  Section~\ref{Plot}  describes the image generation of the signal plot, Section~\ref{SIFT}  presents the feature extraction procedure while  Section~\ref{Classification}  introduces the Speller Matrix Letter Identification procedure.  In Section~\ref{Protocol}, the experimental protocol is expounded. Section~\ref{Results} shows the results of applying the proposed technique.  In the final Section~\ref{discussion}  we expose our remarks, conclusions and future work.
-
-The P300~\cite{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around $300$ ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm~\cite{WolpawJonathanR2012} and it is consistent across different subjects. It has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a Signal to Noise Ratio (SNR) of around $-15$ db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity~\cite{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix~\cite{Farwell1988}. This matrix is composed of 6 rows and 6 columns of numbers and letters. The subject can focus on one character of the matrix. Figure~\ref{fig:p300matrix} shows an example of the Speller Matrix used in the OpenVibe open source software~\cite{Renard2010}, where the flashes of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or a column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
 
 \subsection{Feature Extraction from Signal Plots} \label{Feature}
 
