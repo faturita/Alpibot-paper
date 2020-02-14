@@ -374,8 +374,8 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Luciano Bianchi, Esteban Buzniak, Rodrigo~Ramele,~\IEEEmembership{Member,~IEEE,}
-        and~Juan~Miguel~Santos% <-this % stops a space
+\author{Bianchi Luciano, Buzniak Esteban, Ramele~Rodrigo,~\IEEEmembership{Member,~IEEE,}
+        and Santos~Juan~Miguel% <-this % stops a space
 \thanks{R. Ramele  and J.M.Santos are with the Department
 of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
 \thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
@@ -434,12 +434,12 @@ of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-
+Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) underwent a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation procedures patients require external oxygen assistance.  The oxygen tank cannot be carried by the patient and some external assistance is required.   In this work a basic robot follower is proposed to carry the oxygen tank based on a differential tethered scheme.  Two algorithms are proposed in a very basic configuration.  BLABLABLABLABLABLA
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-robotics, tethered, HOT, COPD
+robotics, tethered, COPD
 \end{IEEEkeywords}
 
 
@@ -484,7 +484,7 @@ First describe the problem.  Cite the japanese work and the work similar to what
 
 Describe the robot.  How it works, the hardware software, python based the devices and tools used and other architectural elements. Add a graph of how it works.
 
-Describe the PVC factoring process that Esteban created.  The materials and the name of the CNC that they are using to manufacture everything.  Add the components.
+Describe the PVC manufacturing process that Esteban created.  The materials and the name of the CNC that they are using to manufacture everything.  Add the components.
 
 Describe the active spring using scrapped DVD motors.
 
@@ -495,7 +495,6 @@ show the results of the control strategy using Webots and also the same strategy
 
 Discuss:
 Describe how everything worked.   Which one is the better and describe how they worked.
-
 
 
 \section{Materials and Methods}
@@ -518,11 +517,12 @@ In order to assess
 \section{Results} \label{Results}
 \label{section:results}
 
+The purpose of this section is to evaluate the feasibility of both control strategies, their engineering issues.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=8cm]{performance.eps}
-\caption{Performance curves for the eight subjects included in the dataset of ALS patients.  Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.}
+\includegraphics[width=8cm]{images/alpibot1.jpg}
+\caption{This robot prototype.}
 \label{fig:performance}
 \end{figure}
 
@@ -533,7 +533,7 @@ In order to assess
 
 \begin{figure*}[!t]
 \centering
-\subfloat[Case I]{\includegraphics[width=15cm]{subject.png}\label{subject8}}
+\subfloat[Case I]{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
 \caption{Ten sample P300 template patches for subjects 8 (A) and 3 (B) of the ALS Dataset.  Downward deflection is positive polarity. The P300 signature waveform is more clearly and consistent characterized for subject 8, whereas for subject 3 the characteristic patterns is more difficult to spot. }
 \label{fig:p300templates}
 \end{figure*}
@@ -543,7 +543,8 @@ In order to assess
 \section{Discussion}
 \label{discussion}
 
-
+\subsection{Cliical Assesment} 
+\label{section:assesment}
 
 
 \subsection{Conclusion}
