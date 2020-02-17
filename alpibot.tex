@@ -56,7 +56,11 @@
 % manually specify the path to it like:
 % \documentclass[journal]{../sty/IEEEtran}
 
-
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{algorithm2e} % For algorithms
+\usepackage{amsmath, amssymb, amsthm} % Mathematical packages
+\hypersetup{hidelinks=true}    
 
 
 
@@ -435,6 +439,24 @@ of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad 
 % in the abstract or keywords.
 \begin{abstract}
 Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) underwent a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation procedures patients require external oxygen assistance.  The oxygen tank cannot be carried by the patient and some external assistance is required.   In this work a basic robot follower is proposed to carry the oxygen tank based on a differential tethered scheme.  Two algorithms are proposed in a very basic configuration.  BLABLABLABLABLABLA
+
+This work is inspired in () but with a different setting in mind, particularly for Pulmonary Rehabilitation procedures.  
+
+First describe the problem.  Cite the japanese work and the work similar to what we were doing that is in the book.
+
+Describe the robot.  How it works, the hardware software, python based the devices and tools used and other architectural elements. Add a graph of how it works.
+
+Describe the PVC manufacturing process that Esteban created.  The materials and the name of the CNC that they are using to manufacture everything.  Add the components.
+
+Describe the active spring using scrapped DVD motors.
+
+Control strategies: describe both of them.
+
+Results: 
+show the results of the control strategy using Webots and also the same strategy with the real robot.
+
+Discuss:
+Describe how everything worked.   Which one is the better and describe how they worked.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -478,36 +500,56 @@ robotics, tethered, COPD
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-\IEEEPARstart{A}{lthough} re
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describe several pulmonary affections characterized by a eskeletomuscular atrophy.   In order to carve these after effects a treatment called Pulmonary Rehabilitation is regularly performed on patients.  During these treatments patients underwent walking procedures and physical exercises under the supervision of physical therapist.  These patients are characterized by a severe low saturation illness and they require effective oxygen supply, particularly when performing physical activity.  Hence, patients require to carry with them an oxygen tank to assist in the oxygenotherapy.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation pertain as a realistic solution to provide two physical therapist, with one of them carrying the oxygen tank, or to devise a customization to wheelchairs to allow them to carry the oxygen tank.  This ended up sometimes being a cumbersome situation for the physical therapist because he had to push and maneuver the chain with the oxygent tank, and at the same time take care of the patient.
 
-First describe the problem.  Cite the japanese work and the work similar to what we were doing that is in the book.
+These scenario may be aggravated by the fact that the Rehabilitation Gym may be sometimes crowded with different patients, physiologist, physical therapists.  
 
-Describe the robot.  How it works, the hardware software, python based the devices and tools used and other architectural elements. Add a graph of how it works.
+Robotics applications can offer a solution in this scenario. 
 
-Describe the PVC manufacturing process that Esteban created.  The materials and the name of the CNC that they are using to manufacture everything.  Add the components.
+COPD treatment for patients has been tackled from many perspectives.  An extensive body of research deals with COPD patients from the point of view of telemedicine applications to track biological signals for patients in home care scenarios.
 
-Describe the active spring using scrapped DVD motors.
+Tethered robots, on the other hand, have been extensively research in robotics communities.  They offered a very simple solution to some common navigation problems, and they can be very effective on robot-to robot interaction or while interacting with humans in Human Robot Interfaces, collaborative robotics~\cite{Rekleitis2001,Hirata2009}.
 
-Control strategies: describe both of them.
+Differential tethered robots are so widespread.  The work presented by \cite{Ortlieb2016} offers an excellent scheme though aimed to a different purpose.
 
-Results: 
-show the results of the control strategy using Webots and also the same strategy with the real robot.
+REFERENCE TO RAS MAgazine and ONU . \cite{Khamis2019}
 
-Discuss:
-Describe how everything worked.   Which one is the better and describe how they worked.
+This work follows the line of \cite{Endo2015}
 
 
 \section{Materials and Methods}
 
+In order to prioritize several iterations that could be verified by key stakeholders, we developed a simple robotic prototype constructed on Internet of Robotic Things~\cite{Simoens2018}.  This discipline is part of what is being called 4th industrial revolution and is reshaping many aspects of global manufacturing, including robotic and healthcare.
 
+\subsection{Solution Design}
+
+The medical community is frequently skeptical to technological solutions for medical personel (REF).  At the same time, development process as design thinking and other similar tendencies prioritize rapid development, prototyping that can bring quickly feedback from real users about the drawbacks and improving opportunities.  In this context, it is important to perform rapid prototyping.
+
+\subsection{Hardware}
+
+\subsection{Software Components}
+
+\subsection{Control Strategy}
+
+In order to verify the feasibility of the system, two simple control strategies are devised.  The first one is called ... 
 
 \section{Experimental Protocol} \label{Protocol}
+
+This section describes the experimental protocol used to evaluate the performance of the proposed solution.
+
+Several metrics are proposed to evaluate the performance.  They are.
+
+First the simulatiom is sdescribed and later the evaluation on the prototyped rrobotic platform is described.
+
+\subsection{Simulation}
+
+\subsection{Real world}
 
 To verify the validity of the proposed framework and method,
 
 The experimental protocol used to 
 
-The recorded dataset was sampled at 256 Hz and it consisted of a scalp multichannel EEG signal for electrode channels Fz, Cz, Pz, Oz, P3, P4, PO7 and PO8, identified according to the 10-20 International System,  for each one of the 8 subjects.   The recording device was a research-oriented digital EEG device (g.Mobilab, g.Tec, Austria) and the data acquisition and stimuli delivery were handled by the BCI2000 open source software~\cite{Schalk2004}.
+The recorded dataset was sampled at 256 Hz and it consisted of a scalp multichannel EEG signal for electrode channels Fz, Cz, Pz, Oz, P3, P4, PO7 and PO8, identified according to the 10-20 International System,  for each one of the 8 subjects.   The recording device was a research-oriented digital EEG device (g.Mobilab, g.Tec, Austria) and the data acquisition and stimuli delivery were handled by the BCI2000 open source software~\cite{Na2009}.
 
 In order to assess 
 
@@ -543,11 +585,11 @@ The purpose of this section is to evaluate the feasibility of both control strat
 \section{Discussion}
 \label{discussion}
 
-\subsection{Cliical Assesment} 
+\subsection{Clinical Assessment} 
 \label{section:assesment}
 
 
-\subsection{Conclusion}
+\subsection{Conclusion and Future Work}
 
 The goal of this work is to verify if a tethered robot to implement a following scheme on a patient during a pulmonary rehabilitation procedure is too simplistic to be a factual implementation.
 
@@ -601,8 +643,8 @@ The authors declare that the research was conducted in the absence of any commer
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-\bibliography{IEEEabrv,gsync}
+\bibliography{alpibot}
+
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
