@@ -62,6 +62,21 @@
 \usepackage{amsmath, amssymb, amsthm} % Mathematical packages
 \hypersetup{hidelinks=true}    
 
+%\usepackage{fancyhdr}
+%\usepackage{array}
+%\usepackage[rightcaption]{sidecap}
+%\usepackage{wrapfig}
+%\usepackage{float}
+%\usepackage[labelfont=bf]{caption} % bold text for captions
+%\usepackage[para]{threeparttable} % fancy tables, check these before you use them
+%\usepackage{url}
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+%\pgfplotsset{width=10cm,compat=1.9}
+%\usepgfplotslibrary{external}
+%\tikzexternalize
+%\usepackage{svg}
 
 
 % Some very useful LaTeX packages include:
@@ -117,7 +132,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-\usepackage[pdftex]{graphicx}
+%\usepackage[pdftex]{graphicx}
 \usepackage{subfig}
 
   % declare the path(s) where your graphic files are
@@ -530,7 +545,79 @@ In order to prioritize several iterations that could be verified by key stakehol
 
 The medical community is frequently skeptical to technological solutions for medical personel~\cite{Gaggioli2006,Fasola2012,Cherubini2008,Wolpaw2012BraincomputerIP}.  At the same time, development process as design thinking and other similar tendencies prioritize rapid development, prototyping that can bring quickly feedback from real users about the drawbacks and improving opportunities.  In this context, it is important to perform rapid prototyping.
 
+The proposed solution is a tethered robot follower, using a pair of strings.  The following mechanism is implemented by means of measuring encoders on two different reels located according to figure~\ref{fig:components}.
+
+The driving mechanism proposed is a differential wheel robot.
+
 \subsection{Hardware}
+
+In order to achieve quick prototyping cycles, we used extensively tools and modules to the IoRT wave.  Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).  
+
+Motors are in-wheel configuration and they provide optical encoding.  A microcontroller is used to implement motor controlling and encoder processing.  This is based on the popular Arduino platform.  On top of it the Adafruit Shield v2.  This Arduino bridge can be used to control simultaneously four DC motors.
+
+The microcontroller is connected through serial connection to the main SBC RaspberryPi Model 3B+.  The main controlling algorithm run on this board, it connects to wifi and provides telemetry and the abiilty to receive remote commands by means a very simple UDP command interface.
+
+Reels were designed from PVC extrusions based on figure.  They are glued to regular DC motors scavenged from old compact discs.  Hardware specifications are described on table \ref{tab:specifications}.
+
+
+\begin{figure}[]
+    \centering
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+    \begin{tikzpicture}[x=0.50pt,y=0.50pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,1774); %set diagram left start at 0, and has height of 1774
+    %Shape: Rectangle [id:dp3163749047300972] 
+    \draw   (341,1289.29) -- (356.46,1289.29) -- (356.46,1484.1) -- (341,1484.1) -- cycle ;
+    %Straight Lines [id:da006917544597343617] 
+    \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (309.46,1464.29) -- (126.19,1383.9) ;
+    
+    
+    %Straight Lines [id:da6556986586628986] 
+    \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 230; green, 164; blue, 164 }  ,fill opacity=1 ][line width=0.75]    (310.46,1310.29) -- (126.19,1383.9) ;
+    
+    
+    %Shape: Rectangle [id:dp7070304476532343] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (309.5,1289) -- (388,1289) -- (388,1324.67) -- (309.5,1324.67) -- cycle ;
+    %Shape: Ellipse [id:dp4674581553313458] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (110.01,1383.9) .. controls (110.01,1374.53) and (117.25,1366.94) .. (126.19,1366.94) .. controls (135.12,1366.94) and (142.37,1374.53) .. (142.37,1383.9) .. controls (142.37,1393.28) and (135.12,1400.87) .. (126.19,1400.87) .. controls (117.25,1400.87) and (110.01,1393.28) .. (110.01,1383.9) -- cycle ;
+    %Shape: Rectangle [id:dp46270765707902994] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (308.5,1448.5) -- (387,1448.5) -- (387,1484.17) -- (308.5,1484.17) -- cycle ;
+    %Shape: Circle [id:dp1556138070188774] 
+    \draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (497.83,1383.83) .. controls (497.83,1379.51) and (501.34,1376) .. (505.67,1376) .. controls (509.99,1376) and (513.5,1379.51) .. (513.5,1383.83) .. controls (513.5,1388.16) and (509.99,1391.67) .. (505.67,1391.67) .. controls (501.34,1391.67) and (497.83,1388.16) .. (497.83,1383.83) -- cycle ;
+    %Straight Lines [id:da9759075394788362] 
+    \draw    (362.11,1349.34) -- (505.67,1383.83) ;
+    
+    
+    %Straight Lines [id:da0292648785573405] 
+    \draw    (362.11,1423.58) -- (429.74,1404.86) -- (505.67,1383.83) ;
+    
+    
+    %Rounded Rect [id:dp19413777874284577] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ] (336,1423.58) .. controls (336,1422.16) and (337.16,1421) .. (338.58,1421) -- (359.53,1421) .. controls (360.96,1421) and (362.11,1422.16) .. (362.11,1423.58) -- (362.11,1431.34) .. controls (362.11,1432.76) and (360.96,1433.92) .. (359.53,1433.92) -- (338.58,1433.92) .. controls (337.16,1433.92) and (336,1432.76) .. (336,1431.34) -- cycle ;
+    %Rounded Rect [id:dp9015992902460356] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ] (336,1341.58) .. controls (336,1340.16) and (337.16,1339) .. (338.58,1339) -- (359.53,1339) .. controls (360.96,1339) and (362.11,1340.16) .. (362.11,1341.58) -- (362.11,1349.34) .. controls (362.11,1350.76) and (360.96,1351.92) .. (359.53,1351.92) -- (338.58,1351.92) .. controls (337.16,1351.92) and (336,1350.76) .. (336,1349.34) -- cycle ;
+    
+    % Text Node
+    \draw  [draw opacity=0][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (478.5,1350) -- (535.5,1350) -- (535.5,1374) -- (478.5,1374) -- cycle  ;
+    \draw (507,1362) node    {$subject$};
+    % Text Node
+    \draw (302,1344) node    {$left\ reel$};
+    % Text Node
+    \draw (299,1425) node    {$right\ reel$};
+    % Text Node
+    \draw (125,1414) node    {$castor\ wheel$};
+    % Text Node
+    \draw (422,1348) node  [rotate=-12.55]  {$left\ thread$};
+    % Text Node
+    \draw (423,1422) node  [rotate=-344.79]  {$right\ thread$};
+    % Text Node
+    \draw (348,1275) node    {$left\ wheel$};
+    % Text Node
+    \draw (348,1496) node    {$right\ wheel$};
+    \end{tikzpicture}
+    \caption{Components of the robotic vehicle and following mechanism}
+    \label{fig:components}
+\end{figure}{}
+
 
 \subsection{Software Components}
 
@@ -542,11 +629,15 @@ In order to verify the feasibility of the system, two simple control strategies 
 
 This section describes the experimental protocol used to evaluate the performance of the proposed solution.
 
+We replicated the experiments performed by Endo but used a different curve.
+
 Several metrics are proposed to evaluate the performance.  They are.
 
 First the simulatiom is sdescribed and later the evaluation on the prototyped rrobotic platform is described.
 
 \subsection{Simulation}
+
+A model of the proposed design was first built on Webots application.  The threading mechanism was implemented using virtual threads (REF).
 
 \subsection{Real world}
 
