@@ -396,8 +396,8 @@
 
 \author{Bianchi Luciano, Buzniak Esteban, Ramele~Rodrigo,~\IEEEmembership{Member,~IEEE,}
         and Santos~Juan~Miguel% <-this % stops a space
-\thanks{E. Buzniak, R. Ramele  and J.M.Santos are with the Department
-of  Computer Engineering, Instituto Tecn{o'}gico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
+\thanks{E. Buzniak, R. Ramele  and J.M.Santos are with the CiC Laboratory at the Department
+of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
 \thanks{Manuscript received April 19, 2020; revised August 26, 2015.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
@@ -496,48 +496,44 @@ robotics, tethered, COPD
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describe several pulmonary affections characterized by a eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012}.  In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for these patients.  During these procedures patients underwent controlled walking activities and physical exercises under the supervision of a physical therapist.  These patients are characterized by a severe low saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails a pragmatic solution to provide an additional physical therapist solely for the purpose of carrying the oxygen tank. Alternatively, they require to devise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment.
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012} and in order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for these patients.  During these procedures patients underwent controlled walking activities and physical exercises under the supervision of a physical therapist.  These patients present a severe low saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails a pragmatic solution to provide an additional physical therapist solely for the purpose of carrying the oxygen tank. Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment.
 
 The scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologist and physical therapists.  
 
-An alternative solution is to use an assitive ground service robot~\cite{Neto2015} to carry the oxygen tank, while following the patient in a leader-follower configuration.  There are two reasons that support the initial viability of this idea.  First,  the rehabilitation gym is a constrained environment where this problem can be tackled by an Unmanned Ground Vehicle (UGV).  On the other hand, the range of movements performed by the patient during the Rehabilitation Procedure is highly predictable by the treatment.  At the same time,  the global robotic research community persuade the development of robotic affordable solutions to the social and health-related worldwide problems~\cite{Khamis2019}.
+An alternative solution is to use an assitive ground service robot~\cite{Neto2015} to carry the oxygen tank, while following the patient in a leader-follower configuration.  There are two reasons that support the initial viability of this idea.  First,  the rehabilitation gym is a constrained environment where this problem can be tackled by an Unmanned Ground Vehicle (UGV).  On the other hand, the range of movements performed by the patient during the Rehabilitation Procedure is highly predictable by the treatment.  At the same time,  the global robotic research community looks forward for the development of robotic affordable solutions to the social and health-related worldwide problems~\cite{Khamis2019}.
 
-For the implementation of the leader-follower strategy, several solutions have been proposed, including SLAM solutions, vision-based systems or based on electromagnetical beacons~\cite{Islam2019}.   The work presented by \cite{Ortlieb2016} explores a differential tethered robotic system to perform camera-based gait analysis of the leader.  For COPD Pulmonary Rehabilitaiton procedures, the patient is already umbilicaly linked to the oxygen tank via the breathing cannula.  Hence, a robotic solution can exploit this circumstance to perform the \textit{following} mechanism based on a tethered controller. Tethered robots have been extensively researched in robotics~\cite{Ahn2006}.  They offer a very simple solution to some common navigation problems, and they can be very effective in robot-to robot interaction, collaborative robotics, or while interacting with humans in Human Robot Interfaces~\cite{Rekleitis2001,Hirata2009,Ferrin2010}. 
+For the implementation of the leader-follower strategy, several solutions have been proposed, including Simultaneos Localization And Mapping (SLAM) alternatives, vision-based systems or based on electromagnetical beacons~\cite{Islam2019}.   The work presented by \cite{Ortlieb2016} explores a differential tethered robotic system to perform camera-based gait analysis of the leader.  For COPD Pulmonary Rehabilitaiton procedures, the patient is already umbilicaly linked to the oxygen tank via the breathing cannula.  Hence, a robotic solution can exploit this circumstance to perform the \textit{following} mechanism based on a tethered controller. Tethered robots have been extensively researched in robotics~\cite{Ahn2006}.  They offer a very simple solution to some common navigation problems, and they can be very effective in robot-to robot interaction, collaborative robotics, or while interacting with humans in Human Robot Interfaces~\cite{Rekleitis2001,Hirata2009,Ferrin2010}. 
 
-On the other hand, several assistance devices for COPD treatments have been proposed.  Particularly relevant are novel telemedice applications to enhance complementary rehabiliation exersice at home that can track biological markers for those patients~\cite{Wu2012}.  The work presented here follows the line pointed by \cite{Endo2015}.  Authors studied the use of a single thread tethered follower robot for home oxygen therapy, and compared two different control algorithms and their effectiveness to mimic the leader path and to avoid obstacles.  However their approach, focuses on the usage of the device exclusively for home therapy, and not within the context of a Pulmonary Rehabilitation procedure performed by medical personnel on medical installations.
+On the other hand, several assistance devices for COPD treatments have been proposed.  Particularly relevant are novel telemedice applications to enhance complementary rehabiliation exercise at home that can track biological markers for patients~\cite{Wu2012}.  The work presented here follows the line established by \cite{Endo2015}.  Authors studied the use of a single thread tethered follower robot for home oxygen therapy, and compared two different control algorithms and their effectiveness to mimic the leader path and to avoid obstacles.  However, their approach focuses on the usage of the device exclusively for home therapy, and not within the context of a Pulmonary Rehabilitation procedure performed by medical personnel on medical facilities.
 
-Hence, this work aims to provide an initial study on the controlling mechanism of a differential tethered robot that implements the leader-follower configuration on a Pulmonary Rehabilitation procedure.  This document unrolls as follows.  Section~\ref{materials} describes poses the problem and the solution design, Section~\ref{experimental} document the experimental protocol to perform the solution assessment on a simulation and on a real world scenario.  Results and Discussions are described in~\ref{results} and \ref{discussion}. The Clinical Assessment performed jointly with medical personnel is tackled in Section~\ref{clinical}.  Finally, conclusions are exposed in the remaining section~\ref{conclusion}.
+Hence, this work aims to provide an initial study on the controlling mechanism of a differential tethered robot that implements the leader-follower configuration on a Pulmonary Rehabilitation procedure.  To do so, this document unrolls as follows.  Section~\ref{materials} poses the problem and the solution design. Section~\ref{experimental} documents the experimental protocol to perform the solution assessment on a simulation and on a real world scenario.  Results and Discussions are described in~\ref{results} and~\ref{discussion}. The Clinical Assessment performed jointly with medical personnel is tackled in Section~\ref{clinical}.  Finally, conclusions are exposed in the remaining section~\ref{conclusion}.
 
 \section{Materials and Methods}
 \label{materials}
 
-In order to prioritize several iterations that could be verified by key stakeholders, we developed a simple robotic prototype constructed on Internet of Robotic Things~\cite{Simoens2018}.  This discipline is part of what is being called 4th industrial revolution and is reshaping many aspects of global manufacturing, including robotic and healthcare.
+%This discipline is part of what is being called 4th industrial revolution and is reshaping many aspects of global manufacturing, including robotic and healthcare.
+
+To be effective, any technological solution for the medical community requires active involvement of key stakeholders: physicians, care-givers, patients and their families~\cite{Gaggioli2006,Fasola2012,Cherubini2008,Wolpaw2012BraincomputerIP,Salvini2015}.  Hence, design methodologies that allow rapid prototyping can bring quickly feedback from real users about drawbacks or opportunities for improvements. 
+
+Looking forward to achieve this goal, a basic robotic configuration is designed that allows the implementation of the  tethered controlling mechanism, while keeping away other necessary features that will be the focus of future iterations.  This design is first simulated in a simulation environment, and later, a basic hardware prototype based on Internet of Robotic Things~\cite{Simoens2018}  is built to verify the design guidelines and assumptions on a real world scenario.
+
 
 \subsection{Solution Design}
 
-The medical community is frequently skeptical to technological solutions for medical personel~\cite{Gaggioli2006,Fasola2012,Cherubini2008,Wolpaw2012BraincomputerIP}.  At the same time, development process as design thinking and other similar tendencies prioritize rapid development, prototyping that can bring quickly feedback from real users about the drawbacks and improving opportunities.  In this context, it is important to perform rapid prototyping.
+The proposed solution is a Differential-Wheeled Robot (DWR) tethered to the followed subject with two threads ending at a single point attached to the subject waist, back or hand. In the same axis as the two front wheels, the robot has two reels separated by a certain length from which these threads come. As the subject moves away from the robot, the reels release thread so that the patient does not physically drag the vehicle. When the opposite happens, and the vehicle gets closer to the subject, an active spring mechanism driven by electric motors move each reel to retract the thread. The threads need to be tense at all times so that the encoders in each reel can be used to continuously measure the distance between the subject and the reel as devised in Figure~\ref{fig:components}.
 
-The proposed solution is a tethered robot follower, using a pair of strings.  The following mechanism is implemented by means of measuring encoders on two different reels located according to figure~\ref{fig:components}.
+Encoders in each reel measure the difference in length of each thread compared to its initial position. This difference in length is the input for the control algorithm.  Using the encoder, the difference in length of the thread can be measured with this formula:
 
-The driving mechanism proposed is a differential wheel robot.
+\begin{equation}
+\label{eq:encoder_len}
+L_d = pulses . \frac{2\pi r}{ppr}
+\end{equation}{}
+
+The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
 
 \subsection{Hardware}
 
-In order to achieve quick prototyping cycles, we used extensively tools and modules to the IoRT wave.  Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).  
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/alpibot1.jpg}
-\caption{This robot prototype.}
-\label{fig:performance}
-\end{figure}
-
-Motors are in-wheel configuration and they provide optical encoding.  A microcontroller is used to implement motor controlling and encoder processing.  This is based on the popular Arduino platform.  On top of it the Adafruit Shield v2.  This Arduino bridge can be used to control simultaneously four DC motors.
-
-The microcontroller is connected through serial connection to the main SBC RaspberryPi Model 3B+.  The main controlling algorithm run on this board, it connects to wifi and provides telemetry and the abiilty to receive remote commands by means a very simple UDP command interface.
-
-Reels were designed from PVC extrusions based on figure.  They are glued to regular DC motors scavenged from old compact discs.  Hardware specifications are described on table \ref{tab:specifications}.
-
+Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).  
 
 \begin{figure}[]
     \centering
@@ -597,16 +593,34 @@ Reels were designed from PVC extrusions based on figure.  They are glued to regu
     \label{fig:components}
 \end{figure}{}
 
+Motors are in-wheel configuration and they provide optical encoding.  A microcontroller is used to implement motor controlling and encoder processing.  This is based on the popular Arduino platform.  On top of it the Adafruit Shield v2.  This Arduino bridge can be used to control simultaneously four DC motors.
+
+The microcontroller is connected through serial connection to the main SBC RaspberryPi Model 3B+.  The main controlling algorithm run on this board, it connects to wifi and provides telemetry and the abiilty to receive remote commands by means a very simple UDP command interface.
+
+Reels were designed from PVC extrusions based on figure.  They are glued to regular DC motors scavenged from old compact discs.  
+%Hardware specifications are described on table \ref{tab:specifications}.
+
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{images/alpibot1.jpg}
+\caption{This robot prototype.}
+\label{fig:performance}
+\end{figure}
+
+
 \begin{figure*}[!t]
 \centering
 \subfloat[Case I]{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
-\caption{Robot prototype built to evaluate the real world scenario of described following mechanisms for the tethered robot.}
+\caption{Robot prototype built to evaluate the real world scenario of the following mechanisms for the tethered robot.}
 \label{fig:p300templates}
 \end{figure*}
 
 \subsection{Active Reel Spring}
 
-As previously mentioned, an active spring mechanism is also put in place to keep the threads tense at all times and measure the distance to the subject precisely. This active spring mechanism can be implemented by just activating both reel motors at all times to keep the threads tense. However, in order to extend the useful life of the reel motors, and to save battery, an algorithm to intelligently activate and deactivate the motors was developed. 
+As previously mentioned, an active spring mechanism is also put in place to keep the threads tense.  However, in order to extend the useful life of the reel motors, and to save battery, an algorithm to  activate and deactivate the motors is developed. 
 
 The algorithm works as follows: 
 
@@ -663,6 +677,72 @@ The algorithm works as follows:
 
 Two simple control strategies are proposed and evaluated.  The first one is called Follow-the-thread and the second strategy is Rotate-And-Go.  The Adafruit Shield controller provides a very stable output signal, provided battery are kept above reference.  Hence, wheels motor control is open-loop.
 
+\subsubsection{Follow the Thread}
+
+This control strategy is similar to the one presented in \cite{Ortlieb2016}. It is based on the idea that the difference in length between both threads provides a quasi-linear function of the relative angle between the subject and the vehicle orientation and, additionally, the mean of both thread length allows to approximate the relative distance between the robot and the subject.
+
+\begin{equation}
+v_{tar} = c_v (\frac{D_l + D_r}{2} - d_0)
+\end{equation}
+
+\begin{equation}
+vleft_{tar} = v_{tar} + c_{\alpha} (D_l - D_r)
+\end{equation}
+
+\begin{equation}
+vright_{tar} = v_{tar} - c_{\alpha} (D_l - D_r)
+\end{equation}
+
+To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
+
+\begin{equation}
+\textit{if  }{\frac{D_l + D_r}{2} < d_0}\textit{ then } vleft_{tar} = vright_{tar} = 0 
+\end{equation}
+
+$d_0$ is a constant offset. $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration.
+
+\subsubsection{Rotate and Go}
+
+The \textit{Rotate and Go} algorithm divides the vehicle movement in two steps:
+
+1) Rotating the vehicle around the center point of the axis that connects its front wheels in order to aim at the subject.
+
+2) Go forward in a straight line until the vehicle is at the expected distance to the subject or the vehicle is not moving in the direction of the subject.
+
+The algorithm is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.
+
+\begin{algorithm}[]
+\caption{Rotate and Go algorithm}
+\begin{algorithmic}
+\STATE $Dt \gets D_l - D_r$
+\STATE $Dm \gets \frac{D_r+D_l}{2}$
+\STATE $V_r \gets c_r * (abs(Dt) - Dt_off) + base_{vr}$ 
+\STATE $V_f \gets c_v * (Dm - Dm_off)$
+
+\IF{$abs(Dt) > Dt_{off}$}
+\IF{$D_l > D_r$}
+\STATE $vleft_{tar} \gets V_r$
+\STATE $vright_{tar} \gets -V_r$
+\ELSE
+\STATE $vleft_{tar} \gets -V_r$
+\STATE $vright_{tar} \gets V_r$
+\ENDIF
+
+\ELSE
+\IF{$D_m > Dm_{off}$}
+\STATE $vright_{tar} \gets V_f$
+\STATE $vleft_{tar} \gets V_f$
+\ELSE
+\STATE $vright_{tar} \gets 0$
+\STATE $vleft_{tar} \gets 0$
+\ENDIF
+\ENDIF
+\STATE Return $vright_{tar}$ and $vleft_{tar}$.
+\end{algorithmic}
+\label{alg:rotateandgoalg}
+\end{algorithm}
+
+
 \section{Experimental Protocol} \label{experimental}
 
 This section describes the experimental protocol used to evaluate the performance of the proposed solution.  The Pulmonary Rehabilitation procedure consists on a series of walking activities aimed to promote patient muscular recovery and well being~\cite{Wu2012}. They are slow pace motions following a specific trajectory on a rehabilitation gym.
@@ -681,7 +761,7 @@ In order to standardize the procedure~\cite{Sprunk2016}, the \textit{Lemniscate 
 
 \noindent where $ \phi $ is the free parameter, and $x$ and $y$ determine the shape of the trajectory on the navigation plane.
 
-The reason  this shape was chosen is because it combines different kinds of trajectories that we want to test the vehicle in: long straight segments, sharp and soft curves, all in one single shape. Similar curves are also used in other proposed experiments in \cite{Neto2015,Endo2015}.  Regarding metrics, three are proposed to evaluate the performance.  They are
+The reason  this shape was chosen is because it combines different kinds of trajectories where the vehicle can be tested: long straight segments, sharp and soft curves, all in one single shape. Similar curves are also used in other proposed experiments in \cite{Neto2015,Endo2015}.  Regarding metrics, three are proposed to evaluate the performance.  They are
 
 \begin{itemize}
     \item \textit{Normal path deviation}: the subject trajectory is divided into small segments and then the normal distance to the robot trajectory is calculated for each of those segments. Path deviation is relevant to evaluate how closely the robot mimics the leader path, which is the ultimate goal of the robotic vehicle. 
@@ -707,12 +787,18 @@ The simulation is also useful to study the effects of the different constants in
 %The experimental protocol used to 
 %In order to assess 
 
-A real world experiment was performed, begging to maintain the same conditions implemented on the simulation environment.  A lemniscata of $  a = 1 m $ was drawn on the floor on the visual capturing room.
+A real world experiment was performed, pegging to the same conditions implemented on the simulation environment.  A motion capture system is used to track the movement of a human leader along a predetermined path.   The motion tracking system consists of an array of 16 OptiTrack (NaturalPoint Inc, Oregon, US) Flex 3 cameras, which measure the position of reflective markers with an accuracy of $\pm1$ a sampling rate of 100 Hz. The calibration and data collection was made using the Motive motion capture software. 
+
+A tracked marker was placed in each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was drawn in the floor (\ref{fig:cap_lab_lemniscate}), and the human leader tried to move his hand following this shape as close as possible, with stable speed. 
+
+The shape was drawn according to the shape described in equation \ref{eq:lemniscate_of_gerono}, using $a = 2$, in meters. 
+
+The three markers allowed us to measure the trajectory of the robot and the leader, and then obtain the same metrics calculated in the simulation. 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=8cm]{images/capture.png}
-\caption{Trajectory for the Follow-The-Thread control strategy.}
+\caption{Hardware prototype on the motion capture system and a testing subject holding the threads.  The lemniscata of gerone was marked on the floor.  The subject follows this track on the experiments performed.}
 \label{fig:distance_sim}
 \end{figure}
 
@@ -721,15 +807,13 @@ A real world experiment was performed, begging to maintain the same conditions i
 \section{Results} \label{Results}
 \label{results}
 
-Simulation results for both control strategies are shown on Figures 1 and 2.
-
-Results metrics for the simualtions are shown on table 1.
+Simulation results for both control strategies are shown on Figure~\ref{fig:simulationresults}.  Results metrics for the simulations are shown on Table~\ref{tab:simulationmetricsftt} for the Follow-The-Thread strategy, whereas metrics for Rotate-And-Go are shown on Table~\ref{tab:simulationmetricsrg}.
 
 
 \begin{center}
 \begin{tabular}{ |c|c|c|c| }
 \hline
-$c_v$ & $c_{\alpha}$ & Max path deviation [m] & Area under \textit{npd} curve \\
+$c_v$ & $c_{\alpha}$ & m.p.d. & Area under \textit{npd} curve \\
 \hline
 10  &   15  & 0.3614 & 2.0651\\
 15  &   5  & 0.4325 & 2.055\\
@@ -738,15 +822,15 @@ $c_v$ & $c_{\alpha}$ & Max path deviation [m] & Area under \textit{npd} curve \\
 5  &   20  & 0.5733 & 3.7289\\
 \hline
 \end{tabular}
-\captionof{table}{Normal path deviation and maximum path deviation for different Follow the Thread constants.}
-\label{tab:ft_npd_table}
+\captionof{table}{Max path deviation m.p.d. [m] and Area under the normal path deviation for different Follow the Thread constants.}
+\label{tab:simulationmetricsftt}
 \end{center}
 
 
 \begin{center}
 \begin{tabular}{ |c|c|c|c|c| }
 \hline
-$c_v$ & $c_r$ & $Dt_{off}$ [m] & Max path deviation [m] & Area under \textit{npd} curve \\
+$c_v$ & $c_r$ & $Dt_{off}$ & m.p.d. & Area under \textit{npd} curve \\
 \hline
 10  &   20  &   0.1  & 0.4310 & 1.6380\\
 20  &   20  &   0.05  & 0.7775 & 3.1139\\
@@ -756,109 +840,133 @@ $c_v$ & $c_r$ & $Dt_{off}$ [m] & Max path deviation [m] & Area under \textit{npd
 35  &   20  &   0.1  & 0.6337 & 1.6190\\
 \hline
 \end{tabular}
-\captionof{table}{Normal path deviation and maximum path deviation for different Rotate and Go constants.}
-\label{tab:ft_npd_table}
+\captionof{table}{Max path deviation m.p.d. (in [m]) and area under normal path deviation for different Rotate and Go constants.}
+\label{tab:simulationmetricsrg}
 \end{center}
 
 Additionally, speed profiles can be observed from both trajectories.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/ft_a2_n1500_cv15_cr15.eps}
-\caption{Trajectory for the Follow-The-Thread control strategy.}
-\label{fig:distance_sim}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/rgv_cv20_cr20_dr10.eps}
-\caption{Trajectory for the Rotate-And-Go control strategy.}
-\label{fig:distance_sim}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/ft_cv15_cr10_leader_robot_speed.eps}
-\caption{Follow-The-Thread.}
-\label{fig:distance_sim}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/rg_cv20_cr20_bv10_dtoff10_leader_robot_speed.eps}
-\caption{Speed profiles for Rotate-And-Go.}
-\label{fig:distance_sim}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/ft_vs_rg_dist.eps}
-\caption{Distance between robot and leader [m]}
-\label{fig:distance_sim}
-\end{figure}
-
-
-Results for the real world experiment can be seen on Figures 3 and 4.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/ft1cap.eps}
-\caption{Trajectories for the Follow-The-Thread control strategy.}
-\label{fig:distance_sim}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/rg2cap.eps}
-\caption{Distance between robot and leader [m]}
-\label{fig:distance_sim}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/ft1cap_leader_robot_speed.eps}
-\caption{Follow the thread speed profiles}
-\label{fig:distance_sim}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/rg2cap_leader_robot_speed.eps}
-\caption{Rotate and Go speed profiles}
-\label{fig:distance_sim}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=8cm]{images/cap_ft_vs_rg_dist.eps}
-\caption{Rotate and Go speed profiles}
-\label{fig:distance_sim}
-\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/ft_a2_n1500_cv15_cr15.eps}
+%\caption{Trajectories of the leader and follower for the Follow-The-Thread control strategy.}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/rgv_cv20_cr20_dr10.eps}
+%\caption{Trajectories of the leader and follower for Rotate-And-Go control strategy.}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/ft_cv15_cr10_leader_robot_speed.eps}
+%\caption{Speed profiles of the leader and follower for Follow-The-Thread control strategy.}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/rg_cv20_cr20_bv10_dtoff10_leader_robot_speed.eps}
+%\caption{Speed profiles of the leader and follower for Rotate-And-Go control strategy.}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/ft_vs_rg_dist.eps}
+%\caption{Separation distance between robot and leader for both strategies [m].}
+%\label{fig:distance_sim}
+%\end{figure}
 
 
 \begin{figure} 
     \centering
   \subfloat[a\label{1a}]{%
-       \includegraphics[width=0.45\linewidth]{images/cap_ft_vs_rg_dist.eps}}
+       \includegraphics[width=0.45\linewidth]{images/ft_a2_n1500_cv15_cr15.eps}}
     \hfill
   \subfloat[b\label{1b}]{%
-        \includegraphics[width=0.45\linewidth]{images/cap_ft_vs_rg_dist.eps}}
+        \includegraphics[width=0.45\linewidth]{images/rgv_cv20_cr20_dr10.eps}}
     \\
   \subfloat[c\label{1c}]{%
-        \includegraphics[width=0.45\linewidth]{images/cap_ft_vs_rg_dist.eps}}
+        \includegraphics[width=0.45\linewidth]{images/ft_cv15_cr10_leader_robot_speed.eps}}
     \hfill
   \subfloat[d\label{1d}]{%
-        \includegraphics[width=0.45\linewidth]{images/cap_ft_vs_rg_dist.eps}}
-  \caption{(a), (b) Some examples from CIFAR-10 \cite{4}. The objects in     
-        single-label images are usually roughly aligned.(c),(d) However, the 
-        assumption of object alignment is not valid for multi-label
-        images. Also note the partial visibility and occlusion
-        between objects in the multi-label images.}
+        \includegraphics[width=0.45\linewidth]{images/rg_cv20_cr20_bv10_dtoff10_leader_robot_speed.eps}}
+    \\
+  \subfloat[d\label{1e}]{%
+        \includegraphics[width=0.85\linewidth]{images/ft_vs_rg_dist.eps}}
+  \caption{Simulation Results: Trajectories of the leader and follower for Follow-The-Thread (a) and Rotate-And-Go (b) . 
+        Speed profiles of the leader and follower for Follow-The-Thread (c) and Rotate and Go (d). 
+        (e) Separation distance between robot and leader for both strategies [m].}
+  \label{fig:simulationresults} 
+\end{figure}
+
+
+
+Results for the real world experiment can be seen on Figures 3 and 4.
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/ft1cap.eps}
+%\caption{Trajectories for the Follow-The-Thread control strategy.}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/rg2cap.eps}
+%\caption{Distance between robot and leader [m]}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/ft1cap_leader_robot_speed.eps}
+%\caption{Follow the thread speed profiles}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/rg2cap_leader_robot_speed.eps}
+%\caption{Rotate and Go speed profiles}
+%\label{fig:distance_sim}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/cap_ft_vs_rg_dist.eps}
+%\caption{Rotate and Go speed profiles}
+%\label{fig:distance_sim}
+%\end{figure}
+
+
+\begin{figure} 
+    \centering
+  \subfloat[a\label{1a}]{%
+       \includegraphics[width=0.45\linewidth]{images/ft1cap.eps}}
+    \hfill
+  \subfloat[b\label{1b}]{%
+        \includegraphics[width=0.45\linewidth]{images/rg2cap.eps}}
+    \\
+  \subfloat[c\label{1c}]{%
+        \includegraphics[width=0.45\linewidth]{images/ft1cap_leader_robot_speed.eps}}
+    \hfill
+  \subfloat[d\label{1d}]{%
+        \includegraphics[width=0.45\linewidth]{images/rg2cap_leader_robot_speed.eps}}
+    \\
+  \subfloat[d\label{1e}]{%
+        \includegraphics[width=0.85\linewidth]{images/cap_ft_vs_rg_dist.eps}}
+  \caption{Experimentation Results (a), (b) Trajectories of the leader and follower for Follow-The-Thread (a) and Rotate-And-Go (b) . 
+        (c), (d) Speed profiles of the leader and follower for Follow-The-Thread (c) and Rotate and Go (d). 
+        (e) Separation distance between robot and leader for both strategies [m].}
   \label{fig1} 
 \end{figure}
 
@@ -866,13 +974,13 @@ Results for the real world experiment can be seen on Figures 3 and 4.
 \begin{center}
 \begin{tabular}{ |c|c|c|c| }
 \hline
-$c_v$ & $c_{\alpha}$ & Max path deviation [m] & Area under \textit{npd} curve \\
+$c_v$ & $c_{\alpha}$ & m.p.d. [m] & Area under \textit{npd} curve \\
 \hline
 25  &   20  & 0.3876 & 1.9761\\
 25  &   35  & 0.4672 & 2.3528\\
 \hline
 \end{tabular}
-\captionof{table}{Normal path deviation and maximum path deviation in motion capture experiments using Follow the Thread.}
+\captionof{table}{Max path deviation m.p.d. and area under normal path deviation in motion capture experiments using Follow the Thread.}
 \label{tab:cap_ft_npd_table}
 \end{center}
 
@@ -880,14 +988,14 @@ $c_v$ & $c_{\alpha}$ & Max path deviation [m] & Area under \textit{npd} curve \\
 \begin{center}
 \begin{tabular}{ |c|c|c|c|c| }
 \hline
-$c_v$ & $c_r$ & $Dt_{off}$ & Max path deviation [m] & Area under \textit{npd} curve \\
+$c_v$ & $c_r$ & $Dt_{off}$ & m.p.d. [m] & Area under \textit{npd} curve \\
 \hline
 30  &   35  & 0.04  & 0.4116 & 2.8309\\
 30  &   35  & 0.08 & 0.3739 & 2.0367\\
 \hline
 
 \end{tabular}
-\captionof{table}{Normal path deviation and maximum path deviation in motion capture experiments using Rotate and Go.}
+\captionof{table}{Max path deviation m.p.d. and area under normal path deviation in motion capture experiments using Rotate and Go.}
 \label{tab:cap_rg_npd_table}
 \end{center}
 
@@ -931,39 +1039,36 @@ The main concern with the \textit{Rotate and Go} strategy was that having to wai
 
 Another aspect that was value from the \textit{Follow the Thread} strategy is that since its smoother movement, with no sudden stops or accelerations, was favorable for the stability of the robot if it were to carry the heavy oxygen tank.
 
-Two needed security measures were also brought up by the ALPI team. Firstly, the need to add some mechanism for obstacle avoidance. They mentioned the need to have sensor to detect if the robot was about to hit something (specially the patient), and stop immediately, apart from what the control strategy indicated. Secondly, they recognized that some patients have very weak stability, and might fall down or take a step back, towards the robot, so it should be able to automatically move away from the patient, in order not to become another obstacle for him or her. "Tener en cuenta la distancia a la que se encuentra el robot por si el paciente llega a dar un paso atrás - para evitar riesto de caída'" and "Estaría bueno pensar en algún método de emergencia por caída'' were two quotes related to this issues, taken from the surveys. 
+Two needed security measures were also brought up by the ALPI team. Firstly, the need to add some mechanism for obstacle avoidance. They mentioned the need to have sensors to detect if the robot was about to hit something (specially the patient), and stop immediately, apart from what the control strategy indicated. Secondly, they recognized that some patients have very weak stability, and might fall down or take a step back, towards the robot, so it should be able to automatically move away from the patient, in order not to become another obstacle for him or her. 
 
-In order to have more information for the next steps in the development of the robot, we asked for their advise to design the mechanism to attach the threads to the patient being followed. Two ideas were proposed: a belt strapped to the patient waist, or a clasp that would also to the clothes of the patient, also near its waistline. The waist is a good attachment point, since it is relatively stable when the patient moves, compared to its hands or legs, that may make sudden movements and confuse the robot sensors. 
+In order to have more information for the next steps in the development of the robot, we asked for their advise to design the mechanism to attach the threads to the patient being followed. Two ideas were proposed: a belt strapped to the patient waist, or a clasp tied to the clothes of the patient, also near its waistline. The waist is a good attachment point, since it is relatively more stable when the patient moves, compared to its hands or legs, that may make sudden movements and confuse the robot sensors. 
 
 
 \subsection{Conclusion and Future Work}
 \label{conclusion}
 
-The goal of this work is to verify if a tethered robot to implement a following scheme on a patient during a pulmonary rehabilitation procedure is too simplistic to be a factual implementation.
-
-From the practical experiments we showed that the both algorithms gave reasonable following performance in task of following the leader along a lemniscate-shaped path. This research is that this performance was achieved using very low cost components. It was proven that a reasonable following behaviour could be accomplished with a simple mechanism, a characteristic that significantly lowers the price of a device like this, putting it within reach of many medical institutions.
-
+From the practical experiments, it is verified that the both algorithms gave reasonable following performance in the task of following the leader along a lemniscate-shaped path. This reasonable following behaviour is accomplished with a simple mechanism, a characteristic that significantly keep the price of the device low, putting it within reach of many medical institutions.
 
 Each control strategy has its advantages, but according various metrics described in this work, the \textit{Follow and Turn} strategy had a more desirable behaviour, as it tended to follow the leader from a closer distance at all times, while moving in a smooth and predictable way. 
 
-We understood that no metric is enough to evaluate how appropriate the robotic vehicle can be for a real life scenario. Therefore, we gathered feedback from healthcare professionals from ALPI, who provided us with invaluable feedback to evaluate our solution. Over all, they also valued the Follow and Turn strategy as being the safer and more effective one. Most importantly, they also validated the research made and approved the direction of the project. They proposed a series of improvements and next steps, and after seeing the prototype in action, believed that we were close to a real, working solution. 
+Insightful feedback is gathered from healthcare professionals from ALPI, who provided invaluable data to evaluate the solution. Over all, they highlight the Follow and Turn strategy as being the safer and more effective one. Most importantly, they also validated the research and were enthusiast about the direction of the project. They proposed a series of improvements and next steps after seeing the prototype in action.
 
-It is essential to involve stakeholders such as patients, doctors, nurses, and any other professionals involved in the rehabilitation process early in the design roadmap. They are the ones who understand the problem better than anyone else, and will be the end users of a product like this. 
+As described in the beginning, It is essential to involve stakeholders such as patients, doctors, nurses, and any other professionals involved in the rehabilitation process early in the design roadmap. They are the ones who understand the problem better than anyone else, and will be the end users of any developed product, as long as it is useful for them.
 
-The staff at ALPI was enthusiastic about helping in the development of the robot, and their encouragement and support were the key reasons we could take this project forward. This work not only made progress from a technical standpoint, but could also become the foundation of a long-term relationship of collaboration and research between ALPI and ITBA. This is also the start of a long-term project at ITBA. One that can go on to become a complete, real world solution that can improve the quality of life of many people through the use of technology and engineering. 
+The staff at ALPI was enthusiastic about helping in the development of the robot, and their encouragement and support are key reasons to take this project forward.  There are yet many challenges ahead, but these initial results are promising about the viability to develop a real world solution that can improve the quality of life of many people through the use of technology and engineering. 
 
 \subsection{Future Work}
-A following mechanism has been designed and implemented in a hardware prototype. The mechanism, along with the two control algorithms, has shown promise to be a viable solution to implement in a functioning robot that ALPI, or any other medical institution, can use in their every day exercises with COPD patients. 
+%A following mechanism has been designed and implemented in a hardware prototype. The mechanism, along with the two control algorithms, has shown promise to be a viable solution to implement in a functioning robot that ALPI, or any other medical institution, can use in their every day exercises with COPD patients. 
 
-The next steps for this project would be to take this prototype and build a bigger version, with motors powerful enough to carry a real oxygen tank. 
+The next steps for this project is to scale the design to be able to carry safely the oxygen tank.
 
-Further research is also needed to develop a full fledged solution: 
+Further research is needed to develop a full fledged solution: 
 \begin{itemize}
     \item Power the motor wheels with a \textit{closed-loop and more efficient controller}, to have a more precise control over their speed.
-    \item Redesign the active spring mechanism in the reels to avoid overheating. In our tests, the small electric motors in each reel got very hot after just 20 minutes of use. The algorithm we designed to use them more efficiently (\ref{alg:active_spring}) was enough to keep them in manageable temperatures (under $70^0C$), which was enough for testing the prototype, but would not be appropriate for a useful robot. Not only because the heat produced can be dangerous, but also because the motors can overheat and break their insulation in regular use.
+    \item Redesign the active spring mechanism in the reels to avoid overheating. In our tests, the small electric motors in each reel got very hot after just 20 minutes of use. The active reel algorithm is enough to keep them in manageable temperatures (under $70^0C$), which is enough for testing the prototype, but it will not be appropriate for a useful robot. Not only because the heat produced can be dangerous, but also because the motors can overheat and break their insulation in regular use.
     \item An easy and safe interaction between the patient, the operator and the robot. How to communicate the state of the robot to the operator, how to control and manipulate the robot in an effective and user-friendly way.
-    \item Safety measures to keep the patient and the doctor or nurse safe when using the robot. Not only safe from the robot movement, but also from its electronic components, which can be dangerous when used near the pure oxygen tank if they are not protected properly.
-    \item Investigate and design mechanisms for obstacle avoidance. This need was emphasized by the doctors from ALPI. The robot should have mechanisms in place to deal with emergency situations, and under no circumstance it can hit the patient or the doctor operating it.
+    \item Safety measures to keep the patient and the care-giver safe when using the robot. Not only safe from the robot movement, but also from its electronic components.
+    \item An obstacle avoidance subsystem. This necessity is emphasized by the personnel from ALPI. The robot should have mechanisms in place to deal with emergency situations, and under no circumstance it can hit the patient or the doctor operating it.
     \item Achieve a battery autonomy that makes the robot useful throughout a complete pulmonary rehabilitation exercise. It is crucial for its usefulness to be able to hold a charge for this period of time, along with the ability to quickly swap batteries if the vehicle will be continually used with different patients.
 \end{itemize}{}
 
@@ -986,7 +1091,7 @@ Further research is also needed to develop a full fledged solution:
 
 % use section* for acknowledgment
 \section{Acknowledgments}
-This project is part of a joint collaboration between ALPI organization and the ITBA University.  Authors would like to thank thoughtfully for their initiative, support given by the ALPI organization.  Specially to Natalia Nerina Meda, Soledad Suriá, Eduardo Etcheverry and Sergio Carlos Franco, for their invaluable help and enthusiasm to move this project forward.
+This project is part of a joint collaboration between ALPI organization and the ITBA University.  Authors would like to thank thoughtfully for the initiative and support given by the ALPI organization, and to the Director of Rehabilitation Technology Dra. Mercedes Molinuevo.  Authors would like to thank Natalia Nerina Meda, Soledad Suriá, Eduardo Etcheverry and Sergio Carlos Franco, for their invaluable help and enthusiasm to move this project forward.
 
 
 \section*{Conflict of Interest Statement}
