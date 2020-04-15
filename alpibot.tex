@@ -394,11 +394,11 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Bianchi Luciano, Buzniak Esteban, Ramele~Rodrigo,~\IEEEmembership{Member,~IEEE,}
+\author{Bianchi Luciano, Buzniak Esteban Alejandro, Ramele~Rodrigo,~\IEEEmembership{Member,~IEEE,}
         and Santos~Juan~Miguel% <-this % stops a space
-\thanks{E. Buzniak, R. Ramele  and J.M.Santos are with the CiC Laboratory at the Department
+\thanks{E. A. Buzniak, R. Ramele  and J.M.Santos are with the CiC Laboratory at the Department
 of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
-\thanks{Manuscript received April 19, 2020; revised August 26, 2015.}}
+\thanks{Manuscript received April 19, 2020; revised August 26, 2020.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -421,7 +421,7 @@ of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad 
 
 
 % The paper headers
-\markboth{IEEE Transactions on Biomedical Engineering}%
+\markboth{IEEE Latin American Transactions}%
 {Bianchi \MakeLowercase{\textit{et al.}} Controller Design for a Tethered Follower Robot for Pulmonary Rehabilitation}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
@@ -454,7 +454,7 @@ of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) underwent a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation procedures patients require external oxygen assistance.  The oxygen tank cannot be carried by the patient and external assistance is required.   This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for Pulmonary Rehabilitation procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
+Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation procedures patients require oxygen assistance.  The oxygen tank cannot be carried by the patient and external assistance is required.   This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for Pulmonary Rehabilitation procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
 \end{abstract}
 
 
@@ -497,7 +497,7 @@ robotics, tethered, COPD
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012} and in order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for these patients.  During these procedures patients underwent controlled walking activities and physical exercises under the supervision of a physical therapist.  These patients present a severe low saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails a pragmatic solution to provide an additional physical therapist solely for the purpose of carrying the oxygen tank. Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment.
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012} and in order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for these patients.  During these procedures patients underwent controlled walking activities and physical exercises under the supervision of a physical therapist.  These patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails a pragmatic solution to provide an additional physical therapist solely for the purpose of carrying the oxygen tank. Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment.
 
 The scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologist and physical therapists.  
 
@@ -520,21 +520,6 @@ Looking forward to achieve this goal, a basic robotic configuration is designed 
 
 
 \subsection{Solution Design}
-
-The proposed solution is a Differential-Wheeled Robot (DWR) tethered to the followed subject with two threads ending at a single point attached to the subject waist, back or hand. In the same axis as the two front wheels, the robot has two reels separated by a certain length from which these threads come. As the subject moves away from the robot, the reels release thread so that the patient does not physically drag the vehicle. When the opposite happens, and the vehicle gets closer to the subject, an active spring mechanism driven by electric motors move each reel to retract the thread. The threads need to be tense at all times so that the encoders in each reel can be used to continuously measure the distance between the subject and the reel as devised in Figure~\ref{fig:components}.
-
-Encoders in each reel measure the difference in length of each thread compared to its initial position. This difference in length is the input for the control algorithm.  Using the encoder, the difference in length of the thread can be measured with this formula:
-
-\begin{equation}
-\label{eq:encoder_len}
-L_d = pulses . \frac{2\pi r}{ppr}
-\end{equation}{}
-
-The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
-
-\subsection{Hardware}
-
-Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).  
 
 \begin{figure}[]
     \centering
@@ -594,30 +579,49 @@ Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen,
     \label{fig:components}
 \end{figure}{}
 
-Motors are in-wheel configuration and they provide optical encoding.  A microcontroller is used to implement motor controlling and encoder processing.  This is based on the popular Arduino platform.  On top of it the Adafruit Shield v2.  This Arduino bridge can be used to control simultaneously four DC motors.
 
-The microcontroller is connected through serial connection to the main SBC RaspberryPi Model 3B+.  The main controlling algorithm run on this board, it connects to wifi and provides telemetry and the abiilty to receive remote commands by means a very simple UDP command interface.
+The proposed solution is a Differential-Wheeled Robot (DWR) tethered to the followed subject with two threads ending at a single point attached to the subject waist, back or hand. In the same axis as the two front wheels, the robot has two reels separated by a certain length from which these threads come. As the subject moves away from the robot, the reels release thread so that the patient does not physically drag the vehicle. When the opposite happens, and the vehicle gets closer to the subject, an active spring mechanism driven by electric motors move each reel to retract the thread. The threads need to be tense at all times so that the encoders in each reel can be used to continuously measure the distance between the subject and the reel as devised in Figure~\ref{fig:components}.
 
-Reels were designed from PVC extrusions based on figure.  They are glued to regular DC motors scavenged from old compact discs.  
-%Hardware specifications are described on table \ref{tab:specifications}.
+% El detalle de los encoders se puede eliminar, es info común.
+Encoders in each reel measure the difference in length of each thread compared to its initial position. This difference in length is the input for the control algorithm.  Using the encoder, the difference in length of the thread can be measured with this formula:
 
+\begin{equation}
+\label{eq:encoder_len}
+L_d = pulses . \frac{2\pi r}{ppr}
+\end{equation}{}
 
+The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
 
+\subsection{Hardware}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=8cm]{images/alpibot1.jpg}
-\caption{This robot prototype.}
-\label{fig:performance}
+\caption{Side-view of the robot prototype.  A differential wheel, the reel and the rear free castor wheel can be observed from the picture.}
+\label{fig:alpibot1}
 \end{figure}
 
+
+Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).   The prototype is a three-wheeled robot with two frontal differential drive wheels and a free castor wheel as a third point of contact on the back, as can be seen on Figure~\ref{fig:alpibot2}.  
+
+Two motors Makeblock Optical Encoder Motor-25 9V/86 rpm are used on in-wheel configuration providing optical encoding.  A microcontroller Arduino (Arduino LLC, Italy) Mega 2560 is used to implement the control loop and to provide encoder processing.  On top of it an Adafruit (Adafruit, New York City) Motor Shield v2 bridge is used to drive the four DC motors, one for each wheel and one on each reel.   The Arduino board is also connected to a Single Board Computer Raspberry Pi (Raspberry Pi Foundation, United Kingdom) 3B+ through serial connection on the USB port.
 
 \begin{figure*}[!t]
 \centering
 \subfloat[Case I]{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
-\caption{Robot prototype built to evaluate the real world scenario of the following mechanisms for the tethered robot.}
-\label{fig:p300templates}
+\caption{Top view of the robot prototype.  The SBC is shown on the center, alongside the Arduino Mega board.  Both reels can be seen on the same vertical plane of the wheel axis. A power bank (white) is located on one side of the robot, and on the rear part, the motor power battery (black) is located.}
+\label{fig:alpibot2}
 \end{figure*}
+
+The Raspberry (Raspberry Pi Foundation, United Kingdom) board connects to a WiFi network and can receive remote commands to control the robot. It also broadcasts the telemetry data to any listening devices on the network. The control algorithms run in this board, which continuously communicates with the Arduino board to receive sensor data and to issue commands to move the motors or retract the reels.   The algorithms are programmed in python 3.7, which allows the exact same code to run both the simulated and real world prototype.  
+
+
+%The microcontroller is connected through serial connection to the main SBC RaspberryPi Model 3B+.  The main controlling algorithm run on this board, it connects to wifi and provides telemetry and the abiilty to receive remote commands by means a very simple UDP command interface.
+
+The two reels are designed from PVC extrusions and are shown on Figure~\ref{fig:alpibot2}.  They are attached to regular FA-12350 DC motors scavenged from old compact discs.  Each reel is axially locked to inexpensive Ky-040 rotary encoder which provides around 20 pulses per revolution.
+%Hardware specifications are described on table \ref{tab:specifications}.
+
+The prototype can be seen on Figure~\ref{fig:alpibot1} and~\ref{fig:alpibot2}.  It has two separate batteries, one powering the Raspberry Pi, the Arduino board and the encoder electronics, and the other powering the drive and reel motors. The first battery is a commercial power bank with a capacity of 10000 mA$\cdot$h, and an output of 3.1A (over two USB ports) at 5V. The motor battery is a set of 10 AAA nickel–metal hydride batteries (1.5V each), with a total output of 15V.  
 
 \subsection{Active Reel Spring}
 
@@ -676,7 +680,7 @@ The algorithm works as follows:
 
 \subsection{Control Strategy}
 
-Two simple control strategies are proposed and evaluated.  The first one is called Follow-the-thread and the second strategy is Rotate-And-Go.  The Adafruit Shield controller provides a very stable output signal, provided battery are kept above reference.  Hence, wheels motor control is open-loop.
+Two simple algorithmic control strategies are proposed and evaluated.  The first one is called Follow-the-thread and the second strategy is Rotate-And-Go.  %The Adafruit Shield controller provides a very stable output signal, provided battery are kept above reference.  Hence, wheels motor control is open-loop.
 
 \subsubsection{Follow the Thread}
 
@@ -684,6 +688,7 @@ This control strategy is similar to the one presented in \cite{Ortlieb2016}. It 
 
 \begin{equation}
 v_{tar} = c_v (\frac{D_l + D_r}{2} - d_0)
+\label{eq:lemniscata}
 \end{equation}
 
 \begin{equation}
@@ -701,6 +706,76 @@ To stop the vehicle completely when it is close to its expected position, an add
 \end{equation}
 
 $d_0$ is a constant offset. $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration.
+
+\begin{figure}[]
+    \centering
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+    
+    \begin{tikzpicture}[x=0.50pt,y=0.50pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,2317); %set diagram left start at 0, and has height of 2317
+    
+    %Shape: Rectangle [id:dp785217180323701] 
+    \draw   (332,1925.29) -- (347.46,1925.29) -- (347.46,2120.1) -- (332,2120.1) -- cycle ;
+    %Straight Lines [id:da8987873257842873] 
+    \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (300.46,2100.29) -- (117.19,2019.9) ;
+    %Straight Lines [id:da585150688871364] 
+    \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 230; green, 164; blue, 164 }  ,fill opacity=1 ][line width=0.75]    (301.46,1946.29) -- (117.19,2019.9) ;
+    %Shape: Rectangle [id:dp8556526042433679] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (300.5,1925) -- (379,1925) -- (379,1960.67) -- (300.5,1960.67) -- cycle ;
+    %Shape: Ellipse [id:dp024503202773356936] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (101.01,2019.9) .. controls (101.01,2010.53) and (108.25,2002.94) .. (117.19,2002.94) .. controls (126.12,2002.94) and (133.37,2010.53) .. (133.37,2019.9) .. controls (133.37,2029.28) and (126.12,2036.87) .. (117.19,2036.87) .. controls (108.25,2036.87) and (101.01,2029.28) .. (101.01,2019.9) -- cycle ;
+    %Shape: Rectangle [id:dp4521863424396907] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (299.5,2084.5) -- (378,2084.5) -- (378,2120.17) -- (299.5,2120.17) -- cycle ;
+    %Rounded Rect [id:dp9798921511906625] 
+    \draw  [draw opacity=0][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ] (327,2059.58) .. controls (327,2058.16) and (328.16,2057) .. (329.58,2057) -- (350.53,2057) .. controls (351.96,2057) and (353.11,2058.16) .. (353.11,2059.58) -- (353.11,2067.34) .. controls (353.11,2068.76) and (351.96,2069.92) .. (350.53,2069.92) -- (329.58,2069.92) .. controls (328.16,2069.92) and (327,2068.76) .. (327,2067.34) -- cycle ;
+    %Rounded Rect [id:dp969028519585216] 
+    \draw  [draw opacity=0][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ] (327,1977.58) .. controls (327,1976.16) and (328.16,1975) .. (329.58,1975) -- (350.53,1975) .. controls (351.96,1975) and (353.11,1976.16) .. (353.11,1977.58) -- (353.11,1985.34) .. controls (353.11,1986.76) and (351.96,1987.92) .. (350.53,1987.92) -- (329.58,1987.92) .. controls (328.16,1987.92) and (327,1986.76) .. (327,1985.34) -- cycle ;
+    %Straight Lines [id:da8580549640030513] 
+    \draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (340.06,2063.46) -- (496.67,2020.83) ;
+    %Shape: Circle [id:dp1613016595870852] 
+    \draw  [draw opacity=0][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (488.83,2020.83) .. controls (488.83,2016.51) and (492.34,2013) .. (496.67,2013) .. controls (500.99,2013) and (504.5,2016.51) .. (504.5,2020.83) .. controls (504.5,2025.16) and (500.99,2028.67) .. (496.67,2028.67) .. controls (492.34,2028.67) and (488.83,2025.16) .. (488.83,2020.83) -- cycle ;
+    %Straight Lines [id:da10232028406547378] 
+    \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (338.75,1943.33) -- (402.58,1942.95) ;
+    \draw [shift={(405.58,1942.93)}, rotate = 539.65] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+    %Straight Lines [id:da5543519847675118] 
+    \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (337.75,2103.33) -- (401.58,2102.95) ;
+    \draw [shift={(404.58,2102.93)}, rotate = 539.65] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+    %Straight Lines [id:da5830729933065488] 
+    \draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (340.06,1981.46) -- (496.67,2020.83) ;
+    %Straight Lines [id:da27552399356884627] 
+    \draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (340.06,1981.46) -- (488.5,1937) ;
+    %Straight Lines [id:da06167712807711301] 
+    \draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (340.06,2063.46) -- (543.5,1918.83) ;
+    %Straight Lines [id:da887785453759708] 
+    \draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=2.25]    (488.5,1937) -- (543.5,1918.83) ;
+    %Straight Lines [id:da7211287180458504] 
+    \draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=2.25]    (469.5,1973) -- (543.5,1918.83) ;
+    %Shape: Circle [id:dp7802267148020259] 
+    \draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (535.67,1918.83) .. controls (535.67,1914.51) and (539.17,1911) .. (543.5,1911) .. controls (547.83,1911) and (551.33,1914.51) .. (551.33,1918.83) .. controls (551.33,1923.16) and (547.83,1926.67) .. (543.5,1926.67) .. controls (539.17,1926.67) and (535.67,1923.16) .. (535.67,1918.83) -- cycle ;
+    
+    % Text Node
+    \draw (524,1960) node  [font=\large,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ]  {$ \begin{array}{l}
+    D_{r}\\
+    \end{array}$};
+    % Text Node
+    \draw (510,1910) node  [font=\large,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ,rotate=-358.27]  {$ \begin{array}{l}
+    D_{l}\\
+    \end{array}$};
+    % Text Node
+    \draw (496,2042) node  [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,opacity=1 ]  {$subject\ start$};
+    % Text Node
+    \draw  [draw opacity=0][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (554.5,1904) -- (611.5,1904) -- (611.5,1928) -- (554.5,1928) -- cycle  ;
+    \draw (583,1916) node    {$subject$};
+    % Text Node
+    \draw (390.58,1925.93) node [anchor=west] [inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$vleft_{tar}$};
+    % Text Node
+    \draw (407.58,2100.93) node [anchor=west] [inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$vright_{tar}$};
+    
+    
+    \end{tikzpicture}
+    \caption{Following mechanism parameters}
+    \label{fig:follow_params}
+\end{figure}{}
 
 \subsubsection{Rotate and Go}
 
@@ -748,7 +823,7 @@ The algorithm is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $
 
 This section describes the experimental protocol used to evaluate the performance of the proposed solution.  The Pulmonary Rehabilitation procedure consists on a series of walking activities aimed to promote patient muscular recovery and well being~\cite{Wu2012}. They are slow pace motions following a specific trajectory on a rehabilitation gym.
 
-In order to standardize the procedure~\cite{Sprunk2016}, the \textit{Lemniscate of Gerono} is used as desired trajectory, a curve shaped like an $\infty$ symbol, described by the Equation~\ref{eq:lemniscate}:
+In order to standardize the procedure~\cite{Sprunk2016}, the \textit{Lemniscate of Gerono} is used as desired trajectory, a curve shaped like an $\infty$ symbol, described by the Equations~\ref{eq:lemniscate}:
 
 
 \begin{equation}
@@ -762,7 +837,9 @@ In order to standardize the procedure~\cite{Sprunk2016}, the \textit{Lemniscate 
 
 \noindent where $ \phi $ is the free parameter, and $x$ and $y$ determine the shape of the trajectory on the navigation plane.
 
-The reason  this shape was chosen is because it combines different kinds of trajectories where the vehicle can be tested: long straight segments, sharp and soft curves, all in one single shape. Similar curves are also used in other proposed experiments in \cite{Neto2015,Endo2015}.  Regarding metrics, three are proposed to evaluate the performance.  They are
+The reason  this shape was chosen is because it combines different kinds of trajectories where the vehicle can be tested: long straight segments, sharp and soft curves, all in one single shape. Similar curves are also used in other proposed experiments in \cite{Neto2015,Endo2015}.  
+
+Regarding metrics, three are proposed to evaluate the performance.  They are:
 
 \begin{itemize}
     \item \textit{Normal path deviation}: the subject trajectory is divided into small segments and then the normal distance to the robot trajectory is calculated for each of those segments. Path deviation is relevant to evaluate how closely the robot mimics the leader path, which is the ultimate goal of the robotic vehicle. 
@@ -779,7 +856,7 @@ First the simulation is described and later the evaluation on the robotic protot
 
 A model of the proposed design was first built on Webots application.  The threading mechanism was implemented using virtual threads~\cite{Rekleitis2001}.  The leader traveled according to a predefined path with constant velocity, followiing the lemniscata trajectory.
 
-The simulation is also useful to study the effects of the different constants in each strategy on the movement of the robot. 
+The simulation is also useful to study the effects of the different constants in each strategy on the movement of the robot.  The leader starts at the midpoint of the trajectory and completes a full complete circuit getting back to the initial position, while the robot follows its track.  Four different configuration sets of $c_v$ and  $c_{\alpha}$ were tested for Follow-The-Thread, while 6 different configurations were tested for Rotate-And-Go.
 
 \subsection{Real world}
 
@@ -788,13 +865,11 @@ The simulation is also useful to study the effects of the different constants in
 %The experimental protocol used to 
 %In order to assess 
 
-A real world experiment was performed, pegging to the same conditions implemented on the simulation environment.  A motion capture system is used to track the movement of a human leader along a predetermined path.   The motion tracking system consists of an array of 16 OptiTrack (NaturalPoint Inc, Oregon, US) Flex 3 cameras, which measure the position of reflective markers with an accuracy of $\pm1$ a sampling rate of 100 Hz. The calibration and data collection was made using the Motive motion capture software. 
+A real world experiment was performed, pegging to the same conditions implemented on the simulation environment.  A motion capture system is used to track the movement of a human leader along a predetermined path.   The motion tracking system consists of an array of 16 OptiTrack (NaturalPoint Inc, Oregon, US) Flex 3 cameras, which measure the position of reflective markers with an accuracy of $\pm1$ [cm] at sampling rate of 100 Hz. The calibration and data collection was made using the Motive motion capture software. 
 
-A tracked marker was placed in each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was drawn in the floor (\ref{fig:cap_lab_lemniscate}), and the human leader tried to move his hand following this shape as close as possible, with stable speed. 
+A tracked marker was placed in each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was drawn in the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
 
-The shape was drawn according to the shape described in equation \ref{eq:lemniscate_of_gerono}, using $a = 2$, in meters. 
-
-The three markers allowed us to measure the trajectory of the robot and the leader, and then obtain the same metrics calculated in the simulation. 
+The three markers allowed us to measure the trajectory of both the robot and the leader, and then obtain the same metrics calculated in the simulation.  Four experiments were performed for each set of parameter configurations.  In this case, only two set of configuration were tested for each strategy.
 
 \begin{figure}[h!]
 \centering
@@ -886,19 +961,21 @@ Additionally, speed profiles can be observed from both trajectories.
 \begin{figure} 
     \centering
   \subfloat[a\label{1a}]{%
-       \includegraphics[width=0.45\linewidth]{images/ft_a2_n1500_cv15_cr15.eps}}
-    \hfill
+       \includegraphics[width=0.49\linewidth]{images/ft_a2_n1500_cv15_cr15.eps}}
+    \hspace*{-1.5em}
   \subfloat[b\label{1b}]{%
-        \includegraphics[width=0.45\linewidth]{images/rgv_cv20_cr20_dr10.eps}}
+        \includegraphics[width=0.49\linewidth]{images/rgv_cv20_cr20_dr10.eps}}
     \\
+    \vspace*{-1.5em}
   \subfloat[c\label{1c}]{%
-        \includegraphics[width=0.45\linewidth]{images/ft_cv15_cr10_leader_robot_speed.eps}}
-    \hfill
+        \includegraphics[width=0.49\linewidth]{images/ft_cv15_cr10_leader_robot_speed.eps}}
+    \hspace*{-1.5em}
   \subfloat[d\label{1d}]{%
-        \includegraphics[width=0.45\linewidth]{images/rg_cv20_cr20_bv10_dtoff10_leader_robot_speed.eps}}
+        \includegraphics[width=0.49\linewidth]{images/rg_cv20_cr20_bv10_dtoff10_leader_robot_speed.eps}}
     \\
+    \vspace*{-2.5em}
   \subfloat[d\label{1e}]{%
-        \includegraphics[width=0.85\linewidth]{images/ft_vs_rg_dist.eps}}
+        \includegraphics[width=0.99\linewidth]{images/ft_vs_rg_dist.eps}}
   \caption{Simulation Results: Trajectories of the leader and follower for Follow-The-Thread (a) and Rotate-And-Go (b) . 
         Speed profiles of the leader and follower for Follow-The-Thread (c) and Rotate and Go (d). 
         (e) Separation distance between robot and leader for both strategies [m].}
@@ -907,7 +984,7 @@ Additionally, speed profiles can be observed from both trajectories.
 
 
 
-Results for the real world experiment can be seen on Figures 3 and 4.
+Results for the real world experiment can be seen on Figure~\ref{fig:realworldresults}.   Table~\ref{tab:cap_ft_npd_table} show the metrics of the Follow-The-Thread strategy, whereas Table~\ref{tab:cap_rg_npd_table} provides the metrics for the Rotate-And-Go approach.
 
 %\begin{figure}[h!]
 %\centering
@@ -952,23 +1029,25 @@ Results for the real world experiment can be seen on Figures 3 and 4.
 \begin{figure} 
     \centering
   \subfloat[a\label{1a}]{%
-       \includegraphics[width=0.45\linewidth]{images/ft1cap.eps}}
-    \hfill
+       \includegraphics[width=0.49\linewidth]{images/ft1cap.eps}}
+    \hspace*{-1.5em}
   \subfloat[b\label{1b}]{%
-        \includegraphics[width=0.45\linewidth]{images/rg2cap.eps}}
+        \includegraphics[width=0.49\linewidth]{images/rg2cap.eps}}
     \\
+    \vspace*{-1.5em}
   \subfloat[c\label{1c}]{%
-        \includegraphics[width=0.45\linewidth]{images/ft1cap_leader_robot_speed.eps}}
-    \hfill
+        \includegraphics[width=0.49\linewidth]{images/ft1cap_leader_robot_speed.eps}}
+    \hspace*{-1.5em}
   \subfloat[d\label{1d}]{%
-        \includegraphics[width=0.45\linewidth]{images/rg2cap_leader_robot_speed.eps}}
+        \includegraphics[width=0.49\linewidth]{images/rg2cap_leader_robot_speed.eps}}
     \\
+    \vspace*{-2.5em}
   \subfloat[d\label{1e}]{%
-        \includegraphics[width=0.85\linewidth]{images/cap_ft_vs_rg_dist.eps}}
-  \caption{Experimentation Results (a), (b) Trajectories of the leader and follower for Follow-The-Thread (a) and Rotate-And-Go (b) . 
-        (c), (d) Speed profiles of the leader and follower for Follow-The-Thread (c) and Rotate and Go (d). 
+        \includegraphics[width=0.99\linewidth]{images/cap_ft_vs_rg_dist.eps}}
+  \caption{Experimentation Results: Trajectories of the leader and follower for Follow-The-Thread (a) and Rotate-And-Go (b). 
+        Speed profiles of the leader and follower for Follow-The-Thread (c) and Rotate and Go (d). 
         (e) Separation distance between robot and leader for both strategies [m].}
-  \label{fig1} 
+  \label{fig:realworldresults} 
 \end{figure}
 
 
@@ -1008,11 +1087,13 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.p.d. [m] & Area under \textit{npd} curve \\
 
 No amount of metrics are enough to evaluate if the robot is a viable solution for this problem or not, without the input and the evaluation of the people that are going to physically make use of it. 
 
-As this project is a joint research between ALPI and ITBA, we invited 4 people from the ALPI staff, 3 doctors and one engineer, to the motion capture laboratory at ITBA, where we made a live demonstration of the robot working and following a moving person. 
+ALPI is a non-profit civil association located in Buenos Aires, Argentina, that provides neuromotor rehabilitation for pediatric and adult patients. It was founded in 1943 with the main focus of treating children with poliomyelitis, and has since expanded to deal with all kinds of related diseases. 
 
-In the demonstration, we described how the robot worked, how it was built and how to operate it. Both control strategies were explained, along with the main superficial differences between them. 
+Four professional care-givers from ALPI  were invited to test and evaluate the controlling strategy on the prototype.  A live demonstration of the robot working and following a moving person was performed.
 
-Afterwards, we invited the doctors to use the robot themselves, simulating they were the patient being followed. We let the doctors switch between the two control strategies to evaluate both of them, and made different tests, one walking along path drawn in the floor (figure \ref{fig:cap_lab_lemniscate}), and another one walking freely in the space available in the lab. We let them use the robot as long as they wanted to, to get a general idea of how it behaved, and how it could be used in the rehabilitation process. After all evaluations were finished, we answered questions and discussed various aspects of the vehicle prototype with the ALPI staff, and then proceeded to ask them a survey to document their experience with the robot, get their expert opinion on how the two strategies compared against each other, and what other improvements were needed in order to deliver a fully usable product. 
+In the demonstration, the robot design was outlined and an explanation was given on how the robot worked, how it was built and how to operate it. Both control strategies were expounded, along with the main superficial differences between them. 
+
+Afterwards, health care professionals were invited to use the robot themselves, simulating they were the patient being followed. They were allowed to switch between the two control strategies to evaluate both of them, and made different tests, one walking along standardized path marked on the floor and another one walking freely along the available space of the Motion Capture Lab . They used the robot freely to get a general idea of how it behaved, and how it could be used in the rehabilitation process. After all evaluations were finished, various aspects of the vehicle prototype were discussed and then a survey was handed out to document their experience with the robot, get their expert opinion on how the two strategies compared against each other, and what other improvements were needed in order to deliver a fully usable product.  Survey questions and their averaged numerical evaluations are provided in Table~\ref{tab:alpi_q_table_1}.
 
 \begin{table*}[t]
 \begin{center}
@@ -1054,7 +1135,7 @@ Each control strategy has its advantages, but according various metrics describe
 
 Insightful feedback is gathered from healthcare professionals from ALPI, who provided invaluable data to evaluate the solution. Over all, they highlight the Follow and Turn strategy as being the safer and more effective one. Most importantly, they also validated the research and were enthusiast about the direction of the project. They proposed a series of improvements and next steps after seeing the prototype in action.
 
-As described in the beginning, It is essential to involve stakeholders such as patients, doctors, nurses, and any other professionals involved in the rehabilitation process early in the design roadmap. They are the ones who understand the problem better than anyone else, and will be the end users of any developed product, as long as it is useful for them.
+As described in the beginning, it is essential to involve stakeholders such as patients, doctors, nurses, and any other professionals involved in the rehabilitation process early in the design roadmap. They are the ones who understand the problem better than anyone else, and will be the end users of any developed product, as long as it is useful for them.
 
 The staff at ALPI was enthusiastic about helping in the development of the robot, and their encouragement and support are key reasons to take this project forward.  There are yet many challenges ahead, but these initial results are promising about the viability to develop a real world solution that can improve the quality of life of many people through the use of technology and engineering. 
 
@@ -1092,7 +1173,7 @@ Further research is needed to develop a full fledged solution:
 
 % use section* for acknowledgment
 \section{Acknowledgments}
-This project is part of a joint collaboration between ALPI organization and the ITBA University.  Authors would like to thank thoughtfully for the initiative and support given by the ALPI organization, and to the Director of Rehabilitation Technology Dra. Mercedes Molinuevo.  Authors would like to thank Natalia Nerina Meda, Soledad Suriá, Eduardo Etcheverry and Sergio Carlos Franco, for their invaluable help and enthusiasm to move this project forward.
+This project is part of a joint collaboration between ALPI organization and the ITBA University.  Authors would like to thank thoughtfully for the initiative and support given by the ALPI organization, and to the Director of Rehabilitation Technology Dra. Mercedes Molinuevo.  Additionally, authors would also like to offer tremendous gratitude to Natalia Nerina Meda, Soledad Suriá, Eduardo Etcheverry and Sergio Carlos Franco, for the idea of this project and for their invaluable help and enthusiasm to move this project forward.
 
 
 \section*{Conflict of Interest Statement}
