@@ -505,7 +505,7 @@ An alternative solution is to use an assitive ground service robot~\cite{Neto201
 
 For the implementation of the leader-follower strategy, several solutions have been proposed, including Simultaneos Localization And Mapping (SLAM) alternatives, vision-based systems or based on electromagnetical beacons~\cite{Islam2019}.   The work presented by \cite{Ortlieb2016} explores a differential tethered robotic system to perform camera-based gait analysis of the leader.  For COPD Pulmonary Rehabilitaiton procedures, the patient is already umbilicaly linked to the oxygen tank via the breathing cannula.  Hence, a robotic solution can exploit this circumstance to perform the \textit{following} mechanism based on a tethered controller. Tethered robots have been extensively researched in robotics~\cite{Ahn2006}.  They offer a very simple solution to some common navigation problems, and they can be very effective in robot-to robot interaction, collaborative robotics, or while interacting with humans in Human Robot Interfaces~\cite{Rekleitis2001,Hirata2009,Ferrin2010}. 
 
-On the other hand, several assistance devices for COPD treatments have been proposed.  Particularly relevant are novel telemedice applications to enhance complementary rehabiliation exercise at home that can track biological markers for patients~\cite{Wu2012}.  The work presented here follows the line established by \cite{Endo2015}.  Authors studied the use of a single thread tethered follower robot for home oxygen therapy, and compared two different control algorithms and their effectiveness to mimic the leader path and to avoid obstacles.  However, their approach focuses on the usage of the device exclusively for home therapy, and not within the context of a Pulmonary Rehabilitation procedure performed by medical personnel on medical facilities.
+On the other hand, several assistance devices for COPD treatments have been proposed.  Particularly relevant are novel telemedice applications to enhance complementary rehabiliation exercise at home that can track biological markers for patients~\cite{Yang2018,Wu2012}.  The work presented here follows the line established by \cite{Endo2015}.  Authors studied the use of a single thread tethered follower robot for home oxygen therapy, and compared two different control algorithms and their effectiveness to mimic the leader path and to avoid obstacles.  However, their approach focuses on the usage of the device exclusively for home therapy, and not within the context of a Pulmonary Rehabilitation procedure performed by medical personnel on medical facilities.
 
 Hence, this work aims to provide an initial study on the controlling mechanism of a differential tethered robot that implements the leader-follower configuration on a Pulmonary Rehabilitation procedure.  To do so, this document unrolls as follows.  Section~\ref{materials} poses the problem and the solution design. Section~\ref{experimental} documents the experimental protocol to perform the solution assessment on a simulation and on a real world scenario.  Results and Discussions are described in~\ref{results} and~\ref{discussion}. The Clinical Assessment performed jointly with medical personnel is tackled in Section~\ref{clinical}.  Finally, conclusions are exposed in the remaining section~\ref{conclusion}.
 
@@ -613,7 +613,7 @@ Two motors Makeblock Optical Encoder Motor-25 9V/86 rpm are used on in-wheel con
 \label{fig:alpibot2}
 \end{figure*}
 
-The Raspberry (Raspberry Pi Foundation, United Kingdom) board connects to a WiFi network and can receive remote commands to control the robot. It also broadcasts the telemetry data to any listening devices on the network. The control algorithms run in this board, which continuously communicates with the Arduino board to receive sensor data and to issue commands to move the motors or retract the reels.   The algorithms are programmed in python 3.7, which allows the exact same code to run both the simulated and real world prototype.  
+The Raspberry Pi board connects to a WiFi network and can receive remote commands to control the robot. It also broadcasts telemetry data to any listening devices on the network. The control algorithms run in this board, which continuously communicates with the Arduino board to receive sensor data and to issue commands to move the motors or retract the reels.   The algorithms are programmed in python 3.7, which allows the exact same code to run both the simulated and real world prototype.  
 
 
 %The microcontroller is connected through serial connection to the main SBC RaspberryPi Model 3B+.  The main controlling algorithm run on this board, it connects to wifi and provides telemetry and the abiilty to receive remote commands by means a very simple UDP command interface.
@@ -676,7 +676,7 @@ The algorithm works as follows:
 %\end{algorithm}
 
 
-\subsection{Software Components}
+%\subsection{Software Components}
 
 \subsection{Control Strategy}
 
@@ -684,7 +684,7 @@ Two simple algorithmic control strategies are proposed and evaluated.  The first
 
 \subsubsection{Follow the Thread}
 
-This control strategy is similar to the one presented in \cite{Ortlieb2016}. It is based on the idea that the difference in length between both threads provides a quasi-linear function of the relative angle between the subject and the vehicle orientation and, additionally, the mean of both thread length allows to approximate the relative distance between the robot and the subject.
+This control strategy is similar to the one presented in \cite{Ortlieb2016}. It is based on the idea that the difference in length between both threads provides a quasi-linear function of the relative angle between the subject and the vehicle orientation and, additionally, the mean of both thread length allows to approximate the relative distance between the robot and the subject.  They are described by Equations~\ref{eq:lemniscata}, \ref{eq:lemniscata2} and~\ref{eq:lemniscata3}.
 
 \begin{equation}
 v_{tar} = c_v (\frac{D_l + D_r}{2} - d_0)
@@ -693,11 +693,15 @@ v_{tar} = c_v (\frac{D_l + D_r}{2} - d_0)
 
 \begin{equation}
 vleft_{tar} = v_{tar} + c_{\alpha} (D_l - D_r)
+\label{eq:lemniscata2}
 \end{equation}
 
 \begin{equation}
 vright_{tar} = v_{tar} - c_{\alpha} (D_l - D_r)
+\label{eq:lemniscata3}
 \end{equation}
+
+\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration.  As shown in Figure~\ref{fig:follow_params}, reel encoder information is $D_l$ and $D_r$ for the left and right reel, and finally $vleft_{tar}$ are $vright_{tar}$ are the power values that are directly used to drive power to each wheel motor.
 
 To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
 
@@ -705,7 +709,8 @@ To stop the vehicle completely when it is close to its expected position, an add
 \textit{if  }{\frac{D_l + D_r}{2} < d_0}\textit{ then } vleft_{tar} = vright_{tar} = 0 
 \end{equation}
 
-$d_0$ is a constant offset. $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration.
+\noindent where $d_0$ is a constant offset that is used to customized the length of the thread where the robot does not move.
+
 
 \begin{figure}[]
     \centering
@@ -781,11 +786,12 @@ $d_0$ is a constant offset. $c_v$ and $c_{\alpha}$ are constant coefficients use
 
 The \textit{Rotate and Go} algorithm divides the vehicle movement in two steps:
 
-1) Rotating the vehicle around the center point of the axis that connects its front wheels in order to aim at the subject.
+\begin{itemize}
+\item Rotating the vehicle around the center point of the axis that connects its front wheels in order to aim at the subject.
+\item Go forward in a straight line until the vehicle is at the expected distance to the subject or the vehicle is not moving in the direction of the subject.
+\end{itemize}
 
-2) Go forward in a straight line until the vehicle is at the expected distance to the subject or the vehicle is not moving in the direction of the subject.
-
-The algorithm is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.
+The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_off$ that regulates the sensibility of the rotation movement.
 
 \begin{algorithm}[]
 \caption{Rotate and Go algorithm}
@@ -854,7 +860,7 @@ First the simulation is described and later the evaluation on the robotic protot
 
 \subsection{Simulation}
 
-A model of the proposed design was first built on Webots application.  The threading mechanism was implemented using virtual threads~\cite{Rekleitis2001}.  The leader traveled according to a predefined path with constant velocity, followiing the lemniscata trajectory.
+A model of the proposed design was first built on Webots~\cite{Michel2004} simulator.  The threading mechanism was implemented using virtual threads~\cite{Rekleitis2001}.  The leader traveled according to a predefined path with constant velocity, followiing the lemniscata trajectory.
 
 The simulation is also useful to study the effects of the different constants in each strategy on the movement of the robot.  The leader starts at the midpoint of the trajectory and completes a full complete circuit getting back to the initial position, while the robot follows its track.  Four different configuration sets of $c_v$ and  $c_{\alpha}$ were tested for Follow-The-Thread, while 6 different configurations were tested for Rotate-And-Go.
 
@@ -867,9 +873,9 @@ The simulation is also useful to study the effects of the different constants in
 
 A real world experiment was performed, pegging to the same conditions implemented on the simulation environment.  A motion capture system is used to track the movement of a human leader along a predetermined path.   The motion tracking system consists of an array of 16 OptiTrack (NaturalPoint Inc, Oregon, US) Flex 3 cameras, which measure the position of reflective markers with an accuracy of $\pm1$ [cm] at sampling rate of 100 Hz. The calibration and data collection was made using the Motive motion capture software. 
 
-A tracked marker was placed in each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was drawn in the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
+A tracked marker was placed in each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was marked on the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
 
-The three markers allowed us to measure the trajectory of both the robot and the leader, and then obtain the same metrics calculated in the simulation.  Four experiments were performed for each set of parameter configurations.  In this case, only two set of configuration were tested for each strategy.
+The three markers allowed to measure the trajectory of both the robot and the leader, and then obtain the same metrics calculated in the simulation.  Four experiments were performed for each set of parameter configurations.  In this case, only two set of configuration were tested for each strategy.
 
 \begin{figure}[h!]
 \centering
