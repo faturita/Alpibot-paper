@@ -454,7 +454,7 @@ of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation programs patients perform different exercises and walking activities and may require oxygen assistance.  The oxygen tank cannot be carried by the patient due to the eskeletomuscular atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
+Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation patients perform different exercises and walking activities and may require oxygen assistance.  The oxygen tank cannot be carried by the patient due to the eskeletomuscular atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
 \end{abstract}
 
 
@@ -853,10 +853,10 @@ The reason  this shape was chosen is because it combines different kinds of traj
 Regarding metrics, three are proposed to evaluate the performance.  They are:
 
 \begin{itemize}
-    \item \textit{Normal trajectory deviation, n.t.d.}: the subject trajectory is divided into small segments and then the normal distance to the robot trajectory is calculated for each of those segments. Trajectory deviation is relevant to evaluate how closely the robot mimics the leader trajectory, which is the ultimate goal of the robotic vehicle. 
+    \item \textit{Normal trajectory deviation, n.t.d.}: the subject trajectory is divided into small segments and then the normal distance to the robot trajectory is calculated for each of those segments. Trajectory deviation curve is relevant to evaluate how closely the robot mimics the leader trajectory, which is the ultimate goal of the robotic vehicle. 
+    \item \textit{Robot-leader distance, r.l.d.}: The euclidean distance between the robot and the leader, at any point in time. This curve is particularly important since the robot has a limited amount of thread available, so if the leader uses all the available thread, it will start dragging the robot and damaging the following mechanis, and overall it may rise the possibility of disconnecting the breathing oxygen cannula. This is a scenario that must not happen under any circumstance, as it can also be dangerous for a potential patient using the device. 
     \item \textit{Total trajectory deviation, t.t.d.}: The area under the curve resulting from the the \textit{normal trajectory deviation} over the length traveled by the leader.
     \item \textit{Maximum trajectory deviation, m.t.d.}: the maximum \textit{normal trajectory deviation} registered during an experiment.    
-    \item \textit{Robot-leader distance, r.l.d.}: The euclidean distance between the robot and the leader, at any point in time. This is particularly important since the robot has a limited amount of thread available, so if the leader uses all the available thread, it will start dragging the robot and damaging the following mechanis, and overall it may rise the possibility of disconnecting the breathing oxygen cannula. This is a scenario that must not happen under any circumstance, as it can also be dangerous for a potential patient using the device. 
 \end{itemize}{}
 
 In this work, a \textit{following behavior} is considered satisfactory if its maximum trajectory deviation is less than 0.75 m and the robot-leader distance never exceeds 1.5 m~\cite{MunozCeballos2010}.
@@ -970,24 +970,24 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. & t.t.d.\\
 \begin{figure} 
     \centering
   \subfloat[ \label{1a}]{%
-       \includegraphics[width=0.49\linewidth]{images/ft_a2_n1500_cv15_cr15.eps}}
+       \includegraphics[width=0.49\linewidth]{images/simulation_follow-thread.eps}}
     \hspace*{-1.5em}
   \subfloat[ \label{1b}]{%
-        \includegraphics[width=0.49\linewidth]{images/rgv_cv20_cr20_dr10.eps}}
+        \includegraphics[width=0.49\linewidth]{images/simulation_rotate-go.eps}}
     \\
     \vspace*{-1.5em}
   \subfloat[ \label{1c}]{%
-        \includegraphics[width=0.49\linewidth]{images/ft_cv15_cr10_leader_robot_speed.eps}}
+        \includegraphics[width=0.49\linewidth]{images/simulation_speed_profile_follow-thread.eps}}
     \hspace*{-1.5em}
   \subfloat[ \label{1d}]{%
-        \includegraphics[width=0.49\linewidth]{images/rg_cv20_cr20_bv10_dtoff10_leader_robot_speed.eps}}
+        \includegraphics[width=0.49\linewidth]{images/simulation_speed_profile_rotate-go.eps}}
     \\
     \vspace*{-2.5em}
   \subfloat[ \label{1e}]{%
         \includegraphics[width=0.99\linewidth]{images/ft_vs_rg_dist.eps}}
   \caption{Simulation Results: Trajectories of the leader and follower for Follow the thread (a) and Rotate and go (b) . 
         Speed profiles of the leader and follower for Follow the thread (c) and Rotate and go (d). 
-        (e) Separation distance between robot and leader for both strategies [m].}
+        (e) Separation distance between robot and leader for both strategies.}
   \label{fig:simulationresults} 
 \end{figure}
 
@@ -1038,17 +1038,17 @@ Results for the real world experiment can be seen on Figure~\ref{fig:realworldre
 \begin{figure} 
     \centering
   \subfloat[ \label{1a}]{%
-       \includegraphics[width=0.49\linewidth]{images/ft1cap.eps}}
+       \includegraphics[width=0.49\linewidth]{images/capture_follow-turn.eps}}
     \hspace*{-1.5em}
   \subfloat[ \label{1b}]{%
-        \includegraphics[width=0.49\linewidth]{images/rg2cap.eps}}
+        \includegraphics[width=0.49\linewidth]{images/capture_rotate-go.eps}}
     \\
     \vspace*{-1.5em}
   \subfloat[ \label{1c}]{%
-        \includegraphics[width=0.49\linewidth]{images/ft1cap_leader_robot_speed.eps}}
+        \includegraphics[width=0.49\linewidth]{images/capture_speed_profile_follow-thread.eps}}
     \hspace*{-1.5em}
   \subfloat[ \label{1d}]{%
-        \includegraphics[width=0.49\linewidth]{images/rg2cap_leader_robot_speed.eps}}
+        \includegraphics[width=0.49\linewidth]{images/capture_speed_profile_rotate-go.eps}}
     \\
     \vspace*{-2.5em}
   \subfloat[ \label{1e}]{%
