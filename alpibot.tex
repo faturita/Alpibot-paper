@@ -454,13 +454,13 @@ of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation procedures patients require oxygen assistance.  The oxygen tank cannot be carried by the patient and external assistance is required.   This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
+Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation programs patients perform different exercises and walking activities and may require oxygen assistance.  The oxygen tank cannot be carried by the patient due to the eskeletomuscular atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
 \end{abstract}
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-SAR, IoRT, tethered, leader-follower, pulmonary rehabilitation, COPD
+COPD, PR, SAR, IoRT, tethered, leader-follower
 \end{IEEEkeywords}
 
 
@@ -497,9 +497,9 @@ SAR, IoRT, tethered, leader-follower, pulmonary rehabilitation, COPD
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During these procedures patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist has to carry the oxygen tank.  Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment.
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During this rehabilitation, patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  This scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologist and physical therapists.  
 
-The scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologist and physical therapists.  
+%Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment. 
 
 An alternative solution is to use an assitive ground service robot~\cite{Neto2015} to carry the oxygen tank, while following the patient in a leader-follower configuration.  There are two reasons that support the initial viability of this idea.  First,  the rehabilitation gym is a constrained environment where this problem can be tackled by an Unmanned Ground Vehicle (UGV).  On the other hand, the range of movements performed by the patient during the Rehabilitation Procedure is highly predictable by the treatment.  At the same time,  the global robotic research community looks forward for the development of robotic affordable solutions to the social and health-related worldwide problems~\cite{Khamis2019}.
 
@@ -507,7 +507,7 @@ For the implementation of the leader-follower strategy, several solutions have b
 
 At the same time, several assistance devices for COPD treatments have been proposed.  Particularly relevant are novel telemedicine~\cite{Banerjee2020} applications to enhance complementary rehabiliation exercise at home that can track biological markers for patients~\cite{Yang2018,Wu2012}.  The work presented here follows the line established by \cite{Endo2015}.  Authors studied the use of a single thread tethered follower robot for home oxygen therapy, and compared two different control algorithms and their effectiveness to mimic the leader trajectory and to avoid obstacles.  However, their approach focuses on the usage of the device exclusively for home therapy, and not within the context of a Pulmonary Rehabilitation procedure performed by medical personnel on medical facilities.
 
-Hence, this work provides an initial study on the controlling mechanism of a differential tethered robot that implements the leader-follower configuration on a Pulmonary Rehabilitation procedure.  To do so, this document unrolls as follows.  Section~\ref{materials} poses the problem and the solution design. Section~\ref{experimental} documents the experimental protocol to perform the solution assessment on a simulation and on a real world scenario.  Results and Discussions are described in~\ref{results} and~\ref{discussion}. The Clinical Assessment performed jointly with medical personnel is tackled in Section~\ref{clinical}.  Finally, conclusions are exposed in the remaining section~\ref{conclusion}.
+Hence, this work provides an initial study on the controlling mechanism of a differential tethered robot that implements the leader-follower configuration on a Pulmonary Rehabilitation procedure.  To do so, this document unrolls as follows.  Section~\ref{materials} poses the problem and the solution design. Section~\ref{experimental} documents the experimental protocol to perform the solution assessment on a simulation and on a real world scenario.  Results and discussions are described in Sections ~\ref{results} and~\ref{discussion}. The clinical assessment performed jointly with medical personnel is tackled in Section~\ref{clinical}.  Finally, conclusions are exposed in the remaining Section~\ref{conclusion}.
 
 \section{Materials and Methods}
 \label{materials}
@@ -561,9 +561,9 @@ Looking forward to achieve this goal, a basic robotic configuration is designed 
     \draw  [draw opacity=0][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (478.5,1350) -- (535.5,1350) -- (535.5,1374) -- (478.5,1374) -- cycle  ;
     \draw (507,1362) node    {$subject$};
     % Text Node
-    \draw (302,1344) node    {$left\ reel$};
+    \draw (302,1344) node    {$left\ reel\  \ $};
     % Text Node
-    \draw (299,1425) node    {$right\ reel$};
+    \draw (299,1425) node    {$right\ reel\  \ $};
     % Text Node
     \draw (125,1414) node    {$castor\ wheel$};
     % Text Node
@@ -575,7 +575,7 @@ Looking forward to achieve this goal, a basic robotic configuration is designed 
     % Text Node
     \draw (348,1496) node    {$right\ wheel$};
     \end{tikzpicture}
-    \caption{Components of the robotic vehicle and following mechanism}
+    \caption{Components of the robotic vehicle and the tether mechanism}
     \label{fig:components}
 \end{figure}{}
 
@@ -594,7 +594,7 @@ D_r = pulses_{r} \; \frac{2\pi r}{ppr}
 \end{array}
 \end{equation}{}
 
-\noindent where pulses obtained for each reel encoder are $pulses_{l}$ and $pulses_{r}$ for the left and right encoder. This equation provides the estimated values for the left $D_l$ and right $D_r$  thread distance. The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
+\noindent where pulses obtained for each reel encoder are $pulses_{l}$ and $pulses_{r}$ for the left and right encoder. These equations provide the estimated values for the left $D_l$ and right $D_r$  thread distance. The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
 
 \subsection{Hardware}
 
@@ -606,9 +606,9 @@ D_r = pulses_{r} \; \frac{2\pi r}{ppr}
 \end{figure}
 
 
-Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).   The prototype is a three-wheeled robot with two frontal differential drive wheels and a free castor wheel as a third point of contact on the back, as can be seen on Figure~\ref{fig:alpibot2}.  
+Frames are constructed from aluminum extrusions produced by Makeblock (Shenzhen, China).   The prototype is a three-wheeled robot with two frontal differential drive wheels and a free castor wheel as a third point of contact on the back, as can be seen on Figures~\ref{fig:alpibot1} and~\ref{fig:alpibot2}.  
 
-Two motors Makeblock Optical Encoder Motor-25 9V/86 rpm are used on in-wheel configuration providing optical encoding.  A microcontroller Arduino (Arduino LLC, Italy) Mega 2560 is used to implement the control loop and to provide encoder processing.  On top of it an Adafruit (Adafruit, New York City) Motor Shield v2 bridge is used to drive the four DC motors, one for each wheel and one on each reel.   The Arduino board is also connected to a Single Board Computer (SBC) Raspberry Pi (Raspberry Pi Foundation, United Kingdom) 3B+ through serial connection on the USB port.
+Two motors Makeblock Optical Encoder Motor-25 9V/86 rpm are used on in-wheel configuration providing optical encoding.  A microcontroller Arduino (Arduino LLC, Italy) Mega 2560 is used to implement the control loop and to provide encoder processing.  On top of it an Adafruit (Adafruit, New York City) Motor Shield v2 bridge is used to drive the four DC motors, one for each wheel and one on each reel.   The Arduino board is also connected to a Single Board Computer (SBC) Raspberry Pi (Raspberry Pi Foundation, United Kingdom) 3B+ through serial connection on one of the USB port.
 
 \begin{figure*}[!t]
 \centering
@@ -795,7 +795,7 @@ The \textit{Rotate and go} algorithm divides the vehicle movement in two steps:
 \item Go forward in a straight line until the vehicle is at the expected distance to the subject.
 \end{itemize}
 
-The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_off$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_off$ is similar to $d_0$, and is used to customize the length of the thread where the robot does not move.
+The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_off$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_off$ is similar to $d_0$, and is used to customize the length of the thread where the robot does not move at all.
 
 
 \begin{algorithm}[]
@@ -878,14 +878,14 @@ The simulation is also useful to study the effects of the different constants in
 
 A real world experiment was performed, pegging to the same conditions implemented on the simulation environment.  A motion capture system is used to track the movement of a human leader along a predetermined trajectory.   The motion tracking system consists of an array of 16 OptiTrack (NaturalPoint Inc, Oregon, US) Flex 3 cameras, which measure the position of reflective markers with an accuracy of $\pm1$ [cm] at sampling rate of 100 Hz. The calibration and data collection was made using the Motive motion capture software. 
 
-A tracked marker was placed in each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was marked on the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
+A tracked marker was placed on each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was marked on the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
 
 The three markers allowed to measure the trajectory of both the robot and the leader, and then obtain the same metrics calculated in the simulation.  Four experiments were performed for each set of parameter configurations.  In this case, only two set of configuration were tested for each strategy.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=8cm]{images/capture.png}
-\caption{Hardware prototype on the motion capture system and a testing subject holding the threads.  The lemniscate of gerone was marked on the floor.  The subject follows this track on the experiments performed.}
+\caption{Hardware prototype on the motion capture system and a testing subject holding the threads.  The lemniscate of gerone was marked on the floor.  The subject follows this track on the performed experiments.}
 \label{fig:distance_sim}
 \end{figure}
 
@@ -894,7 +894,7 @@ The three markers allowed to measure the trajectory of both the robot and the le
 \section{Results} \label{Results}
 \label{results}
 
-Simulation results for both control strategies are shown on Figure~\ref{fig:simulationresults}.  Results metrics for the simulations are shown on Table~\ref{tab:simulationmetricsftt} for the Follow the thread strategy, whereas metrics for Rotate and go are shown on Table~\ref{tab:simulationmetricsrg}.
+Simulation results for both control strategies are shown on Figure~\ref{fig:simulationresults}. Subfigures (a) and (b) expound the trajectories of the leader and the follower for each strategy, while (c) and (d) describe their speed profiles.  Subfigure (e) show the distance between the robot and the patient for both strategies.  Results metrics for the simulations are shown on Table~\ref{tab:simulationmetricsftt} for the Follow the thread strategy, whereas metrics for Rotate and go are shown on Table~\ref{tab:simulationmetricsrg}.
 
 
 \begin{center}
@@ -930,8 +930,6 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. & t.t.d.\\
 \captionof{table}{Max trajectory deviation m.t.d. (in [m]) and total trajectory deviation t.p.d. for different Rotate and go constants.}
 \label{tab:simulationmetricsrg}
 \end{center}
-
-Additionally, speed profiles can be observed from both trajectories.
 
 %\begin{figure}[h!]
 %\centering
@@ -1067,7 +1065,7 @@ Results for the real world experiment can be seen on Figure~\ref{fig:realworldre
 \hline
 $c_v$ & $c_{\alpha}$ & m.t.d. [m] & t.t.d. \\
 \hline
-25  &   20  & 0.3876 & 1.9761\\
+\textbf{25}  &   \textbf{20}  & \textbf{0.3876} & \textbf{1.9761}\\
 25  &   35  & 0.4672 & 2.3528\\
 \hline
 \end{tabular}
@@ -1082,7 +1080,7 @@ $c_v$ & $c_{\alpha}$ & m.t.d. [m] & t.t.d. \\
 $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. [m] & t.t.d. \\
 \hline
 30  &   35  & 0.04  & 0.4116 & 2.8309\\
-30  &   35  & 0.08 & 0.3739 & 2.0367\\
+\textbf{30}  &   \textbf{35}  & \textbf{0.08 }& \textbf{0.3739} & \textbf{2.0367}\\
 \hline
 
 \end{tabular}
@@ -1137,7 +1135,9 @@ As expected, the \textit{Rotate and go} strategy performs a \textit{stop and go}
 
 %As in the simulation, we also see differences in the robot-leader distance over time. The \textit{Rotate and go} strategy performs worse in this respect, reaching higher maximum distances and a higher average distance to the leader (table \ref{tab:cap_ft_vs_rg_dist_table}).
 
-Finally, regarding the Robot-leader distance r.l.d., the \textit{Rotate and go} strategy results in a less stable distance (higher standard deviation), with higher maximum values, both on the simulated (Figure~\ref{fig:simulationresults}(e)) and on the real world scenario (Figure~\ref{fig:realworldresults}(e)).  These values are also compared in Table \ref{tab:cap_ft_npd_table} and Table~\ref{tab:cap_rg_npd_table}.  This can be specially problematic if we consider the cannula connecting the oxygen tank to the patient, as the cannula has a limited length.  
+Finally, regarding the Robot-leader distance r.l.d., the \textit{Rotate and go} strategy results in a less stable distance (higher standard deviation), with higher maximum values, both on the simulated (Figure~\ref{fig:simulationresults}(e)) and on the real world scenario (Figure~\ref{fig:realworldresults}(e)).  This can be specially problematic if we consider the cannula connecting the oxygen tank to the patient, as the cannula has a limited length.  
+
+%These values are also compared in Table \ref{tab:cap_ft_npd_table} and Table~\ref{tab:cap_rg_npd_table}.  
 
 \subsection{Clinical Assessment} 
 \label{clinical}
@@ -1176,7 +1176,7 @@ According to their answers, and the discussion we had after testing the robot, t
 
 The main concern with the \textit{Rotate and go} strategy was that having to wait for the robot to rotate before moving forward might be unsafe, as the patient could move away from it and compromise the cannula connecting him or her to the oxygen tank. This issue was identified during our own tests, and was not mentioned when explaining the following mechanism to the doctors, to avoid skewing them. They independently identified this problem, and emphasized that it could be a great source of discomfort for the patient.
 
-Another aspect that was value from the \textit{Follow the thread} strategy is that since its smoother movement, with no sudden stops or accelerations, was favorable for the stability of the robot if it were to carry the heavy oxygen tank.
+Another aspect that was remarked from the \textit{Follow the thread} strategy is that since it had a smoother movement, with no sudden stops or accelerations, it was favorable for the stability of the robot in order to carry the heavy oxygen tank.
 
 Two needed security measures were also brought up by the ALPI team. Firstly, the need to add some mechanism for obstacle avoidance. They mentioned the need to have sensors to detect if the robot was about to hit something (specially the patient), and stop immediately, apart from what the control strategy indicated. Secondly, they recognized that some patients have very weak stability, and might fall down or take a step back, towards the robot, so it should be able to automatically move away from the patient, in order not to become another obstacle for him or her. 
 
@@ -1194,7 +1194,7 @@ Insightful feedback is gathered from healthcare professionals from ALPI, who pro
 
 As described in the beginning, it is essential to involve stakeholders such as patients, doctors, nurses, and any other professionals involved in the rehabilitation process early in the design roadmap. They are the ones who understand the problem better than anyone else, and will be the end users of any developed product, as long as it is useful for them.
 
-The staff at ALPI was enthusiastic about helping in the development of the robot, and their encouragement and support are key reasons to take this project forward.  There are yet many challenges ahead, but these initial results are promising about the viability to develop a real world solution that can improve the quality of life of many people through the use of technology and engineering. 
+%The staff at ALPI was enthusiastic about helping in the development of the robot, and their encouragement and support are key reasons to take this project forward.  There are yet many challenges ahead, but these initial results are promising about the viability to develop a real world solution that can improve the quality of life of many people through the use of technology and engineering. 
 
 \subsection{Future Work}
 %A following mechanism has been designed and implemented in a hardware prototype. The mechanism, along with the two control algorithms, has shown promise to be a viable solution to implement in a functioning robot that ALPI, or any other medical institution, can use in their every day exercises with COPD patients. 
