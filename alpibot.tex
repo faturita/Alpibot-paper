@@ -421,8 +421,9 @@ of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad 
 
 
 % The paper headers
-\markboth{IEEE Latin American Transactions}%
-{Bianchi \MakeLowercase{\textit{et al.}} Controller Design for a Tethered Follower Robot for Pulmonary Rehabilitation}
+\markboth{IEEE Transactions on Neural Systems and Rehabilitation Engineering}%
+{Bianchi \MakeLowercase{\textit{et al.}} A Control Strategy for a Tethered Follower Robot
+for Pulmonary Rehabilitation}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 % 
@@ -460,7 +461,7 @@ Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a proc
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-COPD, PR, SAR, IoRT, tethered, leader-follower
+COPD, PR, SAR, IoRT, tethered
 \end{IEEEkeywords}
 
 
@@ -497,7 +498,7 @@ COPD, PR, SAR, IoRT, tethered, leader-follower
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During this rehabilitation, patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  This scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologist and physical therapists.  
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During this rehabilitation, patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  This scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologists and physical therapists.  
 
 %Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment. 
 
@@ -850,7 +851,7 @@ In order to standardize the procedure~\cite{Sprunk2016}, the \textit{Lemniscate 
 
 The reason  this shape was chosen is because it combines different kinds of trajectories where the vehicle can be tested: long straight segments, sharp and soft curves, all in one single shape. Similar curves are also used in other proposed experiments in \cite{Neto2015,Endo2015}.  
 
-Regarding metrics, three are proposed to evaluate the performance.  They are:
+Regarding metrics, four are proposed to evaluate the performance.  They are:
 
 \begin{itemize}
     \item \textit{Normal trajectory deviation, n.t.d.}: the subject trajectory is divided into small segments and then the normal distance to the robot trajectory is calculated for each of those segments. Trajectory deviation curve is relevant to evaluate how closely the robot mimics the leader trajectory, which is the ultimate goal of the robotic vehicle. 
@@ -878,7 +879,7 @@ The simulation is also useful to study the effects of the different constants in
 
 A real world experiment was performed, pegging to the same conditions implemented on the simulation environment.  A motion capture system is used to track the movement of a human leader along a predetermined trajectory.   The motion tracking system consists of an array of 16 OptiTrack (NaturalPoint Inc, Oregon, US) Flex 3 cameras, which measure the position of reflective markers with an accuracy of $\pm1$ [cm] at sampling rate of 100 Hz. The calibration and data collection was made using the Motive motion capture software. 
 
-A tracked marker was placed on each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was marked on the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
+As shown in Figure~\ref{fig:capturesystem}, a tracking marker was placed on each side of the robot (on top of each thread reel). The human leader used his hand to grab the tip at which the two tethers were tied together. A third marker was placed in his hand, using a glove. The lemniscate of Gerono, used in the simulation, was marked on the floor, and the human leader tried to move his hand following this shape as close as possible, with stable speed.  The shape was marked according to the shape described in Equation~\ref{eq:lemniscata}, using $a = 2$ [m].
 
 The three markers allowed to measure the trajectory of both the robot and the leader, and then obtain the same metrics calculated in the simulation.  Four experiments were performed for each set of parameter configurations.  In this case, only two set of configuration were tested for each strategy.
 
@@ -886,7 +887,7 @@ The three markers allowed to measure the trajectory of both the robot and the le
 \centering
 \includegraphics[width=8cm]{images/capture.png}
 \caption{Hardware prototype on the motion capture system and a testing subject holding the threads.  The lemniscate of gerone was marked on the floor.  The subject follows this track on the performed experiments.}
-\label{fig:distance_sim}
+\label{fig:capturesystem}
 \end{figure}
 
 
@@ -969,21 +970,21 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. & t.t.d.\\
 
 \begin{figure} 
     \centering
-  \subfloat[ \label{1a}]{%
+  \subfloat[ \label{sr1a}]{%
        \includegraphics[width=0.49\linewidth]{images/simulation_follow-thread.eps}}
     \hspace*{-1.5em}
-  \subfloat[ \label{1b}]{%
+  \subfloat[ \label{sr1b}]{%
         \includegraphics[width=0.49\linewidth]{images/simulation_rotate-go.eps}}
     \\
-    \vspace*{-1.5em}
-  \subfloat[ \label{1c}]{%
+    \vspace*{-1.1em}
+  \subfloat[ \label{sr1c}]{%
         \includegraphics[width=0.49\linewidth]{images/simulation_speed_profile_follow-thread.eps}}
     \hspace*{-1.5em}
-  \subfloat[ \label{1d}]{%
+  \subfloat[ \label{sr1d}]{%
         \includegraphics[width=0.49\linewidth]{images/simulation_speed_profile_rotate-go.eps}}
     \\
     \vspace*{-2.5em}
-  \subfloat[ \label{1e}]{%
+  \subfloat[ \label{sr1e}]{%
         \includegraphics[width=0.99\linewidth]{images/ft_vs_rg_dist.eps}}
   \caption{Simulation Results: Trajectories of the leader and follower for Follow the thread (a) and Rotate and go (b) . 
         Speed profiles of the leader and follower for Follow the thread (c) and Rotate and go (d). 
@@ -1037,21 +1038,21 @@ Results for the real world experiment can be seen on Figure~\ref{fig:realworldre
 
 \begin{figure} 
     \centering
-  \subfloat[ \label{1a}]{%
+  \subfloat[ \label{rw1a}]{%
        \includegraphics[width=0.49\linewidth]{images/capture_follow-turn.eps}}
     \hspace*{-1.5em}
-  \subfloat[ \label{1b}]{%
+  \subfloat[ \label{rw1b}]{%
         \includegraphics[width=0.49\linewidth]{images/capture_rotate-go.eps}}
     \\
-    \vspace*{-1.5em}
-  \subfloat[ \label{1c}]{%
+    \vspace*{-1.1em}
+  \subfloat[ \label{rw1c}]{%
         \includegraphics[width=0.49\linewidth]{images/capture_speed_profile_follow-thread.eps}}
     \hspace*{-1.5em}
-  \subfloat[ \label{1d}]{%
+  \subfloat[ \label{rw1d}]{%
         \includegraphics[width=0.49\linewidth]{images/capture_speed_profile_rotate-go.eps}}
     \\
     \vspace*{-2.5em}
-  \subfloat[ \label{1e}]{%
+  \subfloat[ \label{rw1e}]{%
         \includegraphics[width=0.99\linewidth]{images/cap_ft_vs_rg_dist.eps}}
   \caption{Experimentation Results: Trajectories of the leader and follower for Follow the thread (a) and Rotate and go (b). 
         Speed profiles of the leader and follower for Follow the thread (c) and Rotate and go (d). 
@@ -1186,7 +1187,7 @@ In order to have more information for the next steps in the development of the r
 \subsection{Conclusion and Future Work}
 \label{conclusion}
 
-From the practical experiments, it is verified that the both algorithms gave reasonable following performance in the task of following the leader along a lemniscate-shaped trajectory. This reasonable following behaviour is accomplished with a simple mechanism, a characteristic that significantly keep the price of the device low, putting it within reach of many medical institutions.
+From the practical experiments, it is verified that both algorithms gave reasonable following performance in the task of following the leader along a lemniscate-shaped trajectory. This reasonable following behaviour is accomplished with a simple mechanism, a characteristic that significantly keep the price of the device low, putting it within reach of many medical institutions.
 
 Each control strategy has its advantages, but according various metrics described in this work, the \textit{Follow the thread} strategy had a more desirable behaviour, as it tended to follow the leader from a closer distance at all times, while moving in a smooth and predictable way. 
 
