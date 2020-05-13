@@ -855,7 +855,7 @@ Regarding metrics, four are proposed to evaluate the performance.  They are:
 
 \begin{itemize}
     \item \textit{Normal trajectory deviation, n.t.d.}: the subject trajectory is divided into small segments and then the normal distance to the robot trajectory is calculated for each of those segments. Trajectory deviation curve is relevant to evaluate how closely the robot mimics the leader trajectory, which is the ultimate goal of the robotic vehicle. 
-    \item \textit{Robot-leader distance, r.l.d.}: The euclidean distance between the robot and the leader, at any point in time. This curve is particularly important since the robot has a limited amount of thread available, so if the leader uses all the available thread, it will start dragging the robot and damaging the following mechanis, and overall it may rise the possibility of disconnecting the breathing oxygen cannula. This is a scenario that must not happen under any circumstance, as it can also be dangerous for a potential patient using the device. 
+    \item \textit{Robot-leader distance, r.l.d.}: The euclidean distance between the robot and the leader, at any point in time. This curve is particularly important since the robot has a limited amount of thread available, so if the leader uses all the available thread, it will start dragging the robot and damaging the following mechanism, and overall it may rise the possibility of disconnecting the breathing oxygen cannula. This is a scenario that must not happen under any circumstance, as it can also be dangerous for a potential patient using the device. 
     \item \textit{Total trajectory deviation, t.t.d.}: The area under the curve resulting from the the \textit{normal trajectory deviation} over the length traveled by the leader.
     \item \textit{Maximum trajectory deviation, m.t.d.}: the maximum \textit{normal trajectory deviation} registered during an experiment.    
 \end{itemize}{}
@@ -1051,7 +1051,7 @@ Results for the real world experiment can be seen on Figure~\ref{fig:realworldre
   \subfloat[ \label{rw1d}]{%
         \includegraphics[width=0.49\linewidth]{images/capture_speed_profile_rotate-go.eps}}
     \\
-    \vspace*{-2.5em}
+    \vspace*{-1.8em}
   \subfloat[ \label{rw1e}]{%
         \includegraphics[width=0.99\linewidth]{images/cap_ft_vs_rg_dist.eps}}
   \caption{Experimentation Results: Trajectories of the leader and follower for Follow the thread (a) and Rotate and go (b). 
@@ -1092,16 +1092,16 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. [m] & t.t.d. \\
 \section{Discussion}
 \label{discussion}
 
-From the leader and robot trajectories in Figure~\ref{fig:simulationresults}(a to d), both strategies exhibits basic following behaviour.  However, Rotate and go on Figure~\ref{fig:simulationresults}(b,d) generates a more irregular trajectory, due to the two stage movement algorithm.   
+From the leader and robot trajectories in Figure~\ref{fig:simulationresults}(a to d), both strategies exhibits basic following behavior.  However, Rotate and go on Figure~\ref{fig:simulationresults}(b,d) generates a more irregular trajectory, due to the two stage movement algorithm.   
 
 Regarding algorithms parameters, the simulation shows that for Follow the thread, a low $c_{\alpha}$  means that the robot is slow to turn and makes wider turns, providing a smoother trajectory.  On the other hand, for low $c_v$ values, the robot tends to lag behind the leader when it is going in a straight line.  The highlighted values on Table~\ref{tab:simulationmetricsrg} show the best configuration found.  For the Rotate and go configuration, a high $c_r$ was important so the robot can turn quickly to point to the leader, but high values of $c_r$ and $c_v$ should be avoided, which may lead to dynamical issues with the inertia affecting the forward direction and missing the leader.  Lastly, increasing the $Dt_{off}$ from 0.05 to 0.10 made the vehicle less prone to fall behind and results in a better following profile.
 
 
-%From the leader and robot trajectories in Figure \ref{fig:sim_ft_cv15_cr15}, we can see that the robot using Follow the thread control exhibits basic following behaviour. Deviation occurs when the leader trajectory turns with a tight radius. Comparing different simulations using different values of $c_{\alpha}$, we can also see that the robot tends to miss or cut corners when the leader turns, depending on the value of this constant (figures \ref{fig:sim_ft_cv15_cr5}, \ref{fig:sim_ft_cv15_cr10} and \ref{fig:sim_ft_cv15_cr15}). When $c_{\alpha}$ is low, the robot is slow to turn and makes wider turns, and when it is high, it can turn sharply as soon as the leader starts turning, so it will "cut" the curve. 
+%From the leader and robot trajectories in Figure \ref{fig:sim_ft_cv15_cr15}, we can see that the robot using Follow the thread control exhibits basic following behavior. Deviation occurs when the leader trajectory turns with a tight radius. Comparing different simulations using different values of $c_{\alpha}$, we can also see that the robot tends to miss or cut corners when the leader turns, depending on the value of this constant (figures \ref{fig:sim_ft_cv15_cr5}, \ref{fig:sim_ft_cv15_cr10} and \ref{fig:sim_ft_cv15_cr15}). When $c_{\alpha}$ is low, the robot is slow to turn and makes wider turns, and when it is high, it can turn sharply as soon as the leader starts turning, so it will "cut" the curve. 
 
 %Is was also found that with low $c_v$ values, the robot tends to lag behind the leader when it is going in a straight line, and as a consequence, when the leader turns, the follower is further away and has to make a sharper turn to keep following the leader. Again, a very low values of $c_v$ makes the follower "cut corners", as can be seen in figure \ref{fig:sim_ft_cv5_cr20}.
 
-%The rotateand go We see that this strategy also exhibits a following behaviour, although in a more irregular path, as expected, due to the two stage movement algorithm. In this case we evaluated the effects of the constants $c_v$, $c_r$ and $Dt_{off}$. 
+%The rotateand go We see that this strategy also exhibits a following behavior, although in a more irregular path, as expected, due to the two stage movement algorithm. In this case we evaluated the effects of the constants $c_v$, $c_r$ and $Dt_{off}$. 
 
 %We found that it is important to have a high $c_r$ so the robot turns quickly to point to the leader, or otherwise, as the leader turns, the robot never stops rotating since it takes too much time to get to the point where it can go forward. Therefore, if the leader makes a long turn, the robot never stops rotating and stops following the leader (figure \ref{fig:rgv_cv20_cr5_dr05}).
 
@@ -1111,17 +1111,17 @@ Regarding algorithms parameters, the simulation shows that for Follow the thread
 
 
 
-%Both behaviours are described by figures \ref{fig:ft_speed_1} and \ref{fig:rg_speed_1}, which show the speed of the leader and the robot over time.
+%Both behaviors are described by figures \ref{fig:ft_speed_1} and \ref{fig:rg_speed_1}, which show the speed of the leader and the robot over time.
 
 
 %When we measured the robot-leader distance over time, we see another significant between the two strategies. As mentioned before, using \textit{Rotate and go}, as the robot rotates, the leader can get further away. Figures \ref{fig:ft_vs_rg_dist} and \ref{fig:ft_vs_rg_dist_hist} show the distance over time and the distribution of distances for each strategy, respectively. 
 
 
 
-In line with the simulated results, a similar behaviour was found on the experiments performed inside the Motion Capture Lab, and the robot exhibits following behaviour for both control strategies as shown on Figure~\ref{fig:realworldresults}.   Parameters had to be readjusted for the real world case, but the same situation occurs for both strategies.   
+In line with the simulated results, a similar behavior was found on the experiments performed inside the Motion Capture Lab, and the robot exhibits following behavior for both control strategies as shown on Figure~\ref{fig:realworldresults}.   Parameters had to be readjusted for the real world case, but the same situation occurs for both strategies.   
 
 
-%We can see that, again, the robot exhibits following behaviour. The trajectories in the figures mentioned above show a similar behaviour to the one in the software simulation, for both control strategies.
+%We can see that, again, the robot exhibits following behavior. The trajectories in the figures mentioned above show a similar behavior to the one in the software simulation, for both control strategies.
 
 %As in the software simulation, we also evaluated the influence of the algorithm parameters in the robot movement, using the hardware prototype. Figures \ref{fig:ft1_cap_leader_robot} and \ref{fig:ft2_cap_leader_robot} show the robot and leader movement using different values for $c_{\alpha}$. As we have seen in the simulation, a higher $c_{\alpha}$ makes the robot tend to "cut corners" (figure \ref{fig:ft2_cap_leader_robot}).
 
@@ -1187,9 +1187,9 @@ In order to have more information for the next steps in the development of the r
 \subsection{Conclusion and Future Work}
 \label{conclusion}
 
-From the practical experiments, it is verified that both algorithms gave reasonable following performance in the task of following the leader along a lemniscate-shaped trajectory. This reasonable following behaviour is accomplished with a simple mechanism, a characteristic that significantly keep the price of the device low, putting it within reach of many medical institutions.
+From the practical experiments, it is verified that both algorithms ensuing the \textit{following behavior}  in the task of tracking the patient along a lemniscate-shaped trajectory. This following behavior is accomplished with a simple mechanism, a characteristic that significantly keep the price of the device low, putting it within reach of many medical institutions on developing nations.
 
-Each control strategy has its advantages, but according various metrics described in this work, the \textit{Follow the thread} strategy had a more desirable behaviour, as it tended to follow the leader from a closer distance at all times, while moving in a smooth and predictable way. 
+Each control strategy has its advantages, but according various metrics described in this work, the \textit{Follow the thread} strategy had a more desirable behavior, as it tended to follow the leader from a closer distance at all times, while moving in a smooth and predictable way. 
 
 Insightful feedback is gathered from healthcare professionals from ALPI, who provided invaluable data to evaluate the solution. Over all, they highlight the \textit{Follow the thread} strategy as being the safer and more effective one. Most importantly, they also validated the research and were enthusiast about the direction of the project. They proposed a series of improvements and next steps after seeing the prototype in action.
 
