@@ -398,7 +398,7 @@
         and Santos~Juan~Miguel% <-this % stops a space
 \thanks{E. A. Buniak, R. Ramele  and J.M.Santos are with the CIC Laboratory at the Department
 of  Computer Engineering, Instituto Tecnológico de Buenos Aires (ITBA), Ciudad de Buenos Aires,  Argentina e-mail: rramele@itba.edu.ar}% <-this % stops a space
-\thanks{Manuscript received April 19, 2020; revised August 26, 2020.}}
+\thanks{Manuscript received May 16, 2020; revised July 6, 2020.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -455,7 +455,7 @@ for Pulmonary Rehabilitation}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation patients perform different exercises and walking activities and may require oxygen assistance.  The oxygen tank cannot be carried by the patient due to the eskeletomuscular atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
+Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  During Pulmonary Rehabilitation patients perform different exercises and walking activities and may require oxygen assistance.  The oxygen tank cannot be carried by the patient due to the musculoskeletal atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results are simulated and tested on a real prototype in a Motion Capture System.
 \end{abstract}
 
 
@@ -498,7 +498,7 @@ COPD, PR, SAR, IoRT, tethered
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an eskeletomuscular atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During this rehabilitation, patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  This scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologists and physical therapists.  
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents an musculoskeletal atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During this rehabilitation, patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activity~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  This scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologists and physical therapists.  
 
 %Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment. 
 
@@ -515,7 +515,7 @@ Hence, this work provides an initial study on the controlling mechanism of a dif
 
 %This discipline is part of what is being called 4th industrial revolution and is reshaping many aspects of global manufacturing, including robotic and healthcare.
 
-To be effective, any technological solution for the medical community requires active involvement of key stakeholders: physicians, care-givers, patients and their families~\cite{Gaggioli2006,Fasola2012,Cherubini2008,Wolpaw2012BraincomputerIP,Salvini2015}.  Hence, design methodologies that allow rapid prototyping can bring quickly feedback from real users about drawbacks or opportunities for improvements. 
+To be effective, any technological solution for the medical community requires active involvement of key stakeholders: physicians, care-givers, patients and their families~\cite{Gaggioli2006,Fasola2012,Cherubini2008,Wolpaw2012BraincomputerIP,Salvini2015}.  Hence, design methodologies that allow rapid prototyping can bring quick feedback from real users about drawbacks or opportunities for improvements. 
 
 Looking forward to achieve this goal, a basic robotic configuration is designed that allows the implementation of the  tethered controlling mechanism, while keeping away other necessary features that will be the focus of future iterations.  This design is first simulated in a simulation environment, and later, a basic hardware prototype based on Internet of Robotic Things~\cite{Simoens2018}  is built to verify the design guidelines and assumptions on a real world scenario.
 
@@ -589,13 +589,13 @@ Encoders in each reel measure the difference in length of each thread compared t
 \begin{equation}
 \label{eq:encoder_len}
 \begin{array}{ll}  
-D_l = pulses_{l} \; \frac{2\pi r}{ppr}  \\
+l_l = pulses_{l} \; \frac{2\pi r}{ppr}  \\
 \\
-D_r = pulses_{r} \; \frac{2\pi r}{ppr}
+l_r = pulses_{r} \; \frac{2\pi r}{ppr}
 \end{array}
 \end{equation}{}
 
-\noindent where pulses obtained for each reel encoder are $pulses_{l}$ and $pulses_{r}$ for the left and right encoder. These equations provide the estimated values for the left $D_l$ and right $D_r$  thread distance. The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
+\noindent where pulses obtained for each reel encoder are $pulses_{l}$ and $pulses_{r}$ for the left and right encoder. These equations provide the estimated values for the left $l_l$ and right $l_r$  thread distance. The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder.  The initial position of the threads is configurable.
 
 \subsection{Hardware}
 
@@ -630,7 +630,7 @@ The prototype can be seen on Figure~\ref{fig:alpibot1} and~\ref{fig:alpibot2}.  
 
 \subsection{Active Reel Spring}
 
-As previously mentioned, an active spring mechanism is also put in place to keep the threads tense.  However, in order to extend the useful life of the reel motors, and to save battery, an algorithm to  activate and deactivate the motors is developed. 
+As previously mentioned, an active spring mechanism is also put in place to keep the threads tense.  However, in order to extend the useful life of the reel motors, and to save battery, an algorithm to  activate and deactivate the motors was developed. 
 
 The algorithm works as follows: 
 
@@ -692,29 +692,29 @@ Two simple algorithmic control strategies are proposed and evaluated.  The first
 This control strategy is similar to the one presented in \cite{Ortlieb2016}. It is based on the idea that the difference in length between both threads provides a quasi-linear function of the relative angle between the subject and the vehicle orientation and, additionally, the mean of both thread length allows to approximate the relative distance between the robot and the subject.  They are described by Equations~\ref{eq:lemniscata}, \ref{eq:lemniscata2} and~\ref{eq:lemniscata3}.
 
 \begin{equation}
-v_{tar} = c_v (\frac{D_l + D_r}{2} - d_0)
+v_{tar} = c_v (\frac{l_l + l_r}{2} - l_d)
 \label{eq:lemniscata}
 \end{equation}
 
 \begin{equation}
-vleft_{tar} = v_{tar} + c_{\alpha} (D_l - D_r)
+\omega_{L} = v_{tar} + c_{\alpha} (l_l - l_r)
 \label{eq:lemniscata2}
 \end{equation}
 
 \begin{equation}
-vright_{tar} = v_{tar} - c_{\alpha} (D_l - D_r)
+\omega_{R} = v_{tar} - c_{\alpha} (l_l - l_r)
 \label{eq:lemniscata3}
 \end{equation}
 
-\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration.  As shown in Figure~\ref{fig:follow_params},  $D_l$ and $D_r$ are thread distances obtained from encoder information from Equation~\ref{eq:encoder_len}, $v_{tar}$ is the estimated forward velocity for the target and finally $vleft_{tar}$ are $vright_{tar}$ are the power values that are directly used to drive power to each wheel motor.
+\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration.  As shown in Figure~\ref{fig:follow_params},  $l_l$ and $l_r$ are thread distances obtained from encoder information from Equation~\ref{eq:encoder_len}, $v_{tar}$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the power values that are directly used to drive power to each wheel motor.
 
 To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
 
 \begin{equation}
-\textit{if  }{\frac{D_l + D_r}{2} < d_0}\textit{ then } vleft_{tar} = vright_{tar} = 0 
+\textit{if  }{\frac{l_l + l_r}{2} < l_d}\textit{ then } \omega_{L} = \omega_{R} = 0 
 \end{equation}
 
-\noindent where $d_0$ is a constant offset that is used to customize the length of the thread where the robot does not move.
+\noindent where $l_d$ is a constant offset that is used to customize the length of the thread where the robot does not move.
 
 
 \begin{figure}[]
@@ -765,11 +765,11 @@ To stop the vehicle completely when it is close to its expected position, an add
     
     % Text Node
     \draw (524,1960) node  [font=\large,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ]  {$ \begin{array}{l}
-    D_{r}\\
+    l_{r}\\
     \end{array}$};
     % Text Node
     \draw (510,1910) node  [font=\large,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ,rotate=-358.27]  {$ \begin{array}{l}
-    D_{l}\\
+    l_{l}\\
     \end{array}$};
     % Text Node
     \draw (496,2042) node  [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,opacity=1 ]  {$subject\ start$};
@@ -777,9 +777,9 @@ To stop the vehicle completely when it is close to its expected position, an add
     \draw  [draw opacity=0][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (554.5,1904) -- (611.5,1904) -- (611.5,1928) -- (554.5,1928) -- cycle  ;
     \draw (583,1916) node    {$subject$};
     % Text Node
-    \draw (390.58,1925.93) node [anchor=west] [inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$vleft_{tar}$};
+    \draw (390.58,1925.93) node [anchor=west] [inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\omega_{L}$};
     % Text Node
-    \draw (407.58,2100.93) node [anchor=west] [inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$vright_{tar}$};
+    \draw (407.58,2100.93) node [anchor=west] [inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\omega_{R}$};
     
     
     \end{tikzpicture}
@@ -796,39 +796,231 @@ The \textit{Rotate and go} algorithm divides the vehicle movement in two steps:
 \item Go forward in a straight line until the vehicle is at the expected distance to the subject.
 \end{itemize}
 
-The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_off$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_off$ is similar to $d_0$, and is used to customize the length of the thread where the robot does not move at all.
+The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_d$, and is used to customize the length of the thread where the robot does not move at all.
 
 
 \begin{algorithm}[]
 \caption{Rotate and go algorithm}
 \begin{algorithmic}
-\STATE $Dt \gets D_l - D_r$
-\STATE $Dm \gets \frac{D_r+D_l}{2}$
-\STATE $V_r \gets c_r * (abs(Dt) - Dt_off) + base_{vr}$ 
-\STATE $V_f \gets c_v * (Dm - Dm_off)$
+\STATE $Dt \gets l_l - l_r$
+\STATE $Dm \gets \frac{l_r+l_l}{2}$
+\STATE $V_r \gets c_r * (abs(Dt) - Dt_{off}) + base_{vr}$ 
+\STATE $V_f \gets c_v * (Dm - Dm_{off})$
 
 \IF{$abs(Dt) > Dt_{off}$}
-\IF{$D_l > D_r$}
-\STATE $vleft_{tar} \gets V_r$
-\STATE $vright_{tar} \gets -V_r$
+\IF{$l_l > l_r$}
+\STATE $\omega_{L} \gets V_r$
+\STATE $\omega_{R} \gets -V_r$
 \ELSE
-\STATE $vleft_{tar} \gets -V_r$
-\STATE $vright_{tar} \gets V_r$
+\STATE $\omega_{L} \gets -V_r$
+\STATE $\omega_{R} \gets V_r$
 \ENDIF
 
 \ELSE
 \IF{$D_m > Dm_{off}$}
-\STATE $vright_{tar} \gets V_f$
-\STATE $vleft_{tar} \gets V_f$
+\STATE $\omega_{R} \gets V_f$
+\STATE $\omega_{L} \gets V_f$
 \ELSE
-\STATE $vright_{tar} \gets 0$
-\STATE $vleft_{tar} \gets 0$
+\STATE $\omega_{R} \gets 0$
+\STATE $\omega_{L} \gets 0$
 \ENDIF
 \ENDIF
-\STATE Return $vright_{tar}$ and $vleft_{tar}$.
+\STATE Return $\omega_{R}$ and $\omega_{L}$.
 \end{algorithmic}
 \label{alg:rotateandgoalg}
 \end{algorithm}
+
+\section{Equivalence between the single and double tethered system} \label{development}
+
+
+
+
+
+
+\begin{figure}[]
+    \centering
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt            
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,235); %set diagram left start at 0, and has height of 235
+
+%Shape: Axis 2D [id:dp7543865369052545] 
+\draw  (312,162.89) -- (521,162.89)(332.9,2.69) -- (332.9,180.69) (514,157.89) -- (521,162.89) -- (514,167.89) (327.9,9.69) -- (332.9,2.69) -- (337.9,9.69)  ;
+%Rounded Same Side Corner Rect [id:dp31787525316857024] 
+\draw   (297.9,150.89) .. controls (297.9,146.47) and (301.48,142.89) .. (305.9,142.89) -- (359.9,142.89) .. controls (364.32,142.89) and (367.9,146.47) .. (367.9,150.89) -- (367.9,182.89) .. controls (367.9,182.89) and (367.9,182.89) .. (367.9,182.89) -- (297.9,182.89) .. controls (297.9,182.89) and (297.9,182.89) .. (297.9,182.89) -- cycle ;
+%Shape: Square [id:dp8026938389823051] 
+\draw   (434,151.69) -- (457,151.69) -- (457,174.69) -- (434,174.69) -- cycle ;
+%Shape: Square [id:dp06857182701706144] 
+\draw   (207.66,149.66) -- (231.34,149.66) -- (231.34,173.34) -- (207.66,173.34) -- cycle ;
+%Flowchart: Summing Junction [id:dp2757072161924359] 
+\draw   (317.9,162.89) .. controls (317.9,155.16) and (324.62,148.89) .. (332.9,148.89) .. controls (341.18,148.89) and (347.9,155.16) .. (347.9,162.89) .. controls (347.9,170.62) and (341.18,176.89) .. (332.9,176.89) .. controls (324.62,176.89) and (317.9,170.62) .. (317.9,162.89) -- cycle ; \draw   (322.29,152.99) -- (343.51,172.79) ; \draw   (343.51,152.99) -- (322.29,172.79) ;
+%Straight Lines [id:da9717478160302964] 
+\draw [line width=2.25]    (405,12.69) -- (332.9,162.89) ;
+%Straight Lines [id:da30114532827552765] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (405,12.69) -- (219.5,161.5) ;
+%Straight Lines [id:da0582330345196298] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (405,12.69) -- (445.5,163.19) ;
+%Flowchart: Terminator [id:dp11720735085928635] 
+\draw   (393.1,2.69) -- (416.9,2.69) .. controls (419.99,2.69) and (422.5,7.16) .. (422.5,12.69) .. controls (422.5,18.21) and (419.99,22.69) .. (416.9,22.69) -- (393.1,22.69) .. controls (390.01,22.69) and (387.5,18.21) .. (387.5,12.69) .. controls (387.5,7.16) and (390.01,2.69) .. (393.1,2.69) -- cycle ;
+%Straight Lines [id:da6471016295019487] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (405,12.69) -- (406,162.69) ;
+%Shape: Circle [id:dp5568563915916713] 
+\draw   (403.5,162.69) .. controls (403.5,161.31) and (404.62,160.19) .. (406,160.19) .. controls (407.38,160.19) and (408.5,161.31) .. (408.5,162.69) .. controls (408.5,164.07) and (407.38,165.19) .. (406,165.19) .. controls (404.62,165.19) and (403.5,164.07) .. (403.5,162.69) -- cycle ;
+%Straight Lines [id:da6605293994654671] 
+\draw    (188,161.69) -- (332.9,162.89) ;
+%Shape: Brace [id:dp034761867026847026] 
+\draw   (221,180.69) .. controls (220.93,185.36) and (223.22,187.73) .. (227.88,187.8) -- (302.39,189.02) .. controls (309.06,189.13) and (312.35,191.52) .. (312.27,196.19) .. controls (312.35,191.52) and (315.72,189.24) .. (322.38,189.35)(319.38,189.3) -- (396.89,190.57) .. controls (401.56,190.65) and (403.93,188.36) .. (404,183.69) ;
+%Straight Lines [id:da6885647931399865] 
+\draw [line width=0.75]  [dash pattern={on 0.84pt off 2.51pt}]  (333,13.69) -- (405,12.69) ;
+%Curve Lines [id:da2681192753910786] 
+\draw    (351.04,132.38) .. controls (360.75,134.84) and (374.54,141.11) .. (375.89,158.8) ;
+\draw [shift={(376,161.69)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw [shift={(348,131.69)}, rotate = 11.31] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Curve Lines [id:da7846164710785513] 
+\draw    (334.02,102.11) .. controls (342.64,102.92) and (351.11,101.09) .. (351.93,117.88) ;
+\draw [shift={(352,120.69)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw [shift={(331,101.69)}, rotate = 11.31] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Shape: Brace [id:dp8659813161256731] 
+\draw   (220,203.69) .. controls (219.98,208.36) and (222.3,210.7) .. (226.97,210.72) -- (322.47,211.13) .. controls (329.14,211.16) and (332.46,213.51) .. (332.44,218.18) .. controls (332.46,213.51) and (335.8,211.19) .. (342.47,211.22)(339.47,211.21) -- (437.97,211.64) .. controls (442.64,211.66) and (444.98,209.34) .. (445,204.67) ;
+
+% Text Node
+\draw (399,166.09) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (305,12.4) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (438,173.4) node [anchor=north west][inner sep=0.75pt]    {$x'$};
+% Text Node
+\draw (308,193.4) node [anchor=north west][inner sep=0.75pt]    {$x''$};
+% Text Node
+\draw (357,52.4) node [anchor=north west][inner sep=0.75pt]    {$l_{m}$};
+% Text Node
+\draw (439,90.4) node [anchor=north west][inner sep=0.75pt]    {$l_{R}$};
+% Text Node
+\draw (261,90.4) node [anchor=north west][inner sep=0.75pt]    {$l_{L}$};
+% Text Node
+\draw (333,114.4) node [anchor=north west][inner sep=0.75pt]    {$\theta $};
+% Text Node
+\draw (372,122.4) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+% Text Node
+\draw (334,215.4) node [anchor=north west][inner sep=0.75pt]    {$b$};
+
+\end{tikzpicture}
+\label{fig:dibujito}
+\caption{Following mechanism parameters}
+\end{figure}
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=8cm]{images/dibujito.jpg}
+%\caption{Scheme of the equivalence between a single and dual thread systems.}
+%\label{fig:dibujito}
+%\end{figure}
+
+In~\cite{Endo2015} authors propose a similar design based on only one thread.  They propose two control strategies based on two input parameters that are obtained from a linear and circular potentiometer that determines the length of the thread $l_m$ and the orientation angle $\theta$.  We show here that they are equivalent to the approach presented based on $l_l$ and  $l_r$.
+
+Based on a frame reference with the robot on the center of coordinates as shown in Figure~\ref{fig:dibujito}, from the input values $l_m$ and $\theta$ we can derive the position of the leader as
+
+\begin{align*}
+   y &= l_m  \cos(\theta)\\
+   x &= l_m  \sin(\theta) \\
+\end{align*}
+
+%From the figure, it can be obtained that
+%
+%\begin{align*}
+%x'            	&= \frac{b}{2}  - x \\
+%x'' 			&= \frac{b}{2}  + x \\
+%\end{align*}
+%
+
+\noindent where $x$ is the follower distance on the horizontal direction, and $y$ the follower distance on the vertical direction.
+
+In this frame of reference, the lengths of the threads, $l_r$ and $l_l$ can be determined as
+
+\begin{equation}
+\begin{array}{ll}  
+l_r &= \sqrt[2]{y^2 + {x'}^2} \\
+l_l &= \sqrt[2]{y^2 + {x''}^2}. \\
+\end{array}
+\label{eq:threadsincoordinates}
+\end{equation}
+
+From Figure~\ref{fig:dibujito} we can see that ${x''} + x' =  b$. Combining this with~\ref{eq:threadsincoordinates}, we can form a system of equations to determine $x'$, $x''$ and $y$:
+
+\begin{align*}
+{x''} + x'					&=  b &&\text{(a)}  \\
+{x'}^2 +  y^2                &= l_r &&\text{(b)} \\
+{x''}^2 + y^2                &= l_l  &&\text{(c)}. \\
+\end{align*}
+
+From the first equation, rearranging and squaring both terms leads to
+
+\begin{equation}
+\begin{array}{ll}  
+{x'}^2   	&=  ( b - x'')^2   \\
+ 						&= b^2 - 2 b x''+ {x''}^2. \\
+\end{array}
+\label{eq:thirdstep}
+\end{equation}
+
+
+By substracting (b) and (c), it can be obtained
+
+\begin{align*}
+{x'}^2 - {x'' }^2 = {l_r}^2 - {l_l}^2 \\
+{x'}^2 - {x'' }^2 = {l_r}^2 - {l_l}^2, \\
+\end{align*}
+
+and replacing ${x'}^2$ from Equation~\ref{eq:thirdstep} in it
+
+\begin{align*}
+b^2 - 2 b {x''}= {l_r}^2 - {l_l}^2. \\
+\end{align*}
+
+
+From this equation $x''$ can be determined as
+
+\begin{align*}
+x'' = \frac{({l_d}^2 - {l_i}^2 - b^2)}{-2 \; b}.    \\
+\end{align*}
+
+From Figure~\ref{fig:dibujito} it can also be seen that $\frac{b}{2}$ is equals to $x'' - x$.  Hence this can be used to finally determine $x$ and $y$ values based on the threads length $l_l$ and $l_r$ and the axle length $b$.  The $y$ value comes from Equation~\ref{eq:threadsincoordinates}.
+
+\begin{align*}
+y &= \sqrt[2]{{l_l}^2 - {x''}^2 } \\
+x &= x'' - \frac{b}{2}\\
+\end{align*}
+
+Finally, from trigonometry, it can be seen that
+
+\begin{align*}
+\sin{\gamma'} = \frac{x}{l_m}\\
+\end{align*}
+
+and 
+
+\begin{align*}
+\cos{\gamma'} = \frac{y}{l_m}\\
+\end{align*}
+
+\noindent and as $\theta = \gamma'$, we can obtain the values of $\theta$ and $l_m$:
+
+\begin{align*}
+\theta &= \arctan{ \frac{x}{y}} \\
+\l_m    &= \frac{y}{\cos{\theta}}. \\
+\end{align*}
+
+There is no loss of information and both systems are equivalent.
+
+Additionally in the proposed system based on circular spring, the spring tension depends on the released thread length, hence the recovery force will vary accordingly.   The proposed scheme allows a more controlled situation and depends exclusively on the software that controls the reel motor, which can be regulated.
+Another issue that can be presented is when $l_m$ is equals to $l_d$.  If the patient performs a circular movement where these values are equal, the robot will not change direction at all, because $\omega_{r}$ will be also zero.   If the patient restart the movement, $\omega_{r}$ could be very low and the $K_p$ constant could not be enough to match the person movement rapidly.
+
+Regarding the second approach, the dead-reckoning could be challenging and requires very precise measurements to reduce the error-prone characteristic of this solution~\cite{DurrantWhyte1994}.
+
+%Otro problema que encontré es en el segundo método de control. Éste es un poco más complicado de explicar con palabras así que haré un gráfico y se los envío. Como adelanto, está en la ecuación 17 del paper que es cuando toman como medida de la diferencia de distancias (l_m - l_d) para el cálculo de la V_r.
+
+
+%Por último, un problema del algoritmo de control de los tipos (el de follow-the-leader) es que está basado en "dead-reckoning" el cual es un método impreciso cuyo error crece a lo largo del tiempo. Esto es, la estrategia de los tipos es ir estimando la posición del paciente en base a la posición del robot en un sistema de coordenadas universal (no en el sistema de coordenadas cuyo centro es el robot). Esta estimación la obtienen, entiendo yo, basado en la información de los encoders de los motores del robot (ahí es donde meten la pata) y sumándole un vector que obtienen al rotar (l_m, 0) mediante una matriz de rotación con el ángulo expresado en el sistema de referencia universal). Es importante remarcar que su estrategia se basa en esto: en poder estimar la posición del paciente e ir guardándola (para luego estimar T(s_t const) y para eso usan dead reckoning, es decir, a medida que pasa el tiempo (en rigor, a medida que mayor longitud recorren) peor será la estimación y peor andará el algoritmo. Es cierto que en las curvas no se vé eso, pero también es cierto que, en una sesión terapéutica, recorran más distancia que las mostradas en los test.
 
 
 \section{Experimental Protocol} \label{experimental}
@@ -836,7 +1028,6 @@ The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $
 This section describes the experimental protocol used to evaluate the performance of the proposed solution.  The Pulmonary Rehabilitation procedure consists on a series of walking activities aimed to promote patient muscular recovery and well being~\cite{Wu2012}. They are slow pace motions following a specific trajectory on a rehabilitation gym.
 
 In order to standardize the procedure~\cite{Sprunk2016}, the \textit{Lemniscate of Gerono} is used as desired trajectory, a curve shaped like an $\infty$ symbol, described by the Equations~\ref{eq:lemniscate}:
-
 
 \begin{equation}
 \begin{array}{ll}  
@@ -1149,7 +1340,7 @@ ALPI is a non-profit civil association located in Buenos Aires, Argentina, that 
 
 Four professional care-givers from ALPI  were invited to test and evaluate the controlling strategy on the prototype.  A live demonstration of the robot working and following a moving person was performed.
 
-In the demonstration, the robot design was outlined and an explanation was given on how the robot worked, how it was built and how to operate it. Both control strategies were expounded, along with the main superficial differences between them. 
+In the demonstration, the robot design was outlined and an explanation was given on how the robot worked, how it was built and how to operate it. Both control strategies were explained, along with the main superficial differences between them. 
 
 Afterwards, health care professionals were invited to use the robot themselves, simulating they were the patient being followed. They were allowed to switch between the two control strategies to evaluate both of them, and made different tests, one walking along standardized trajectory marked on the floor and another one walking freely along the available space of the Motion Capture Lab. They used the robot freely to get a general idea of how it behaved, and how it could be used in the rehabilitation process. After all evaluations were finished, various aspects of the vehicle prototype were discussed and then a survey was handed out to document their experience with the robot, get their expert opinion on how the two strategies compared against each other, and what other improvements were needed in order to deliver a fully usable product.  Survey questions and their averaged numerical evaluations are provided in Table~\ref{tab:alpi_q_table_1}.
 

@@ -1,0 +1,279 @@
+\documentclass[journal,onecolumn,12pt]{IEEEtran} 
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{amsthm, amsfonts}	
+\usepackage{bm,bbm}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{fancybox}
+\usepackage{url,booktabs}
+\usepackage[round]{natbib}
+
+\usepackage{xr}
+
+
+
+\title{Reply to Reviewer's Comments on\\
+``A Control Strategy for a Tethered Follower Robot for Pulmonary Rehabilitation''}
+\author{}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+We are grateful to the reviewer for pointing out relevant issues in our manuscript.
+
+In the following, we discuss how we dealt with each raised issue. 
+
+\vskip+1ex
+\noindent \dotfill
+
+\section*{\fbox{Associate Editor Transcript:}}
+
+Comments to the Author:
+Authors addressed an important problem, providing a simple yet effective solution. There is no doubt that the device presented in the paper is of great interest for both patients and clinicians. To publish the paper on a robotics journal, though, the technical content has to be deepened so to increase the interest of researchers.
+As better detailed by the the two reviewers, the Authors are encouraged to improve the manuscript along two main directions:
+
+\begin{itemize}
+\item Clarifying the novelties wrt to state of the art (robot design and robot control), to highlight the original and novel contributions;
+\item  Improving the modelling, which should take into account realistic working conditions (e.g. weight and inertial properties of the tank).
+\end{itemize}
+
+
+\section*{\fbox{Reviewer \#1 Transcript:}}
+
+I found the work interesting and tackling an important problem, which can have applications outside support in this specific task. The need to carry oxygen tanks around patients with respiratory problems is high in hospitals and rehabilitation facilities. This solution frees nurses or other medical staff that would be occupied with such tasks and even patients that could carry the tank themselves with such solution can have an easier life in these places.
+
+\vspace{2em}
+
+Overall the article is very well written, I've found some typos to which I'll refer in a momment. The idea is transmitted clearly and the authors did an excellent job motivating the problem and covering the relevant literature. The prototype defined solves the problem in an elegant and simple way and I find the documentation on how the robot was designed sufficient. However, Section II.D, the control strategy section, could have explored more the strategies as some variables and expressions are not entirely clear regarding their aim; despite that the reader can understand how each strategy works and their differences.
+
+\vspace{2em}
+
+Regarding the evaluation and discussion I don't have much to add, I believe you conducted two solid validations of the system that showed the system performs adequately and the conclusions from those studies seem in line with both the results and the clinical assessment performed. My only question is why were the configurations used in the real world study not part of the set of configurations used in the simulation? I understand why you reduced the sets of configurations used in the real world study, but I would expect that those sets would come from the simulations ran not entirely new sets of configurations. I think this part should have been better explained.
+
+\vspace{2em}
+
+Finally, the typos I found:
+      in page 2, left side, line 22, at the begin of section II - "Hence, design methodologies that allow rapid prototyping can bring quickly feedback from...", I think it sould be "quick" instead of "quickly"
+      in page 3, left side, line 46, at the begin of section II.C - "... and to save battery,
+an algorithm to activate and deactivate the motors is developed.", it should be "motors was developed" and not "is"
+      in page 7, left side, line 19 - "Both control strategies were expounded, along with the main superficial differences between them.", did you mean "expounded" or "explained"
+
+\vspace{2em}
+
+\section*{\fbox{Reviewer \#2 Transcript:}}
+
+The authors propose a differential tethered robot to follow a COPD patient during rehabilitation. The robot carries the heavy oxygen tank that the patient cannot carry on their own. The tethered robot uses two threads attached to motorized reels to control the robots position w.r.t the patient as the patient performs various rehabilitation exercises. The authors propose two control strategies and conduct both simulated and real-world experiments.
+
+\vspace{2em}
+
+Overall, the reviewer found the application to be interesting; it seems like a great opportunity for a robotic solution. The experiments conducted appear to be reasonably selected. It is unclear, however, what the significance of the work is, particularly in the context of previous work [1] which also investigates a tethered robot solution for COPD rehabilitation. The discernible differences between the proposed work and that within [1] appear to be that the proposed robot has two tethers instead of one, and that the solution can be used in medical facilities instead of home therapy environments (the latter of which would probably have even more complicated navigation environments). There is no comparison between this existing work and the proposed work which, given they are essentially tackling the same application, is problematic: what are the advantages/disadvantages of one design over another? Is there something specifically wrong with the design in [1] that prompted the authors to develop their own approach?
+
+\vspace{2em}
+
+[1]  Endo, Gen, et al. "Mobile follower robot as an assistive device for home oxygen therapy–evaluation of tether control algorithms." ROBOMECH Journal 2.1 (2015): 1-9.
+
+\vspace{2em}
+
+
+There were also a number of technical elements the reviewer had a hard time understanding:
+\begin{itemize}
+\item How are "pulses" defined (equation (1)), and how is this value used in an equation?
+\item How does a distance multiplied by a constant yield a velocity? (equation (2)); It would seem there is some element of time missing here.  
+\item How does a velocity, plus a distance multiplied by a constant yield a power value? (equations (3) and (4)); additionally, using "v" to denote both velocity and power seems like a poor notation choice
+\end{itemize}
+
+\vspace{2em}
+
+In addition to these comments, it would seem that a robot being designed to carry a heavy oxygen tank would be designed with said tank in mind. The current calibration of constants and experimental results are not done with the weight of a heavy oxygen tank, and thus it is hard to determine if the design and control techniques would actually succeed in their intended application. Is there a reason that a weight of some kind was not used for the experiments? Can non-weighted experiments be justified somehow?
+
+\vspace{2em}
+
+Given the issues of significance w.r.t. existing work and technical questions raised, the reviewer recommends major revisions.  
+
+\vspace{2em}
+
+Detailed minor comments:
+
+\begin{itemize}
+\item - The abstract and introduction (specifically) suffer from English/grammar issues. (e.g. "eskeletomuscular" to musculoskeletal); the reviewer recommends the paper be peer-edited by a native speaker if it has not been already.
+\item - The footer says the paper has been "revised August 26, 2020", which is of course a date that has not happened yet.
+\item - The term $Dt{off}$ is often spelled $Dt{o}ff$ and should be fixed (same with $Dm{off}$).
+\item - The caption for Table 1 should be with the actual table, not in a separate column.
+\item - In Figure 5 it is not visible that a marker is placed on the side of the robot, nor on the hand of the patient (also the patient is not wearing a glove which is mentioned in the paper).
+\end{itemize}
+
+
+Page 6, first paragraph: "a high cr was important so the robot can turn quickly to point to the leader, but high values of cr should be avoided"; this seems contradictory.
+
+
+\section*{\fbox{Reviewer \#1 Responses:}}
+
+%\subsection*{\ovalbox{Reviewer 1 General Comments}}
+
+I found the work interesting and tackling an important problem, which can have applications outside support in this specific task. The need to carry oxygen tanks around patients with respiratory problems is high in hospitals and rehabilitation facilities. This solution frees nurses or other medical staff that would be occupied with such tasks and even patients that could carry the tank themselves with such solution can have an easier life in these places.
+
+Overall the article is very well written, I've found some typos to which I'll refer in a momment. The idea is transmitted clearly and the authors did an excellent job motivating the problem and covering the relevant literature. The prototype defined solves the problem in an elegant and simple way and I find the documentation on how the robot was designed sufficient. However, Section II.D, the control strategy section, could have explored more the strategies as some variables and expressions are not entirely clear regarding their aim; despite that the reader can understand how each strategy works and their differences.
+
+\begin{quotation}
+{\color{blue}
+We appreciate the Reviewers comments.  We revised the notation on Section II.D per reviewers comments.  We also added a section to establish the parallels between a single and double thread configuration.  We clarified more clearly all the variables and their physicial meaning and included an extra Figure to aid the explanation provided.
+}
+\end{quotation}
+
+
+Regarding the evaluation and discussion I don't have much to add, I believe you conducted two solid validations of the system that showed the system performs adequately and the conclusions from those studies seem in line with both the results and the clinical assessment performed. My only question is why were the configurations used in the real world study not part of the set of configurations used in the simulation? I understand why you reduced the sets of configurations used in the real world study, but I would expect that those sets would come from the simulations ran not entirely new sets of configurations. I think this part should have been better explained.
+
+\begin{quotation}
+{\color{blue}
+During the simulation we explored different sets of values for the controller parameters.  Once we arrived to values where we obtain a range of satisfactory results in terms of the metrics that we defined, we moved forward to the real world testing of the prototype.  We found that we had to fine-tunning the parameters to adapt to the real world scenario but not search through the whole space of configurations.  This was one of the values that the simulation step provided us.
+}
+\end{quotation}
+
+
+Finally, the typos I found:
+      in page 2, left side, line 22, at the begin of section II - "Hence, design methodologies that allow rapid prototyping can bring quickly feedback from...", I think it sould be "quick" instead of "quickly"
+      
+ \begin{quotation}
+{\color{blue}
+Fixed
+}
+\end{quotation}     
+      
+      in page 3, left side, line 46, at the begin of section II.C - "... and to save battery, an algorithm to activate and deactivate the motors is developed.", it should be "motors was developed" and not "is"
+
+\begin{quotation}
+{\color{blue}
+Fixed
+}
+\end{quotation}
+
+      in page 7, left side, line 19 - "Both control strategies were expounded, along with the main superficial differences between them.", did you mean "expounded" or "explained"
+      
+      
+      \begin{quotation}
+{\color{blue}
+We changed to "explained", which we believe is clearer.  Thanks for the suggestion.
+}
+\end{quotation}
+
+\section*{\fbox{Reviewer \#2 Responses:}}
+%\subsection*{\ovalbox{Reviewer 2 General Comments}}
+
+The authors propose a differential tethered robot to follow a COPD patient during rehabilitation. The robot carries the heavy oxygen tank that the patient cannot carry on their own. The tethered robot uses two threads attached to motorized reels to control the robots position w.r.t the patient as the patient performs various rehabilitation exercises. The authors propose two control strategies and conduct both simulated and real-world experiments.
+
+\vspace{2em}
+
+Overall, the reviewer found the application to be interesting; it seems like a great opportunity for a robotic solution. The experiments conducted appear to be reasonably selected. It is unclear, however, what the significance of the work is, particularly in the context of previous work [1] which also investigates a tethered robot solution for COPD rehabilitation. The discernible differences between the proposed work and that within [1] appear to be that the proposed robot has two tethers instead of one, and that the solution can be used in medical facilities instead of home therapy environments (the latter of which would probably have even more complicated navigation environments). There is no comparison between this existing work and the proposed work which, given they are essentially tackling the same application, is problematic: what are the advantages/disadvantages of one design over another? Is there something specifically wrong with the design in [1] that prompted the authors to develop their own approach?
+
+\vspace{2em}
+
+[1]  Endo, Gen, et al. "Mobile follower robot as an assistive device for home oxygen therapy–evaluation of tether control algorithms." ROBOMECH Journal 2.1 (2015): 1-9.
+
+\begin{quotation}
+{\color{blue}
+Este es el primer punto con que vamos a tratar de responder, que es el que revive también el Editor asociado.
+}
+\end{quotation}
+
+There were also a number of technical elements the reviewer had a hard time understanding:
+- How are "pulses" defined (equation (1)), and how is this value used in an equation?
+
+\begin{quotation}
+{\color{blue}
+Pulses are a discrete number obtained directly from the rotary encoder KY-040.  The values are incremented in one direction and decremented in the other direction.  The encoder is connected to the Arduino board and it generates an interruption each time the encoder produces a rotation movement.  PODEMOS ACA DAR DETALLES DE LA CONEXION ELECTRONICA SI QUIERE O DE COMO LO LEE EL CODIGO.
+}
+\end{quotation}
+
+
+- How does a distance multiplied by a constant yield a velocity? (equation (2)); It would seem there is some element of time missing here.  
+
+\begin{quotation}
+{\color{blue}
+The parameter $c_v$ is the proportional gain.  As long as the average distance obtained from both threads deviates from the resting distance $d_0$ the desired velocity is increased.
+EN EL PAPER DE ENDO USAN EL MISMO ESQUEMA LLAMANDOLO $V_r$.  ES CIERTO QUE NO ES LA "VELOCIDAD" REAL DEL ROBOT SINO MAS BIEN UNA ESTIMACION DEL MOVIMIENTO DEL TARGET ?  ACA NO ESTOY SEGURO HAY QUE PENSARLO MAS.
+}
+\end{quotation}
+
+- How does a velocity, plus a distance multiplied by a constant yield a power value? (equations (3) and (4)); additionally, using "v" to denote both velocity and power seems like a poor notation choice
+
+\begin{quotation}
+{\color{blue}
+In this case we shifted the notation to follow the one used in [15] where power assigned to each weels is denoted $\omega$.
+}
+\end{quotation}
+
+In addition to these comments, it would seem that a robot being designed to carry a heavy oxygen tank would be designed with said tank in mind. The current calibration of constants and experimental results are not done with the weight of a heavy oxygen tank, and thus it is hard to determine if the design and control techniques would actually succeed in their intended application. Is there a reason that a weight of some kind was not used for the experiments? Can non-weighted experiments be justified somehow?
+
+\begin{quotation}
+{\color{blue}
+@Luciano esta es la simulación que vos estás haciendo.  ESPEREMOS TENER BUENOS RESULTADOS
+}
+\end{quotation}
+
+Given the issues of significance w.r.t. existing work and technical questions raised, the reviewer recommends major revisions.  
+
+Detailed minor comments:
+
+- The abstract and introduction (specifically) suffer from English/grammar issues. (e.g. "eskeletomuscular" to musculoskeletal); the reviewer recommends the paper be peer-edited by a native speaker if it has not been already.
+
+\begin{quotation}
+{\color{blue}
+We replaced the term with musculoskeletal and verified the English grammar on the abstract and introduction.
+
+@Luciano agarra un canadiense x ahi
+@Esteban si querés darle alguna leída para ver si detectás algún error gramatical concreto.
+}
+\end{quotation}
+
+- The footer says the paper has been "revised August 26, 2020", which is of course a date that has not happened yet.
+
+\begin{quotation}
+{\color{blue}
+We are very surprised the fast review process.  We truly thank Reviewers for their valuable time.  Dates has now been fixed.
+}
+\end{quotation}
+
+- The term $Dt{off}$ is often spelled $Dt{o}ff$ and should be fixed (same with $Dm{off}$).
+
+\begin{quotation}
+{\color{blue}
+We review all the constants definitions to be consistent along the manuscript.
+}
+\end{quotation}
+
+- The caption for Table 1 should be with the actual table, not in a separate column.
+
+\begin{quotation}
+{\color{blue}
+This is an issue with Latex reformatting.  WE WILL FIX IT AT THE END.
+}
+\end{quotation}
+
+- In Figure 5 it is not visible that a marker is placed on the side of the robot, nor on the hand of the patient (also the patient is not wearing a glove which is mentioned in the paper).
+
+\begin{quotation}
+{\color{blue}
+@Luciano, tenés alguna foto donde sí tengas el guante ?
+}
+\end{quotation}
+
+Page 6, first paragraph: "a high cr was important so the robot can turn quickly to point to the leader, but high values of cr should be avoided"; this seems contradictory.
+
+\begin{quotation}
+{\color{blue}
+@Luciano, alguna sugerencia ?
+}
+\end{quotation}
+
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+\bibliographystyle{mdpi}
+\bibliography{article}
+
+\end{document}
