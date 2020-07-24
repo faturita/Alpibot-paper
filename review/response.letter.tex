@@ -23,7 +23,7 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
-We are grateful to the reviewer for pointing out relevant issues in our manuscript.
+We are grateful to all the reviewer for  the time taken to pointing out relevant issues in our manuscript.
 
 In the following, we discuss how we dealt with each raised issue. 
 
@@ -109,6 +109,28 @@ Detailed minor comments:
 
 Page 6, first paragraph: "a high cr was important so the robot can turn quickly to point to the leader, but high values of cr should be avoided"; this seems contradictory.
 
+\section*{\fbox{Associate Editor Responses:}}
+
+Comments to the Author:
+Authors addressed an important problem, providing a simple yet effective solution. There is no doubt that the device presented in the paper is of great interest for both patients and clinicians. To publish the paper on a robotics journal, though, the technical content has to be deepened so to increase the interest of researchers.
+As better detailed by the the two reviewers, the Authors are encouraged to improve the manuscript along two main directions:
+
+\begin{itemize}
+\item Clarifying the novelties wrt to state of the art (robot design and robot control), to highlight the original and novel contributions;
+\item  Improving the modelling, which should take into account realistic working conditions (e.g. weight and inertial properties of the tank).
+\end{itemize}
+
+
+\begin{quotation}
+{\color{blue}
+We appreciate for the Associate Editor's comments.  We concentrated our efforts modifying the manuscript in the two important lines that the Editor recommended.  
+
+We addressed the first issue by adding a new Section "Comparison with alternative methods" where we compared the tethered controller with one and two threads and compared our proposal with other alternative proposals from the literature.  We also included an evaluation of technical aspects of the design.
+
+Regarding the second issue, we performed an additional experiment on the simulation environment where we included a 5 kg mass, in a 45 degrees orientation, according to the weight and size of the oxygen tank regularly used at ALPI.  We verified in the simulation that we obtained results very similar to the those obtained without the tank and that the controlling algorithm worked within the safe boundaries that we defined and that the following behavior was satisfied.
+}
+\end{quotation}
+
 
 \section*{\fbox{Reviewer \#1 Responses:}}
 
@@ -120,7 +142,7 @@ Overall the article is very well written, I've found some typos to which I'll re
 
 \begin{quotation}
 {\color{blue}
-We appreciate the Reviewers comments.  We revised the notation on Section II.D per reviewers comments.  We also added a section to establish the parallels between a single and double thread configuration.  We clarified more clearly all the variables and their physicial meaning and included an extra Figure to aid the explanation provided.
+We thanks very much, the Reviewer, for the positive appraisal.  We revised the notation on Section II.D.  We also added a section to establish the parallels between a single and double thread configuration, comparing the solution to other alternatives found in the literature.  We clarified all the variables and their physical meaning and included an extra Figure to aid in the provided explanation.
 }
 \end{quotation}
 
@@ -129,7 +151,7 @@ Regarding the evaluation and discussion I don't have much to add, I believe you 
 
 \begin{quotation}
 {\color{blue}
-During the simulation we explored different sets of values for the controller parameters.  Once we arrived to values where we obtain a range of satisfactory results in terms of the metrics that we defined, we moved forward to the real world testing of the prototype.  We found that we had to fine-tunning the parameters to adapt to the real world scenario but not search through the whole space of configurations.  This was one of the values that the simulation step provided us.
+During the simulation we explored different sets of values for the controller parameters.  Once we arrived to parameter values where we obtain a range of satisfactory results in terms of the metrics that we defined, we moved forward to the real world testing of the prototype.  We found that we had to fine-tune the parameters to adapt them to the real world scenario.  However, the relative relation between parameters was consistent on both the simulation and in the real world, and that helped us to avoid searching extensively the parameter space for the real world scenario.  We added in the manuscript a clarification of this point in Section VI.
 }
 \end{quotation}
 
@@ -175,7 +197,7 @@ Overall, the reviewer found the application to be interesting; it seems like a g
 
 \begin{quotation}
 {\color{blue}
-Este es el primer punto con que vamos a tratar de responder, que es el que revive también el Editor asociado.
+We added a new specific section to address this issue.  Now in Section III "Comparison with alternative methods", we show that the proposed algorithm based on two threads is equivalent to the one presented in the work [1].  We added a new Figure 5 to aid in the explanation.  Additionally, we included an additional "Design Analysis" section comparing both alternatives (two threads, and one thread and an angle).  Moreover, we modified the notation to allow an improved comparison with previous proposals.
 }
 \end{quotation}
 
@@ -184,7 +206,7 @@ There were also a number of technical elements the reviewer had a hard time unde
 
 \begin{quotation}
 {\color{blue}
-Pulses are a discrete number obtained directly from the rotary encoder KY-040.  The values are incremented in one direction and decremented in the other direction.  The encoder is connected to the Arduino board and it generates an interruption each time the encoder produces a rotation movement.  PODEMOS ACA DAR DETALLES DE LA CONEXION ELECTRONICA SI QUIERE O DE COMO LO LEE EL CODIGO.
+We refer to pulses as a discrete number obtained directly from the rotary encoder KY-040.  The encoder generates two digital pulses, one that indicates the presence of movement and the other is the direction of movement.  This digital encoder is connected to the microcontroller and it generates an interruption each time the encoder produces a rotational movement.  By reading the additional pulse, the direction can be determined and the value for pulses represents the relative circular distance traveled by the reel wheel.   We added the definition of pulses in the manuscript on Section II.A.
 }
 \end{quotation}
 
@@ -193,16 +215,16 @@ Pulses are a discrete number obtained directly from the rotary encoder KY-040.  
 
 \begin{quotation}
 {\color{blue}
-The parameter $c_v$ is the proportional gain.  As long as the average distance obtained from both threads deviates from the resting distance $d_0$ the desired velocity is increased.
-EN EL PAPER DE ENDO USAN EL MISMO ESQUEMA LLAMANDOLO $V_r$.  ES CIERTO QUE NO ES LA "VELOCIDAD" REAL DEL ROBOT SINO MAS BIEN UNA ESTIMACION DEL MOVIMIENTO DEL TARGET ?  ACA NO ESTOY SEGURO HAY QUE PENSARLO MAS.
+We appreciate a lot this important issue that the Reviewer is pointing out here.  We modified the notation trying to make it more consistent across the paper and more consistent with previous works as well.  We clarify the units in the proportional gain $c_v$ and $c_{\alpha}$ to make equations physically meaningful.
 }
 \end{quotation}
+
 
 - How does a velocity, plus a distance multiplied by a constant yield a power value? (equations (3) and (4)); additionally, using "v" to denote both velocity and power seems like a poor notation choice
 
 \begin{quotation}
 {\color{blue}
-In this case we shifted the notation to follow the one used in [15] where power assigned to each weels is denoted $\omega$.
+We added proper units for the constants and modify the equations clarifying that left-hand values reference speeds for each wheel.
 }
 \end{quotation}
 
@@ -210,7 +232,7 @@ In addition to these comments, it would seem that a robot being designed to carr
 
 \begin{quotation}
 {\color{blue}
-@Luciano esta es la simulación que vos estás haciendo.  ESPEREMOS TENER BUENOS RESULTADOS
+We performed an additional simulation and added the obtained results in Section VII.B, at the end of the manuscript.  We modified our simulated prototype and added a $5$ kg oxygen tank at an inclination of 45 degrees, and confirmed that the oxygen supply is not affected by this inclination, and that is under safe usage guidelines for the tank.  The proposed algorithm \textit{Follow the thread} worked in a very similar way as shown in Figure 7, and only constant coefficients had to be readjusted for this purpose.  Results show that the behavior of the robot is similar.  This is a very important feasibility test that allows and encourage us to modify the hardware prototype to include the tank holder, and to move forward to this project's next step.
 }
 \end{quotation}
 
@@ -222,10 +244,7 @@ Detailed minor comments:
 
 \begin{quotation}
 {\color{blue}
-We replaced the term with musculoskeletal and verified the English grammar on the abstract and introduction.
-
-@Luciano agarra un canadiense x ahi
-@Esteban si querés darle alguna leída para ver si detectás algún error gramatical concreto.
+We replaced the term with musculoskeletal and verified the English grammar on the Abstract and Introduction section. 
 }
 \end{quotation}
 
@@ -233,7 +252,7 @@ We replaced the term with musculoskeletal and verified the English grammar on th
 
 \begin{quotation}
 {\color{blue}
-We are very surprised the fast review process.  We truly thank Reviewers for their valuable time.  Dates has now been fixed.
+We are very surprised the the fast review process!   We truly thank all the Reviewers for their valuable time.  Dates have now been fixed.
 }
 \end{quotation}
 
@@ -241,7 +260,7 @@ We are very surprised the fast review process.  We truly thank Reviewers for the
 
 \begin{quotation}
 {\color{blue}
-We review all the constants definitions to be consistent along the manuscript.
+We reviewed all the constants definitions and naming conventions to be consistent along the manuscript.
 }
 \end{quotation}
 
@@ -249,7 +268,7 @@ We review all the constants definitions to be consistent along the manuscript.
 
 \begin{quotation}
 {\color{blue}
-This is an issue with Latex reformatting.  WE WILL FIX IT AT THE END.
+This is an issue with Latex reformatting.  We fixed it by modifying the layout of the manuscript.
 }
 \end{quotation}
 
@@ -257,15 +276,15 @@ This is an issue with Latex reformatting.  WE WILL FIX IT AT THE END.
 
 \begin{quotation}
 {\color{blue}
-@Luciano, tenés alguna foto donde sí tengas el guante ?
+There are two markers on top of the robot, just above each reel.  They are quite small and the picture lighting does not help.  We modified the Figure caption clarifying all this information.
 }
 \end{quotation}
 
-Page 6, first paragraph: "a high cr was important so the robot can turn quickly to point to the leader, but high values of cr should be avoided"; this seems contradictory.
+Page 6, first paragraph: "a high $c_r$ was important so the robot can turn quickly to point to the leader, but high values of $c_r$ should be avoided"; this seems contradictory.
 
 \begin{quotation}
 {\color{blue}
-@Luciano, alguna sugerencia ?
+We change the phrase to emphasize that the value of $c_r$ was related with the dynamical behavior of the robot.  We appreciate the Reviewers comment.
 }
 \end{quotation}
 
