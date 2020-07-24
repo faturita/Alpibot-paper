@@ -455,7 +455,7 @@ for Pulmonary Rehabilitation}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  Pulmonary Rehabilitation consists of different physical exercises and walking activities performed at medical facilities under supervision of a physical therapist.  In order to perform these procedures, patients require oxygen assistance, but the oxygen tank cannot be carried by the patient due to the musculoskeletal atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results on a simulated and on a real prototype confirms the feasibility of the proposed solution.
+Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a procedure called Pulmonary Rehabilitation that helps them to improve disease prognosis.  Pulmonary Rehabilitation consists of different physical exercises and walking activities conducted at medical facilities under supervision of a physical therapist.  In order to perform these procedures, patients require oxygen assistance, but the oxygen tank cannot be carried by the patient due to the musculoskeletal atrophy that characterize this pathology and external assistance is required.   The assistance to transport the bulky oxygen tank can be provided by a robotic device that follows the patient while performing the physical activities. This work provides an initial study on the controlling mechanism of a differential tethered robot that implements a leader-follower configuration to carry the oxygen tank for these procedures.  Two alternative control strategies are proposed.  Results on a simulated and on a real prototype confirms the feasibility of the proposed solution.
 \end{abstract}
 
 %Results on a simulated and on a real prototype, and external validation from professional healthcare givers, confirm the feasibility of the proposed solution.
@@ -603,7 +603,7 @@ l_R = pulses_{r} \; \frac{2\pi r}{ppr}
 \end{array}
 \end{equation}{}
 
-\noindent where $pulses_{l}$ and $pulses_{r}$ are the pulses obtained for the left and right encoder.  Pulses refer to natural discrete numbers that represents the circular movement of the encoder shaft.  The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder. These equations provide the estimated values for the left $l_L$ and right $l_R$  thread distance.   The initial position of the threads is configurable.
+\noindent where $pulses_{l}$ and $pulses_{r}$ are the pulses obtained for the left and right encoder.  Pulses refer to natural discrete numbers that represents the circular movement of the encoder shaft.  The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder. These equations provide the estimated values for the left $l_L$ and right $l_R$  thread longitude.   The initial position of the threads is configurable.
 
 \subsection{Hardware}
 
@@ -714,7 +714,7 @@ V_t = c_v (\frac{l_L + l_R}{2} - l_D)
 \label{eq:lemniscata3}
 \end{equation}
 
-\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are thread distances in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
+\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are thread longitudes in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
 
 To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
 
@@ -942,7 +942,7 @@ In this frame of reference, the lengths of the threads, $l_R$ and $l_L$ can be d
 
 \end{tikzpicture}
 
-\caption{The center of coordinates is on the robot center of mass, where the y positive axis points in the same direction as the robot direction.}
+\caption{The center of coordinates is the midpoint of the wheel axle, where the y positive axis points in the same direction as the robot direction.}
 \label{fig:dibujitos}
 \end{figure}{}
 
