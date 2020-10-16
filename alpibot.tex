@@ -462,7 +462,7 @@ Patients that suffer Chronic Obstructive Pulmonary Disease (COPD) undergo a proc
 %While performing Pulmonary Rehabilitation patients perform different exercises and walking activities and may require oxygen assistance.  
 
 
-%Pulmonary Rehabilitation procedures consist of controlled waking activities and physical exercises that patients perform under the supervision of a physical therapist.
+%Pulmonary Rehabilitation procedures consist of controlled walking activities and physical exercises that patients perform under the supervision of a physical therapist.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
@@ -503,10 +503,7 @@ COPD, PR, SAR, IoRT, tethered
 
 %The EEG is traditionally analyzed in terms of temporal waveforms at certain channels, looking at power of rhythms in the spontaneous EEG, at amplitude and latency of the peaks and troughs in event- related potentials (ERPs), or at particular grapho-elements in patho- logical or sleep stages.
 
-%\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents a musculoskeletal atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  During this rehabilitation, patients undergo controlled walking activities and physical exercises under the supervision of a physical therapist.   Patients present a severe low oxygen saturation illness and they require effective oxygen supply, particularly when performing physical activities~\cite{Celli2014}.  Hence, patients require to carry with them an oxygen tank for the oxygenotherapy assistance.  However, their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  This scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologists and physical therapists.  
-
-
-\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents a musculoskeletal atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  Pulmonary Rehabilitation procedures consist of controlled waking activities and physical exercises that patients perform under the supervision of a physical therapist.  However, COPD patients present a severe low oxygen saturation illness and they require oxygen supply, particularly when performing physical activities~\cite{Celli2014}.  Hence, they are required to carry an oxygen tank for the oxygenotherapy assistance, but their own condition prevent them with the ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  The scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologists and physical therapists.  
+\IEEEPARstart{C}{hronic} Obstructive Pulmonary Disease (COPD) is an umbrella term that describes several pulmonary affections.  They are characterized as a slowly progressive condition marked by airflow limitation, being cigarette smoking the main etiologic factor~\cite{MacNee2005}. This pathology presents a musculoskeletal atrophy~\cite{Kocsis2016,Wu2012}. In order to carve these after effects a Pulmonary Rehabilitation procedure is a viable treatment for patients.  Pulmonary Rehabilitation procedures consist of controlled walking activities and physical exercises that patients perform under the supervision of a physical therapist.  However, COPD patients present a severe low oxygen saturation illness and they require oxygen supply, particularly when performing physical activities~\cite{Celli2014}.  Hence, they are required to carry an oxygen tank for the oxygenotherapy assistance, but their own condition hinders their ability to precisely carry the often bulky external tank.  This situation entails to find a pragmatic solution to avoid an additional physical therapist to carry the oxygen tank.  The scenario may be aggravated by the fact that this procedure is performed on a rehabilitation gym that could be potentially crowded with several patients, physiologists and physical therapists.  
 
 %Alternatively, they are required to improvise a customized wheelchair to allow them to carry the oxygen tank on top of it, leading to a cumbersome situation for the physical therapist because s/he had to push and maneuver the wheelchair, and at the same time, take care of the patient and perform the rehabilitation treatment. 
 
@@ -714,7 +711,7 @@ V_t = c_v (\frac{l_L + l_R}{2} - l_D)
 \label{eq:lemniscata3}
 \end{equation}
 
-\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are thread longitudes in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
+\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are changes in thread longitudes (the length of thread that was released from each reel) in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
 
 To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
 
@@ -801,7 +798,7 @@ The \textit{Rotate and go} algorithm divides the vehicle movement in two steps:
 \item Go forward in a straight line until the vehicle is at the expected distance to the subject.
 \end{itemize}
 
-The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_D$, and is used to customize the length of the thread where the robot does not move at all.
+The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_D$, and is used to customize the length of the thread where the robot does not move at all. Lastly, $base_{vr}$, is another constant used to determine the minimum rotational velocity of the vehicle.
 
 
 \begin{algorithm}[]
@@ -1295,6 +1292,12 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. (m) & t.t.d. \\
 \label{tab:cap_rg_npd_table}
 \end{center}
 
+\subsection{Validation carrying the oxygen tank weight}
+
+We performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to handle weight of the real oxygen tank. A common type of tank used in this type of therapies is a 5kg oxygen tank.
+
+We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
+
 \section{Discussion}
 \label{discussion}
 
@@ -1398,7 +1401,7 @@ In order to have more information for the next steps in the development of the r
 
 From the practical experiments, it is verified that both algorithms ensuing the \textit{following behavior}  in the task of tracking the patient along a lemniscate-shaped trajectory. This following behavior is accomplished with a simple mechanism, a characteristic that significantly keep the price of the device low, putting it within reach of many medical institutions on developing nations.
 
-Each control strategy has its advantages, but according various metrics described in this work, the \textit{Follow the thread} strategy had a more desirable behavior, as it tended to follow the leader from a closer distance at all times, while moving in a smooth and predictable way. 
+Each control strategy has its advantages, but according to various metrics described in this work, the \textit{Follow the thread} strategy had a more desirable behavior, as it tended to follow the leader from a closer distance at all times, while moving in a smooth and predictable way. 
 
 Insightful feedback is gathered from healthcare professionals from ALPI, who provided invaluable data to evaluate the solution. Over all, they highlight the \textit{Follow the thread} strategy as being the safer and more effective one. Most importantly, they also validated the research and were enthusiast about the direction of the project. They proposed a series of improvements and next steps after seeing the prototype in action.
 
@@ -1407,11 +1410,11 @@ As described in the beginning, it is essential to involve stakeholders such as p
 %The staff at ALPI was enthusiastic about helping in the development of the robot, and their encouragement and support are key reasons to take this project forward.  There are yet many challenges ahead, but these initial results are promising about the viability to develop a real world solution that can improve the quality of life of many people through the use of technology and engineering. 
 
 
-\subsection{Validation carrying the oxygen tank}
+% \subsection{Validation carrying the oxygen tank}
 
-In order to advance towards the next step, we performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to  handle the oxygen tank.  ALPI works with 5 kg oxygen tanks, which are manufactured locally.
+% In order to advance towards the next step, we performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to  handle the oxygen tank.  ALPI works with 5 kg oxygen tanks, which are manufactured locally.
 
-We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
+% We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
 
 
 \begin{figure} 
@@ -1549,5 +1552,3 @@ The authors declare that the research was conducted in the absence of any commer
 
 % that's all folks
 \end{document}
-
-
