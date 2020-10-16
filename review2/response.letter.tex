@@ -1,0 +1,203 @@
+\documentclass[journal,onecolumn,12pt]{IEEEtran} 
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{amsthm, amsfonts}	
+\usepackage{bm,bbm}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{fancybox}
+\usepackage{url,booktabs}
+\usepackage[round]{natbib}
+
+\usepackage{xr}
+
+
+
+\title{2nd Reply to Reviewer's Comments on\\
+``A Control Strategy for a Tethered Follower Robot for Pulmonary Rehabilitation''}
+\author{}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+We appreciate a lot all the comments provided by the Reviewers and the AE.
+
+In the following, we discuss our responses to pointed out issues.
+
+\vskip+1ex
+\noindent \dotfill
+
+\section*{\fbox{Associate Editor Transcript:}}
+
+Associate Editor Comments to Author:
+
+Associate Editor
+Comments to the Author:
+Most of the comments expressed by the two Reviewers have been successfully addressed. As a result, the clarity of the paper improved significantly. There remain some very minor issues, which I list below for the Authors' convenience.
+
+\begin{itemize}
+\item Better define $l_R$ and $l_L$, which probably could be named "changes in length".
+\item Please avoid the use of the word "longitude".
+\item The content of Section VII-A (Validation experiments) should be part of the "Results" sections, i.e. Sec. IV,V.
+\item Amend the remaining typos and link up all the references.
+\end{itemize}
+
+
+
+
+\section*{\fbox{Reviewer \#1 Transcript:}}
+
+The work presented in this work is extremely interessant and of paramount importance for help in the medical field, since it frees not needed medical personel to help in other tasks thus improving patient care.
+
+The manuscript is very well written with some typos I will refer in short. Besides those minor issues I did not find any issues the require reviewing, the addition of sections III and VII as well as the rewriting of section II.D have greatly improved the quality of the manuscript, allowing for the readers to better understand the proposed system and the technology behind it making possible for the system to be used to its fullest extent as well as for improvements to the system to be made even by groups outside the authors of the manuscript.
+
+Thus, I would like to congratulate the authors on the work done and on the manuscript.
+
+Finally, there are some typos I feel need to be addressed for this manuscript to be of examplar quality, these are:
+on section I, line 11, it reads "waking activities" when it should be "walking activites"
+on section I, line 18, it reads "their own condition prevent them" and it should be "their own condition prevents them"
+on section VII, beginning of the second paragraph, it reads "Each control strategy has its advantages, but according various" and it should be "Each control strategy has its advantages, but according to various"
+
+
+\section*{\fbox{Reviewer \#2 Transcript:}}
+
+The revisions the authors have made have improved the manuscript - thank you for implementing those. At this stage, I have a few remaining concerns.
+
+- The word definitions of $l_R$ and $l_L$ are still unclear. They are introduced as differences in length, but then also referred to as "thread longitudes". I find the term "longitude" here to be confusing given that these length differences can have a non-horizontal component if the target is at some angle from the reel (i.e., they are not purely longitudinal measurements, but rather can be seen as two vectors pointing to the same point in 2D space with both x and y components). My recommendation is that these definitions be further clarified.
+
+- In Algorithm 1, as far as I can tell, no definition is provided for $D_t$, $D_m$, nor $base_{vr}$. This should be remedied.
+
+- I believe Section III B. can be improved by being even more explicit about the specific improvements in the current design vs. the existing design. Section III, in general, reads as-if these designs are just equivalent (which begs the question: "why was this work done then?")
+
+- Finally, the validation experiments with the oxygen tank (Section VIIA) should not be in the concluding remarks, but rather more tightly integrated into the experimental results section (Sections IV/V) with accompanying discussion.
+
+
+\section*{\fbox{Associate Editor Responses:}}
+
+Associate Editor Comments to Author:
+
+Associate Editor
+Comments to the Author:
+Most of the comments expressed by the two Reviewers have been successfully addressed. As a result, the clarity of the paper improved significantly. There remain some very minor issues, which I list below for the Authors' convenience.
+
+\begin{itemize}
+\item Better define $l_R$ and $l_L$, which probably could be named "changes in length".
+\item Please avoid the use of the word "longitude".
+\item The content of Section VII-A (Validation experiments) should be part of the "Results" sections, i.e. Sec. IV,V.
+\item Amend the remaining typos and link up all the references.
+\end{itemize}
+
+\begin{quotation}
+{\color{blue}
+We thank gratefully to the Associate Editor for their comments and suggestions.   
+
+\vspace{10pt} 
+
+Regarding the first two issues we have fixed them following Reviewer's  suggestions.  We have clarified missing terms definitions and the word "longitude" is not used anymore in the manuscript.  In relation with the third issue, we have modified the manuscript's structure as per Reviewer's recommendation to provide more readability.   Finally, regarding the fourth issue, we have fixed all the pointed out typos and verified all the references.
+
+\vspace{10pt} 
+
+We appreciate a lot the time taken by the AE and all the Reviewers.
+}
+\end{quotation}
+
+
+
+\section*{\fbox{Reviewer \#1 Responses:}}
+
+%\subsection*{\ovalbox{Reviewer 1 General Comments}}
+
+The work presented in this work is extremely interessant and of paramount importance for help in the medical field, since it frees not needed medical personel to help in other tasks thus improving patient care.
+
+The manuscript is very well written with some typos I will refer in short. Besides those minor issues I did not find any issues the require reviewing, the addition of sections III and VII as well as the rewriting of section II.D have greatly improved the quality of the manuscript, allowing for the readers to better understand the proposed system and the technology behind it making possible for the system to be used to its fullest extent as well as for improvements to the system to be made even by groups outside the authors of the manuscript.
+
+Thus, I would like to congratulate the authors on the work done and on the manuscript.
+
+Finally, there are some typos I feel need to be addressed for this manuscript to be of examplar quality, these are:
+on section I, line 11, it reads "waking activities" when it should be "walking activites"
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+We fixed this typo, thanks a lot for pointing out this.
+}
+\end{quotation}
+\vspace{10pt} 
+
+on section I, line 18, it reads "their own condition prevent them" and it should be "their own condition prevents them"
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+Fixed.
+}
+\end{quotation}
+\vspace{10pt} 
+
+on section VII, beginning of the second paragraph, it reads "Each control strategy has its advantages, but according various" and it should be "Each control strategy has its advantages, but according to various"
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+We also fixed this grammar error.  We appreciate a lot the careful reading of our manuscript.
+}
+\end{quotation}
+\vspace{10pt} 
+
+
+\section*{\fbox{Reviewer \#2 Responses:}}
+%\subsection*{\ovalbox{Reviewer 2 General Comments}}
+
+The revisions the authors have made have improved the manuscript - thank you for implementing those. At this stage, I have a few remaining concerns.
+
+- The word definitions of $l_R$ and $l_L$ are still unclear. They are introduced as differences in length, but then also referred to as "thread longitudes". I find the term "longitude" here to be confusing given that these length differences can have a non-horizontal component if the target is at some angle from the reel (i.e., they are not purely longitudinal measurements, but rather can be seen as two vectors pointing to the same point in 2D space with both x and y components). My recommendation is that these definitions be further clarified.
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+We have modified on Section II.D, at the end of page 3, and clarified the terms according to the Reviewer suggestion.  They are indeed changes in the length of the thread released from each reel.  We have eliminated the use of the confusing term "longitude".  
+}
+\end{quotation}
+\vspace{10pt} 
+
+
+- In Algorithm 1, as far as I can tell, no definition is provided for $D_t$, $D_m$, nor $base_{vr}$. This should be remedied.
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+We have included in Section II, page 4, the definition of $base_{vr}$ which was missing, and also clarified that $D_t$, $D_m$ are temporary variables used to perform the calculations on Algorithm 1.
+}
+\end{quotation}
+\vspace{10pt} 
+
+- I believe Section III B. can be improved by being even more explicit about the specific improvements in the current design vs. the existing design. Section III, in general, reads as-if these designs are just equivalent (which begs the question: "why was this work done then?")
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+Underway
+}
+\end{quotation}
+\vspace{10pt} 
+
+- Finally, the validation experiments with the oxygen tank (Section VIIA) should not be in the concluding remarks, but rather more tightly integrated into the experimental results section (Sections IV/V) with accompanying discussion.
+
+\vspace{10pt} 
+\begin{quotation}
+{\color{blue}
+We appreciate the Reviewer suggestion.  We have modified the manuscript structure following the Reviewer recommendation.  There is now a new Section V.A which included this experimental simulation.
+}
+\end{quotation}
+\vspace{10pt} 
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+\bibliographystyle{mdpi}
+\bibliography{article}
+
+\end{document}

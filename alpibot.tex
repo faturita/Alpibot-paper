@@ -600,7 +600,7 @@ l_R = pulses_{r} \; \frac{2\pi r}{ppr}
 \end{array}
 \end{equation}{}
 
-\noindent where $pulses_{l}$ and $pulses_{r}$ are the pulses obtained for the left and right encoder.  Pulses refer to natural discrete numbers that represents the circular movement of the encoder shaft.  The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder. These equations provide the estimated values for the left $l_L$ and right $l_R$  thread longitude.   The initial position of the threads is configurable.
+\noindent where $pulses_{l}$ and $pulses_{r}$ are the pulses obtained for the left and right encoder.  Pulses refer to natural discrete numbers that represents the circular movement of the encoder shaft.  The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder. These equations provide the estimated values for the left $l_L$ and right $l_R$, which are the length of thread released from each reel.   The initial position of the threads is configurable.
 
 \subsection{Hardware}
 
@@ -618,7 +618,7 @@ Two motors Makeblock Optical Encoder Motor-25 9V/86 rpm are used on in-wheel con
 
 \begin{figure*}[!t]
 \centering
-\subfloat[Case I]{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
+\subfloat{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
 \caption{Top view of the robot prototype.  The SBC is shown on the center, alongside the Arduino Mega board.  Both reels can be seen on the same vertical plane of the wheel axis. A power bank (white) is located on one side of the robot, and on the rear part, the motor power battery (black) is located.}
 \label{fig:alpibot2}
 \end{figure*}
@@ -711,7 +711,7 @@ V_t = c_v (\frac{l_L + l_R}{2} - l_D)
 \label{eq:lemniscata3}
 \end{equation}
 
-\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are changes in thread longitudes (the length of thread that was released from each reel) in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
+\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are changes in the length of thread that was released from each reel in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
 
 To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
 
@@ -798,14 +798,14 @@ The \textit{Rotate and go} algorithm divides the vehicle movement in two steps:
 \item Go forward in a straight line until the vehicle is at the expected distance to the subject.
 \end{itemize}
 
-The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_D$, and is used to customize the length of the thread where the robot does not move at all. Lastly, $base_{vr}$, is another constant used to determine the minimum rotational velocity of the vehicle.
+The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_D$, and is used to customize the length of the thread where the robot does not move at all. Temporary variables $Dt$ and $Dm$ are used in the algorithm to calculate the difference and the average of the changes in released thread. Lastly, $base_{vr}$, is another constant used to determine the minimum rotational velocity of the vehicle.
 
 
 \begin{algorithm}[]
 \caption{Rotate and go algorithm}
 \begin{algorithmic}
-\STATE $Dt \gets l_L - l_R$
-\STATE $Dm \gets \frac{l_R+l_L}{2}$
+\STATE \textbf{Define} $Dt \gets l_L - l_R$
+\STATE \textbf{Define} $Dm \gets \frac{l_R+l_L}{2}$
 \STATE $V_r \gets c_r * (abs(Dt) - Dt_{off}) + base_{vr}$ 
 \STATE $V_f \gets c_v * (Dm - Dm_{off})$
 
@@ -1294,7 +1294,25 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. (m) & t.t.d. \\
 
 \subsection{Validation carrying the oxygen tank weight}
 
-We performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to handle weight of the real oxygen tank. A common type of tank used in this type of therapies is a 5kg oxygen tank.
+We performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to handle weight of the real oxygen tank. A common type of tank used in this type of therapies is a 5 kg oxygen tank.
+
+\begin{figure} 
+    \centering
+  \subfloat[ \label{rw1a}]{%
+       \includegraphics[width=0.97\linewidth]{images/Wft_5kg.eps}}
+  \\
+    \hspace*{-1.5em}
+  \subfloat[ \label{rw1b}]{%
+        \includegraphics[width=0.49\linewidth]{images/Wft_5.0kg_leader_robot_speed.eps}}
+    \vspace*{-1.1em}
+  \subfloat[ \label{rw1c}]{%
+        \includegraphics[width=0.49\linewidth]{images/Wft_5kg_distance.eps}}
+    \hspace*{-1.5em}
+    \vspace*{1.1em}
+  \caption{Simulation results with the oxygen tank: the lemniscate trajectory is shown on (a) with the selected strategy \textit{Follow the thread}. (b) Speed profiles of the patient-leader and the robot-follower. (c) Distance between the patient and the robot while traversing the trajectory.}
+  \label{fig:validationwithtank} 
+\end{figure}
+
 
 We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
 
@@ -1415,26 +1433,6 @@ As described in the beginning, it is essential to involve stakeholders such as p
 % In order to advance towards the next step, we performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to  handle the oxygen tank.  ALPI works with 5 kg oxygen tanks, which are manufactured locally.
 
 % We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
-
-
-\begin{figure} 
-    \centering
-  \subfloat[ \label{rw1a}]{%
-       \includegraphics[width=0.97\linewidth]{images/Wft_5kg.eps}}
-  \\
-    \hspace*{-1.5em}
-  \subfloat[ \label{rw1b}]{%
-        \includegraphics[width=0.49\linewidth]{images/Wft_5.0kg_leader_robot_speed.eps}}
-    \vspace*{-1.1em}
-  \subfloat[ \label{rw1c}]{%
-        \includegraphics[width=0.49\linewidth]{images/Wft_5kg_distance.eps}}
-    \hspace*{-1.5em}
-    \vspace*{1.1em}
-  \caption{Simulation results with the oxygen tank: the lemniscate trajectory is shown on (a) with the selected strategy \textit{Follow the thread}. (b) Speed profiles of the patient-leader and the robot-follower. (c) Distance between the patient and the robot while traversing the trajectory.}
-  \label{fig:validationwithtank} 
-\end{figure}
-
-
 
 \subsection{Future Work}
 %A following mechanism has been designed and implemented in a hardware prototype. The mechanism, along with the two control algorithms, has shown promise to be a viable solution to implement in a functioning robot that ALPI, or any other medical institution, can use in their every day exercises with COPD patients. 
