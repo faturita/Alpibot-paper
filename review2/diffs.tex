@@ -1,7 +1,7 @@
 
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL alpibot.2.tex   Fri Oct 16 07:43:58 2020
-%DIF ADD alpibot.tex     Fri Oct 16 07:33:13 2020
+%DIF ADD alpibot.tex     Fri Oct 16 13:11:31 2020
 %% bare_jrnl.tex
 %% V1.4b
 %% 2015/08/26
@@ -647,7 +647,7 @@ l_R = pulses_{r} \; \frac{2\pi r}{ppr}
 \end{array}
 \end{equation}{}
 
-\noindent where $pulses_{l}$ and $pulses_{r}$ are the pulses obtained for the left and right encoder.  Pulses refer to natural discrete numbers that represents the circular movement of the encoder shaft.  The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder. These equations provide the estimated values for the left $l_L$ and right $l_R$  thread longitude.   The initial position of the threads is configurable.
+\noindent where $pulses_{l}$ and $pulses_{r}$ are the pulses obtained for the left and right encoder.  Pulses refer to natural discrete numbers that represents the circular movement of the encoder shaft.  The variable $r$ is the radius of the reel and $ppr$ is the pulses per revolution (resolution) of the encoder. These equations provide the estimated values for the left $l_L$ and right $l_R$\DIFdelbegin \DIFdel{thread longitude}\DIFdelend \DIFaddbegin \DIFadd{, which are the length of thread released from each reel}\DIFaddend .   The initial position of the threads is configurable.
 
 \subsection{Hardware}
 
@@ -665,8 +665,10 @@ Two motors Makeblock Optical Encoder Motor-25 9V/86 rpm are used on in-wheel con
 
 \begin{figure*}[!t]
 \centering
-\subfloat[Case I]{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
-\caption{Top view of the robot prototype.  The SBC is shown on the center, alongside the Arduino Mega board.  Both reels can be seen on the same vertical plane of the wheel axis. A power bank (white) is located on one side of the robot, and on the rear part, the motor power battery (black) is located.}
+\DIFdelbeginFL %DIFDELCMD < \subfloat[Case I]{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \subfloat{\includegraphics[width=15cm]{images/alpibot2.jpg}\label{subject8}}
+\DIFaddendFL \caption{Top view of the robot prototype.  The SBC is shown on the center, alongside the Arduino Mega board.  Both reels can be seen on the same vertical plane of the wheel axis. A power bank (white) is located on one side of the robot, and on the rear part, the motor power battery (black) is located.}
 \label{fig:alpibot2}
 \end{figure*}
 
@@ -682,7 +684,9 @@ The prototype can be seen on Figure~\ref{fig:alpibot1} and~\ref{fig:alpibot2}.  
 
 \subsection{Active Reel Spring}
 
-As previously mentioned, an active spring mechanism is also put in place to keep the threads tense.  However, in order to extend the useful life of the reel motors, and to save battery, an algorithm to  activate and deactivate the motors was developed. 
+As previously mentioned, an active spring\DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{Vanderborght2013} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend mechanism is also put in place to keep the threads tense.  However, in order to extend the useful life of the reel motors, and to save battery, an algorithm to  activate and deactivate the motors was developed. 
 
 The algorithm works as follows: 
 
@@ -758,7 +762,7 @@ V_t = c_v (\frac{l_L + l_R}{2} - l_D)
 \label{eq:lemniscata3}
 \end{equation}
 
-\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are \DIFdelbegin \DIFdel{thread longitudes }\DIFdelend \DIFaddbegin \DIFadd{changes in thread longitudes (the length of thread that was released from each reel) }\DIFaddend in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
+\noindent where  $c_v$ and $c_{\alpha}$ are constant coefficients used for calibration whose units are expressed in $[\frac{1}{s}]$, and $l_D$ is a constant offset in $[m]$ that is used to customize the desired length of the thread where the robot does not move.   As shown on Figure~\ref{fig:follow_params},  $l_L$ and $l_R$ are \DIFdelbegin \DIFdel{thread longitudes }\DIFdelend \DIFaddbegin \DIFadd{changes in the length of thread that was released from each reel }\DIFaddend in $[m]$  obtained from encoder information from Equation~\ref{eq:encoder_len}, $V_t$ is the estimated forward velocity for the target and finally $\omega_{L}$ are $\omega_{R}$ are the velocity values that are directly used to drive each wheel motor.
 
 To stop the vehicle completely when it is close to its expected position, an additional condition is added: 
 
@@ -845,15 +849,15 @@ The \textit{Rotate and go} algorithm divides the vehicle movement in two steps:
 \item Go forward in a straight line until the vehicle is at the expected distance to the subject.
 \end{itemize}
 
-The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_D$, and is used to customize the length of the thread where the robot does not move at all. \DIFaddbegin \DIFadd{Lastly, $base_{vr}$, is another constant used to determine the minimum rotational velocity of the vehicle.
+The procedure is detailed in Algorithm~\ref{alg:rotateandgoalg}.  The variable $V_r$ is the speed at which the vehicle will rotate on its axis, and $V_f$ is the speed at which the vehicle will move forward once it can move on the subject's direction.  The algorithm requires three parameters, $c_v$ and $c_r$ that regulates the coefficients for the forward and rotation movement, and an additional parameter $Dt_{off}$ that regulates the sensibility of the rotation movement.  The constant parameter $Dm_{off}$ is similar to $l_D$, and is used to customize the length of the thread where the robot does not move at all. \DIFaddbegin \DIFadd{Temporary variables $Dt$ and $Dm$ are used in the algorithm to calculate the difference and the average of the changes in released thread. Lastly, $base_{vr}$, is another constant used to determine the minimum rotational velocity of the vehicle.
 }\DIFaddend 
 
 
 \begin{algorithm}[]
 \caption{Rotate and go algorithm}
 \begin{algorithmic}
-\STATE $Dt \gets l_L - l_R$
-\STATE $Dm \gets \frac{l_R+l_L}{2}$
+\STATE \DIFaddbegin \textbf{\DIFadd{Define}} \DIFaddend $Dt \gets l_L - l_R$
+\STATE \DIFaddbegin \textbf{\DIFadd{Define}} \DIFaddend $Dm \gets \frac{l_R+l_L}{2}$
 \STATE $V_r \gets c_r * (abs(Dt) - Dt_{off}) + base_{vr}$ 
 \STATE $V_f \gets c_v * (Dm - Dm_{off})$
 
@@ -1069,9 +1073,17 @@ There is no loss of information and both systems are equivalent.
 
 \subsection{Design comparison}
 
-In the scheme proposed by~\cite{Endo2015} a single thread is recovered mechanically by means of a circular flat spring. This device works intensively when the robot is following the patient and, therefore, the spring is exposed to wear. Additionally with a circular flat spring, the spring tension depends on the released thread length, hence the recovery force will vary accordingly. Instead, the double thread tethered design implemented with an active reel spring allows a more controlled situation and depends exclusively on the software that controls the reel motor, which can be regulated.
+In the scheme proposed by~\cite{Endo2015} a single thread is recovered mechanically by means of a circular flat spring. This device works intensively when the robot is following the patient and, therefore, the spring is exposed to wear. Additionally with a circular flat spring \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{the properties of the spring components are predefined by their structural preconditions, and cannot be altered during spring operation~\mbox{%DIFAUXCMD
+\cite{wurmthaler2013apparatus}}\hspace{0pt}%DIFAUXCMD
+. For instance, }\DIFaddend the spring tension depends on the released thread length, hence the recovery force will vary accordingly.  \DIFaddbegin \DIFadd{If the patient found this tension to be too tight, it is not possible to alter this behavior without structurally modifying the device, or changing the spring component altogether.  }\DIFaddend Instead, the double thread tethered design implemented with an active reel spring allows a more controlled situation and depends exclusively on the software that controls the reel motor, which can be regulated. 
 
-Regarding the control algorithm, authors in \cite{Endo2015} introduced two methods. The first of them computes the angular velocity as a  function of the difference between the measured thread length $l_m$ and the desired distance to patient  $l_D$. In this way, if the patient moves around the robot with a $l_m$ equals to $l_D$, the robot will not adjust its direction until the patient stops turning and restarts moving forward. Hence, the robot must correct its direction but the correction angle could be large, which leads the robot to deviate off the desired trajectory. Additionally, the second method proposed is based on dead-reckoning to estimate the patient position. This strategy requires very precise measurements to reduce the cumulative error, which is characteristic of this estimation procedure~\cite{DurrantWhyte1994}.
+Regarding the control algorithm, authors in \cite{Endo2015} introduced two methods. The first of them computes the angular velocity as a function of the difference between the measured thread length $l_m$ and the desired distance to patient  $l_D$. In this way, if the patient moves around the robot with a $l_m$ equals to $l_D$, the robot will not adjust its direction until the patient stops turning and restarts moving forward. Hence, the robot must correct its direction but the correction angle could be large, which leads the robot to deviate off the desired trajectory. Additionally, the second method proposed is based on dead-reckoning to estimate the patient position. \DIFdelbegin \DIFdel{This strategy requires very precise measurements to reduce the cumulative error, which is characteristic of this estimation procedure~\mbox{%DIFAUXCMD
+\cite{DurrantWhyte1994} }\hspace{0pt}%DIFAUXCMD
+.
+}\DIFdelend \DIFaddbegin \DIFadd{It is well stated~\mbox{%DIFAUXCMD
+\cite{DurrantWhyte1994} }\hspace{0pt}%DIFAUXCMD
+that position estimation using dead-reckoning leads to an increasing error along cumulative distance with continuous changes of angular velocity. This presents a limitation to hold therapy sessions with patients who need to cover standard trajectory distances, requiring more frequent interruptions to perform calibration procedures.
+}\DIFaddend 
 
 %Another issue that can be presented is when $l_m$ is equals to $l_D$.  If the patient performs a circular movement where these values are equal, the robot will not change direction at all, because $\omega_{r}$ will be also zero.   If the patient restart the movement, $\omega_{r}$ could be very low and the proportional gain $K_p$ could not be enough to match the person movement rapidly.
 
@@ -1342,8 +1354,26 @@ $c_v$ & $c_r$ & $Dt_{off}$ & m.t.d. (m) & t.t.d. \\
 
 \DIFaddbegin \subsection{\DIFadd{Validation carrying the oxygen tank weight}}
 
-\DIFadd{We performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to handle weight of the real oxygen tank. A common type of tank used in this type of therapies is a 5kg oxygen tank.
+\DIFadd{We performed an additional simulated experiment to validate whether or not the selected algorithm could be extended to handle weight of the real oxygen tank. A common type of tank used in this type of therapies is a 5 kg oxygen tank.
 }
+
+\begin{figure} 
+    \centering
+  \subfloat[ \label{rw1a}]{%
+       \includegraphics[width=0.97\linewidth]{images/Wft_5kg.eps}}
+  \\
+    \DIFaddFL{\hspace*{-1.5em}
+  }\subfloat[ \label{rw1b}]{%
+        \includegraphics[width=0.49\linewidth]{images/Wft_5.0kg_leader_robot_speed.eps}}
+    \vspace*{-1.1em}
+  \subfloat[ \label{rw1c}]{%
+        \includegraphics[width=0.49\linewidth]{images/Wft_5kg_distance.eps}}
+    \DIFaddFL{\hspace*{-1.5em}
+    }\vspace*{1.1em}
+  \caption{\DIFaddFL{Simulation results with the oxygen tank: the lemniscate trajectory is shown on (a) with the selected strategy }\textit{\DIFaddFL{Follow the thread}}\DIFaddFL{. (b) Speed profiles of the patient-leader and the robot-follower. (c) Distance between the patient and the robot while traversing the trajectory.}}
+  \label{fig:validationwithtank} 
+\end{figure}
+
 
 \DIFadd{We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  }\textit{\DIFadd{Follow the thread}}  \DIFadd{control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
 }
@@ -1470,27 +1500,33 @@ As described in the beginning, it is essential to involve stakeholders such as p
 
 \DIFdelbegin \DIFdel{We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  }\textit{\DIFdel{Follow the thread}}  %DIFAUXCMD
 \DIFdel{control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
-}\DIFdelend %DIF >  We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
+}%DIFDELCMD < 
 
-
-\begin{figure} 
-    \centering
-  \subfloat[ \label{rw1a}]{%
-       \includegraphics[width=0.97\linewidth]{images/Wft_5kg.eps}}
-  \\
-    \hspace*{-1.5em}
-  \subfloat[ \label{rw1b}]{%
-        \includegraphics[width=0.49\linewidth]{images/Wft_5.0kg_leader_robot_speed.eps}}
-    \vspace*{-1.1em}
-  \subfloat[ \label{rw1c}]{%
-        \includegraphics[width=0.49\linewidth]{images/Wft_5kg_distance.eps}}
-    \hspace*{-1.5em}
-    \vspace*{1.1em}
-  \caption{Simulation results with the oxygen tank: the lemniscate trajectory is shown on (a) with the selected strategy \textit{Follow the thread}. (b) Speed profiles of the patient-leader and the robot-follower. (c) Distance between the patient and the robot while traversing the trajectory.}
-  \label{fig:validationwithtank} 
-\end{figure}
-
-
+%DIFDELCMD < \begin{figure} 
+%DIFDELCMD <     \centering
+%DIFDELCMD <   \subfloat[ \label{rw1a}]{%
+%DIFDELCMD <        \includegraphics[width=0.97\linewidth]{images/Wft_5kg.eps}}
+%DIFDELCMD <   \\
+%DIFDELCMD <     %%%
+\DIFdelFL{\hspace*{-1.5em}
+  }%DIFDELCMD < \subfloat[ \label{rw1b}]{%
+%DIFDELCMD <         \includegraphics[width=0.49\linewidth]{images/Wft_5.0kg_leader_robot_speed.eps}}
+%DIFDELCMD <     \vspace*{-1.1em}
+%DIFDELCMD <   \subfloat[ \label{rw1c}]{%
+%DIFDELCMD <         \includegraphics[width=0.49\linewidth]{images/Wft_5kg_distance.eps}}
+%DIFDELCMD <     %%%
+\DIFdelFL{\hspace*{-1.5em}
+    }%DIFDELCMD < \vspace*{1.1em}
+%DIFDELCMD <   %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Simulation results with the oxygen tank: the lemniscate trajectory is shown on (a) with the selected strategy }\textit{\DIFdelFL{Follow the thread}}%DIFAUXCMD
+\DIFdelFL{. (b) Speed profiles of the patient-leader and the robot-follower. (c) Distance between the patient and the robot while traversing the trajectory.}}
+  %DIFAUXCMD
+%DIFDELCMD < \label{fig:validationwithtank} 
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  We added on the Webots simulation a 5 kg mass on top of our model, and adjusted the coefficients $c_v$ and $c_{\alpha}$ for the  \textit{Follow the thread}  control strategy.  Results are consistent with the outcomes shown previously on Figures~\ref{fig:simulationresults} and~\ref{fig:realworldresults}.  In Figure~\ref{fig:validationwithtank} it can be seen that the shape of the trajectory follows the patient smoothly, the speed profile also follows stringently the leader speed, and finally the distance between the patient and the robot is maintained within the safe boundaries.  The obtained metrics are 0.2223 for m.t.d. and 1.1068 for t.t.d. which shows that the following behavior is achieved and verifies, from the simulation perspective, the initial feasibility of the control strategy considering the addition of the oxygen tank.
 
 \subsection{Future Work}
 %A following mechanism has been designed and implemented in a hardware prototype. The mechanism, along with the two control algorithms, has shown promise to be a viable solution to implement in a functioning robot that ALPI, or any other medical institution, can use in their every day exercises with COPD patients. 
